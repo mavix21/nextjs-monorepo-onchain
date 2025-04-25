@@ -32,7 +32,7 @@
   "devDependencies": {
     "@myapp/eslint-config": "workspace:*",
     "@myapp/tsconfig": "workspace:*",
-    "@types/node": "^22.15.1",
+    "@types/node": "^22.15.2",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "dotenv-cli": "^8.0.0",
