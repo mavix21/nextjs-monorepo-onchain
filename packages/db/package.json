@@ -46,9 +46,9 @@
     "@myapp/eslint-config": "workspace:*",
     "@myapp/prettier-config": "workspace:*",
     "@myapp/tsconfig": "workspace:*",
-    "@types/node": "^22.15.2",
+    "@types/node": "^22.15.29",
     "dotenv-cli": "^8.0.0",
-    "drizzle-kit": "^0.31.0",
+    "drizzle-kit": "^0.31.1",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
