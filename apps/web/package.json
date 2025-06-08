@@ -18,6 +18,7 @@
     "@coinbase/onchainkit": "latest",
     "@myapp/db": "workspace:*",
     "@myapp/ui": "workspace:*",
+    "@myapp/convex": "workspace:*",
     "@t3-oss/env-nextjs": "^0.13.6",
     "@tabler/icons-react": "^3.34.0",
     "@tanstack/react-query": "catalog:",
