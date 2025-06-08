@@ -7,19 +7,19 @@ catalog:
   eslint: ^9.27.0
   prettier: ^3.5.3
   typescript: ^5.8.3
-  zod: ^3.25.28
+  zod: ^3.25.56
   "@tanstack/react-query": ^5.76.2
   "@trpc/client": ^11.1.0
   "@trpc/tanstack-react-query": ^11.1.0
   "@trpc/server": ^11.1.0
-  "@types/node": ^22.15.21
+  "@types/node": ^22.15.30
 
 catalogs:
   react19:
     react: 19.1.0
     react-dom: 19.1.0
-    "@types/react": ^19.1.5
-    "@types/react-dom": ^19.1.5
+    "@types/react": ^19.1.6
+    "@types/react-dom": ^19.1.6
 
 onlyBuiltDependencies:
   - "@tailwindcss/oxide"
