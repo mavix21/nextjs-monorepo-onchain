@@ -16,5 +16,6 @@
   },
   "devDependencies": {
     "typescript": "catalog:"
-  }
+  },
+  "prettier": "@myapp/prettier-config"
 }
