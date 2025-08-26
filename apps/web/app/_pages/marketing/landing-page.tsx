@@ -1,4 +1,4 @@
-import { LandingHeader } from "./ui/LandingHeader";
+import { LandingHeader } from "./ui/landing-header";
 
 export function LandingPage() {
   return (
