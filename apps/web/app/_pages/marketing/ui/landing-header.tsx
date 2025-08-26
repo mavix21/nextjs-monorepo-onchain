@@ -8,6 +8,7 @@ import { Button } from "@myapp/ui/components/button";
 import { cn } from "@myapp/ui/lib/utils";
 
 import { Link } from "@/shared/i18n";
+import { LanguageSwitcher } from "@/shared/ui/language-switcher";
 import { ThemeSwitcher } from "@/shared/ui/theme-switcher";
 
 const menuItems = [
@@ -98,13 +99,13 @@ export function LandingHeader() {
                 </ul>
               </div>
               <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
-                <Button asChild size="sm" className={"lg:inline-flex"}>
+                <Button asChild className={"lg:inline-flex"}>
                   <Link href="#">
                     <span>{t("header.cta.primary")}</span>
                   </Link>
                 </Button>
                 <div className="flex items-center gap-2">
-                  {/* <LanguageSwitcher /> */}
+                  <LanguageSwitcher />
                   <ThemeSwitcher />
                 </div>
               </div>

@@ -1,4 +1,8 @@
 {
+  "languages": {
+    "en": "English",
+    "es": "Spanish"
+  },
   "landing": {
     "navigation": {
       "features": "Features",
