@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "@myapp/ui/globals.css";
 
 import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
 
 import { ThemeProvider } from "@/app/_shared/ui/theme-provider";
 
@@ -37,7 +38,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>

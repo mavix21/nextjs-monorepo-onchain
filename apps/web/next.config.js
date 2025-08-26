@@ -1,5 +1,6 @@
 import { fileURLToPath } from "url";
 import createJiti from "jiti";
+import createNextIntlPlugin from "next-intl/plugin";
 
 // Import env files to validate at build time. Use jiti so we can load .ts files in here.
 createJiti(fileURLToPath(import.meta.url))("./src/env");
@@ -24,4 +25,6 @@ const config = {
   typescript: { ignoreBuildErrors: true },
 };
 
-export default config;
+const withNextIntl = createNextIntlPlugin("./app/_shared/i18n/");
+
+export default withNextIntl(config);
