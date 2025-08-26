@@ -2,7 +2,7 @@ import { IconBrandGithub, IconRocket } from "@tabler/icons-react";
 
 import { Button } from "@myapp/ui/components/button";
 
-import { ThemeSwitcher } from "@/app/_shared/ui/theme-switcher";
+import { ThemeSwitcher } from "@/shared/ui/theme-switcher";
 
 export default function HomePage() {
   return (

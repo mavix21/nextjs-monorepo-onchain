@@ -3,9 +3,11 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "@myapp/ui/globals.css";
 
 import type { Metadata } from "next";
-import { NextIntlClientProvider } from "next-intl";
+import { notFound } from "next/navigation";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
 
-import { ThemeProvider } from "@/app/_shared/ui/theme-provider";
+import { routing } from "@/shared/i18n/routing";
+import { ThemeProvider } from "@/shared/ui/theme-provider";
 
 const fontSans = Geist({
   subsets: ["latin"],
@@ -22,13 +24,17 @@ export const metadata: Metadata = {
   description: "Next.js Monorepo Template",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+  params,
+}: LayoutProps<"/[locale]">) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body
         className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}
       >

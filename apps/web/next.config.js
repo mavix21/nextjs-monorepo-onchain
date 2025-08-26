@@ -25,6 +25,6 @@ const config = {
   typescript: { ignoreBuildErrors: true },
 };
 
-const withNextIntl = createNextIntlPlugin("./app/_shared/i18n/");
+const withNextIntl = createNextIntlPlugin("./app/_shared/i18n/request.ts");
 
 export default withNextIntl(config);

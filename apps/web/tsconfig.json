@@ -4,6 +4,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
+      "@/shared/*": ["./app/_shared/*"],
+      "@/pages/*": ["./app/_pages/*"],
       "@myapp/ui/*": ["../../packages/ui/src/*"]
     },
     "plugins": [
