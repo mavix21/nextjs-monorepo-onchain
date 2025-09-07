@@ -1,4 +1,6 @@
-const ROOT_URL = process.env.NEXT_PUBLIC_URL || process.env.VERCEL_URL;
+import { env } from "@/src/env";
+
+const ROOT_URL = env.NEXT_PUBLIC_URL;
 
 /**
  * MiniApp configuration object. Must follow the Farcaster MiniApp specification.
