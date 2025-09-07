@@ -20,8 +20,6 @@
   --secondary-foreground: oklch(0.21 0.006 285.885);
   --muted: oklch(0.967 0.001 286.375);
   --muted-foreground: oklch(0.552 0.016 285.938);
-  --active: var(--muted);
-  --active-foreground: var(--foreground);
   --accent: oklch(0.967 0.001 286.375);
   --accent-foreground: oklch(0.21 0.006 285.885);
   --destructive: oklch(0.64 0.21 25.33);
@@ -74,8 +72,6 @@
   --secondary-foreground: var(--foreground);
   --muted: oklch(0.274 0.006 286.033);
   --muted-foreground: oklch(0.705 0.015 286.067);
-  --active: var(--muted);
-  --active-foreground: var(--foreground);
   --accent: oklch(0.274 0.006 286.033);
   --accent-foreground: oklch(0.98 0.0035 247.86);
   --destructive: oklch(0.704 0.191 22.216);
@@ -124,8 +120,6 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-active: var(--active);
-  --color-active-foreground: var(--active-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
@@ -180,10 +174,8 @@
 
   body {
     @apply bg-background text-foreground;
-  }
-
-  .active-nav-item + div svg {
-    @apply text-active-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
