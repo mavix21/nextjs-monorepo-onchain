@@ -5,7 +5,8 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo watch dev --continue",
-    "dev:next": "turbo watch dev -F web...",
+    "dev:web": "turbo watch dev -F web...",
+    "dev:mini": "turbo watch dev -F mini...",
     "db:push": "turbo -F @myapp/db push",
     "db:studio": "turbo -F @myapp/db studio",
     "format": "turbo run format --continue -- --cache --cache-location .cache/.prettiercache",
@@ -15,6 +16,7 @@
     "clean": "git clean -xdf node_modules",
     "clean:workspaces": "turbo run clean",
     "test:web": "turbo run test --continue --filter=web...",
+    "test:mini": "turbo run test --continue --filter=mini...",
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {

@@ -87,9 +87,15 @@ importers:
       '@farcaster/miniapp-sdk':
         specifier: ^0.1.8
         version: 0.1.10(bufferutil@4.0.9)(typescript@5.9.2)(utf-8-validate@5.0.10)(zod@3.25.67)
+      '@myapp/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       '@t3-oss/env-nextjs':
         specifier: ^0.13.8
         version: 0.13.8(arktype@2.1.20)(typescript@5.9.2)(zod@3.25.67)
+      '@tailwindcss/postcss':
+        specifier: ^4.1.13
+        version: 4.1.13
       '@tanstack/react-query':
         specifier: 'catalog:'
         version: 5.85.5(react@19.1.1)
@@ -102,6 +108,9 @@ importers:
       react-dom:
         specifier: catalog:react19
         version: 19.1.1(react@19.1.1)
+      tailwindcss:
+        specifier: ^4.1.13
+        version: 4.1.13
       viem:
         specifier: ^2.31.6
         version: 2.31.6(bufferutil@4.0.9)(typescript@5.9.2)(utf-8-validate@5.0.10)(zod@3.25.67)
@@ -133,6 +142,9 @@ importers:
       '@types/react-dom':
         specifier: catalog:react19
         version: 19.1.9(@types/react@19.1.12)
+      dotenv-cli:
+        specifier: 'catalog:'
+        version: 8.0.0
       eslint:
         specifier: 'catalog:'
         version: 9.34.0(jiti@1.21.7)
