@@ -20,7 +20,7 @@ export default function Home() {
           width={200}
           height={200}
         />
-        <h1 className={styles.title}>MiniKit</h1>
+        <h1 className={`${styles.title} font-mono`}>MiniKit</h1>
 
         <p>
           Get started by editing <code>app/page.tsx</code>

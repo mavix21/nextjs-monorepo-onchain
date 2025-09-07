@@ -28,12 +28,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const inter = Inter({
-  variable: "--font-inter",
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
 const sourceCodePro = Source_Code_Pro({
-  variable: "--font-source-code-pro",
+  variable: "--font-mono",
   subsets: ["latin"],
 });
 
@@ -44,7 +44,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${sourceCodePro.variable}`}>
+      <body
+        className={`${inter.variable} ${sourceCodePro.variable} font-sans antialiased`}
+      >
         <RootProvider>{children}</RootProvider>
       </body>
     </html>
