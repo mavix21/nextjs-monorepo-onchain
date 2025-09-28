@@ -17,7 +17,6 @@
     "clean:workspaces": "turbo run clean",
     "test:web": "turbo run test --continue --filter=web...",
     "test:mini": "turbo run test --continue --filter=mini...",
-    "postinstall": "pnpm lint:ws",
     "typecheck": "turbo run typecheck",
     "ui-add": "turbo run ui-add",
     "android": "expo run:android",
