@@ -15,10 +15,10 @@
   },
   "dependencies": {
     "@coinbase/onchainkit": "1.1.0",
-    "@farcaster/miniapp-sdk": "^0.1.8",
+    "@farcaster/miniapp-sdk": "^0.1.10",
     "@myapp/ui": "workspace:*",
     "@tanstack/react-query": "catalog:",
-    "next": "15.5.2",
+    "next": "15.5.4",
     "react": "catalog:react19",
     "react-dom": "catalog:react19",
     "viem": "^2.31.6",
@@ -31,14 +31,12 @@
   "devDependencies": {
     "@myapp/eslint-config": "workspace:*",
     "@myapp/tsconfig": "workspace:*",
-    "@eslint/eslintrc": "^3",
-    "@next/eslint-plugin-next": "^15.5.2",
+    "@eslint/eslintrc": "^3.3.1",
     "@types/node": "catalog:",
     "@types/react": "catalog:react19",
     "@types/react-dom": "catalog:react19",
     "dotenv-cli": "catalog:",
     "eslint": "catalog:",
-    "eslint-config-next": "15.5.2",
     "jiti": "^1.21.7",
     "typescript": "catalog:"
   },
