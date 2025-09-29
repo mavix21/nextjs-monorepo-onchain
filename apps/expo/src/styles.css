@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "nativewind/theme";
+@import "@myapp/tailwind-config/theme";
 
 :root {
   --background: oklch(0.9875 0.0045 314.8053);
