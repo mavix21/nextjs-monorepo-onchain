@@ -25,8 +25,8 @@
     "wagmi": "^2.16.3",
     "@t3-oss/env-nextjs": "^0.13.8",
     "zod": "catalog:",
-    "tailwindcss": "^4.1.13",
-    "@tailwindcss/postcss": "^4.1.13"
+    "tailwindcss": "catalog:",
+    "@tailwindcss/postcss": "catalog:"
   },
   "devDependencies": {
     "@myapp/eslint-config": "workspace:*",
