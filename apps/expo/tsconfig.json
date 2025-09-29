@@ -7,13 +7,11 @@
     "types": [],
     "moduleSuffixes": [".ios", ".android", ".native", ""],
     "paths": {
-      "~/*": ["./src/*"],
-      "components/*": ["./components/*"]
+      "~/*": ["./src/*"]
     }
   },
   "include": [
     "src",
-    "components",
     "*.ts",
     "*.tsx",
     "*.js",
