@@ -4,18 +4,18 @@ packages:
   - tooling/*
 
 catalog:
+  "@tailwindcss/postcss": ^4.1.13
   "@tanstack/react-query": ^5.85.5
-  "@types/node": ^24.5.2
+  "@types/node": ^24.9.1
   dotenv-cli: ^8.0.0
   eslint: ^9.34.0
   next-themes: ^0.4.6
   prettier: ^3.6.2
   prettier-plugin-tailwindcss: ^0.6.14
-  typescript: ^5.9.2
+  tailwindcss: ^4.1.13
+  typescript: ^5.9.3
   typescript-eslint: ^8.42.0
   zod: ^3.25.67
-  tailwindcss: "^4.1.13"
-  "@tailwindcss/postcss": "^4.1.13"
 
 catalogs:
   react19:
@@ -35,3 +35,10 @@ onlyBuiltDependencies:
   - sharp
   - unrs-resolver
   - utf-8-validate
+
+overrides:
+  "@types/minimatch": 5.1.2
+
+publicHoistPattern:
+  - "@ianvs/prettier-plugin-sort-imports"
+  - prettier-plugin-tailwindcss
