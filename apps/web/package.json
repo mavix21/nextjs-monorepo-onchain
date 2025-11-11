@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "pnpm with-env next dev --turbopack",
+    "dev": "pnpm with-env next dev",
     "build": "pnpm with-env next build",
     "start": "next start",
     "format": "prettier --check . --ignore-path ../../.gitignore",
