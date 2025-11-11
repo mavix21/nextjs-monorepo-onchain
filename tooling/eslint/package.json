@@ -4,10 +4,9 @@
   "type": "module",
   "private": true,
   "exports": {
-    "./base": "./base.js",
-    "./next-js": "./next.js",
-    "./react-internal": "./react-internal.js",
-    "./react": "./react.js"
+    "./base": "./base.ts",
+    "./next-js": "./next.ts",
+    "./react": "./react.ts"
   },
   "scripts": {
     "clean": "git clean -xdf .cache .turbo node_modules",
@@ -16,7 +15,7 @@
   },
   "dependencies": {
     "@eslint/compat": "^1.4.0",
-    "@eslint/js": "^9.38.0",
+    "@eslint/js": "catalog:",
     "@next/eslint-plugin-next": "^16.0.0",
     "@typescript-eslint/eslint-plugin": "^8.46.2",
     "@typescript-eslint/parser": "^8.46.2",
@@ -26,7 +25,7 @@
     "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-turbo": "^2.5.8",
+    "eslint-plugin-turbo": "^2.6.1",
     "globals": "^16.4.0",
     "typescript-eslint": "catalog:"
   },
