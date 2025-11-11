@@ -25,11 +25,11 @@
 }
 
 @utility faded-bottom {
-  @apply after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:hidden after:h-32 after:w-full after:bg-[linear-gradient(180deg,_transparent_10%,_white_70%)] md:after:block dark:after:bg-[linear-gradient(180deg,_transparent_10%,_black_70%)];
+  @apply after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:hidden after:h-32 after:w-full after:bg-[linear-gradient(180deg,transparent_10%,white_70%)] md:after:block dark:after:bg-[linear-gradient(180deg,transparent_10%,black_70%)];
 }
 
 @utility bg-grid {
-  @apply bg-[image:repeating-linear-gradient(315deg,_var(--muted)_0,_var(--muted)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed;
+  @apply bg-[repeating-linear-gradient(315deg,var(--muted)_0,var(--muted)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed;
 }
 
 .CollapsibleContent {
