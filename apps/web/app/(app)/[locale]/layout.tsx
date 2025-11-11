@@ -43,6 +43,7 @@ export default async function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
+          enableColorScheme
         >
           <NextIntlClientProvider>{children}</NextIntlClientProvider>
         </ThemeProvider>
