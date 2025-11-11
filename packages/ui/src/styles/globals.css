@@ -6,7 +6,9 @@
 @source "../../../../packages/**/*.{ts,tsx}";
 @source "../**/*.{ts,tsx}";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant light (&:where(.light, .light *));
+@custom-variant auto (&:where(.auto, .auto *));
 
 @layer base {
   * {
