@@ -10,18 +10,22 @@ const config = {
   /** Enables hot reloading for local packages without a build step */
   transpilePackages: ["@myapp/db", "@myapp/ui"],
 
-  // Silence warnings
-  // https://github.com/WalletConnect/walletconnect-monorepo/issues/1908
+  typedRoutes: true,
+  typescript: { ignoreBuildErrors: true },
+
+  // Server-side packages that should not be bundled
+  serverExternalPackages: ["pino-pretty", "lokijs", "encoding"],
+  turbopack: {
+    // Turbopack handles Node.js polyfills differently than webpack
+    // For browser bundles, these modules are automatically excluded
+    resolveAlias: {},
+  },
+
   webpack: (config) => {
+    config.resolve.fallback = { fs: false, net: false, tls: false };
     config.externals.push("pino-pretty", "lokijs", "encoding");
     return config;
   },
-
-  // Enable typed routes
-  typedRoutes: true,
-
-  /** We already do linting and typechecking as separate tasks in CI */
-  typescript: { ignoreBuildErrors: true },
 };
 
 const withNextIntl = createNextIntlPlugin("./app/_shared/i18n/request.ts");

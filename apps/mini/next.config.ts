@@ -8,14 +8,22 @@ createJiti(fileURLToPath(import.meta.url))("./src/env");
 const nextConfig: NextConfig = {
   transpilePackages: ["@myapp/db", "@myapp/ui"],
 
+  typedRoutes: true,
+  typescript: { ignoreBuildErrors: true },
+
+  // Server-side packages that should not be bundled
+  serverExternalPackages: ["pino-pretty", "lokijs", "encoding"],
+  turbopack: {
+    // Turbopack handles Node.js polyfills differently than webpack
+    // For browser bundles, these modules are automatically excluded
+    resolveAlias: {},
+  },
+
   webpack: (config) => {
+    config.resolve.fallback = { fs: false, net: false, tls: false };
     config.externals.push("pino-pretty", "lokijs", "encoding");
     return config;
   },
-
-  typedRoutes: true,
-
-  typescript: { ignoreBuildErrors: true },
 };
 
 export default nextConfig;
