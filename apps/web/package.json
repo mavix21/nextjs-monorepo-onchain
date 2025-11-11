@@ -22,7 +22,7 @@
     "@tabler/icons-react": "^3.35.0",
     "@tanstack/react-query": "catalog:",
     "next": "16.0.0",
-    "next-intl": "^4.4.0",
+    "next-intl": "^4.5.1",
     "next-themes": "catalog:",
     "react": "19.2.0",
     "react-dom": "19.2.0",
