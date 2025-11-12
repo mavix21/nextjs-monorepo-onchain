@@ -43,11 +43,5 @@
     "jiti": "^2.6.1",
     "typescript": "catalog:"
   },
-  "prettier": "@myapp/prettier-config",
-  "pnpm": {
-    "overrides": {
-      "@types/react": "19.2.2",
-      "@types/react-dom": "19.2.2"
-    }
-  }
+  "prettier": "@myapp/prettier-config"
 }
