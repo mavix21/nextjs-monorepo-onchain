@@ -1,11 +1,12 @@
-import { fileURLToPath } from "url";
-import type { NextConfig } from "next";
-import createJiti from "jiti";
+import { createJiti } from "jiti";
+
+const jiti = createJiti(import.meta.url);
 
 // Import env files to validate at build time. Use jiti so we can load .ts files in here.
-createJiti(fileURLToPath(import.meta.url))("./src/env");
+await jiti.import("./src/env");
 
-const nextConfig: NextConfig = {
+/** @type {import("next").NextConfig} */
+const nextConfig = {
   transpilePackages: ["@myapp/db", "@myapp/ui"],
 
   typedRoutes: true,
