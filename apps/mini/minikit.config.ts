@@ -13,6 +13,9 @@ export const minikitConfig = {
     payload: "",
     signature: "",
   },
+  baseBuilder: {
+    ownerAddress: "",
+  },
   frame: {
     version: "1",
     name: "mini",
