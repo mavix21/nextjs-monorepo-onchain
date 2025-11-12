@@ -1,11 +1,12 @@
-import { env } from "@/src/env";
-
-const ROOT_URL = env.NEXT_PUBLIC_URL;
+const ROOT_URL =
+  process.env.NEXT_PUBLIC_URL ||
+  (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`) ||
+  "http://localhost:3000";
 
 /**
- * MiniApp configuration object. Must follow the Farcaster MiniApp specification.
+ * MiniApp configuration object. Must follow the mini app manifest specification.
  *
- * @see {@link https://miniapps.farcaster.xyz/docs/guides/publishing}
+ * @see {@link https://docs.base.org/mini-apps/features/manifest}
  */
 export const minikitConfig = {
   accountAssociation: {
