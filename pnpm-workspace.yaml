@@ -15,7 +15,7 @@ catalog:
   prettier-plugin-tailwindcss: ^0.6.14
   tailwindcss: ^4.1.16
   typescript: ^5.9.3
-  typescript-eslint: ^8.46.4
+  typescript-eslint: ^8.47.0
   zod: ^4.1.12
 
 catalogs:
