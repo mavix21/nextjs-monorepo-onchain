@@ -5,8 +5,7 @@
     "paths": {
       "@/*": ["./*"],
       "@/shared/*": ["./app/_shared/*"],
-      "@/pages/*": ["./app/_pages/*"],
-      "@myapp/ui/*": ["../../packages/ui/src/*"]
+      "@/pages/*": ["./app/_pages/*"]
     },
     "plugins": [
       {
@@ -20,8 +19,7 @@
     "next.config.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    "../../packages/ui/src/hooks/use-mobile.ts"
+    ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }
