@@ -1,12 +1,13 @@
 "use client";
 
+import type { AnimationPlaybackControlsWithThen } from "motion/react";
 import { useEffect, useState } from "react";
 import { animate, motion, useMotionValue } from "motion/react";
 import useMeasure from "react-use-measure";
 
-import { cn } from "@myapp/ui/lib/utils";
+import { cn } from "../lib/utils";
 
-export type InfiniteSliderProps = {
+export interface InfiniteSliderProps {
   children: React.ReactNode;
   gap?: number;
   speed?: number;
@@ -14,7 +15,7 @@ export type InfiniteSliderProps = {
   direction?: "horizontal" | "vertical";
   reverse?: boolean;
   className?: string;
-};
+}
 
 export function InfiniteSlider({
   children,
@@ -32,7 +33,7 @@ export function InfiniteSlider({
   const [key, setKey] = useState(0);
 
   useEffect(() => {
-    let controls;
+    let controls: AnimationPlaybackControlsWithThen;
     const size = direction === "horizontal" ? width : height;
     const contentSize = size + gap;
     const from = reverse ? -contentSize / 2 : 0;
@@ -66,7 +67,7 @@ export function InfiniteSlider({
       });
     }
 
-    return controls?.stop;
+    return controls.stop;
   }, [
     key,
     translation,
