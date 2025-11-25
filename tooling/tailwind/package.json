@@ -14,9 +14,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "catalog:",
     "postcss": "^8.5.6",
-    "tailwindcss": "catalog:",
-    "@tailwindcss/postcss": "catalog:"
+    "tailwindcss": "catalog:"
   },
   "devDependencies": {
     "@myapp/eslint-config": "workspace:*",

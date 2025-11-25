@@ -20,6 +20,7 @@
     "@myapp/ui": "workspace:*",
     "@t3-oss/env-nextjs": "^0.13.8",
     "@tabler/icons-react": "^3.35.0",
+    "@tailwindcss/postcss": "catalog:",
     "@tanstack/react-query": "catalog:",
     "next": "16.0.3",
     "next-intl": "^4.5.3",
@@ -27,7 +28,6 @@
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "tailwindcss": "catalog:",
-    "@tailwindcss/postcss": "catalog:",
     "viem": "^2.31.6",
     "wagmi": "^2.16.3",
     "zod": "catalog:"

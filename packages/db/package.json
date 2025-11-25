@@ -30,11 +30,11 @@
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
+    "@effect/experimental": "^0.55.0",
+    "@effect/platform": "^0.91.1",
     "@effect/sql": "^0.45.0",
     "@effect/sql-drizzle": "^0.44.0",
     "@effect/sql-pg": "^0.46.0",
-    "@effect/experimental": "^0.55.0",
-    "@effect/platform": "^0.91.1",
     "@vercel/postgres": "^0.10.0",
     "drizzle-orm": "^0.44.5",
     "drizzle-zod": "^0.8.3",
