@@ -15,6 +15,7 @@
     "format:fix": "turbo run format --continue -- --write --cache --cache-location .cache/.prettiercache",
     "lint": "turbo run lint --continue -- --cache --cache-location .cache/.eslintcache",
     "lint:fix": "turbo run lint --continue -- --fix --cache --cache-location .cache/.eslintcache",
+    "lint:ws": "pnpm dlx sherif@latest",
     "typecheck": "turbo run typecheck",
     "dev:expo": "turbo watch dev -F @myapp/expo...",
     "test:web": "turbo run test --continue --filter=web...",
