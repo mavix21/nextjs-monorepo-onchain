@@ -11,6 +11,8 @@ export function initAuth<TExtraPlugins extends BetterAuthPlugin[]>(options: {
   const config = {
     baseURL: options.baseUrl,
     secret: options.secret,
+    plugins: [...(options.extraPlugins ?? [])],
+    trustedOrigins: ["expo://"],
     onAPIError: {
       onError(error, ctx) {
         console.error("BETTER AUTH API ERROR:", { error, ctx });
