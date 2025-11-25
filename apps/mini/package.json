@@ -17,10 +17,13 @@
   "dependencies": {
     "@coinbase/onchainkit": "1.1.2",
     "@farcaster/miniapp-sdk": "^0.1.10",
+    "@myapp/auth": "workspace:*",
     "@myapp/ui": "workspace:*",
     "@t3-oss/env-nextjs": "^0.13.8",
     "@tailwindcss/postcss": "catalog:",
     "@tanstack/react-query": "catalog:",
+    "better-auth": "catalog:",
+    "better-auth-siwf": "^1.0.20",
     "next": "16.0.4",
     "react": "catalog:react19",
     "react-dom": "catalog:react19",
