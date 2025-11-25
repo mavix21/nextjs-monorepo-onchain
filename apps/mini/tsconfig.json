@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
+      "@/*": ["./src/*"],
       "@/shared/*": ["./app/_shared/*"],
       "@/pages/*": ["./app/_pages/*"]
     },
