@@ -7,7 +7,7 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card"
       className={cn(
-        "bg-card text-card-foreground relative flex flex-col gap-6 rounded-xl border py-6 shadow-sm has-data-[slot=card-image]:overflow-clip has-data-[slot=card-image]:pt-0",
+        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
         className,
       )}
       {...props}
@@ -20,7 +20,7 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-header"
       className={cn(
-        "@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
+        "@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-2 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
         className,
       )}
       {...props}
@@ -28,55 +28,11 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
-function CardImage({
-  className,
-  children,
-  withOverlay = false,
-  ...props
-}: React.ComponentProps<"div"> & {
-  children: React.ReactNode;
-  withOverlay?: boolean;
-}) {
-  const overlayStyles = {
-    position: "absolute",
-    inset: 0,
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    background: `linear-gradient(
-      180deg,
-      hsla(0, 0%, 35.29%, 0) 0%,
-      hsla(0, 0%, 34.53%, 0.034375) 16.36%,
-      hsla(0, 0%, 32.42%, 0.125) 33.34%,
-      hsla(0, 0%, 29.18%, 0.253125) 50.1%,
-      hsla(0, 0%, 24.96%, 0.4) 65.75%,
-      hsla(0, 0%, 19.85%, 0.546875) 79.43%,
-      hsla(0, 0%, 13.95%, 0.675) 90.28%,
-      hsla(0, 0%, 7.32%, 0.765625) 97.43%,
-      hsla(0, 0%, 0%, 0.8) 100%
-    )`,
-  } as const;
-  return (
-    <>
-      <div
-        data-slot="card-image"
-        className={cn("relative h-64 w-full", className)}
-        {...props}
-      >
-        {children}
-        {withOverlay && <div style={overlayStyles} />}
-      </div>
-    </>
-  );
-}
-
 function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-title"
-      className={cn(
-        "text-2xl leading-none font-semibold tracking-tight",
-        className,
-      )}
+      className={cn("leading-none font-semibold", className)}
       {...props}
     />
   );
@@ -133,5 +89,4 @@ export {
   CardAction,
   CardDescription,
   CardContent,
-  CardImage,
 };

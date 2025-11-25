@@ -14,9 +14,8 @@ import { XIcon } from "lucide-react";
 import { AnimatePresence, motion, MotionConfig } from "motion/react";
 import { createPortal } from "react-dom";
 
-import { cn } from "@myapp/ui/lib/utils";
-
 import useClickOutside from "../hooks/useClickOutside";
+import { cn } from "../lib/utils";
 
 export interface MorphingDialogContextType {
   isOpen: boolean;
@@ -178,7 +177,7 @@ function MorphingDialogContent({
   useEffect(() => {
     if (isOpen) {
       document.body.classList.add("overflow-hidden");
-      const focusableElements = containerRef.current.querySelectorAll(
+      const focusableElements = containerRef.current?.querySelectorAll(
         'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
       );
       if (focusableElements && focusableElements.length > 0) {
@@ -401,7 +400,7 @@ function MorphingDialogClose({
       exit="exit"
       variants={variants}
     >
-      {children || <XIcon size={24} />}
+      {children ?? <XIcon size={24} />}
     </motion.button>
   );
 }

@@ -1,22 +1,21 @@
 "use client";
 
-import React from "react";
-import {
-  AnimatePresence,
-  motion,
+import type {
   TargetAndTransition,
   Transition,
   Variant,
   Variants,
 } from "motion/react";
+import React from "react";
+import { AnimatePresence, motion } from "motion/react";
 
-import { cn } from "@myapp/ui/lib/utils";
+import { cn } from "../lib/utils";
 
 export type PresetType = "blur" | "fade-in-blur" | "scale" | "fade" | "slide";
 
 export type PerType = "word" | "char" | "line";
 
-export type TextEffectProps = {
+export interface TextEffectProps {
   children: string;
   per?: PerType;
   as?: keyof React.JSX.IntrinsicElements;
@@ -36,7 +35,7 @@ export type TextEffectProps = {
   containerTransition?: Transition;
   segmentTransition?: Transition;
   style?: React.CSSProperties;
-};
+}
 
 const defaultStaggerTimes: Record<PerType, number> = {
   char: 0.03,
@@ -160,17 +159,16 @@ const AnimationComponent: React.FC<{
 
 AnimationComponent.displayName = "AnimationComponent";
 
-const splitText = (text: string, per: "line" | "word" | "char") => {
+const splitText = (text: string, per: PerType) => {
   if (per === "line") return text.split("\n");
   return text.split(/(\s+)/);
 };
 
 const hasTransition = (
-  variant: Variant,
+  variant?: Variant,
 ): variant is TargetAndTransition & { transition?: Transition } => {
-  return (
-    typeof variant === "object" && variant !== null && "transition" in variant
-  );
+  if (!variant) return false;
+  return typeof variant === "object" && "transition" in variant;
 };
 
 const createVariantsWithTransition = (
@@ -226,6 +224,7 @@ export function TextEffect({
   const segments = splitText(children, per);
   const MotionTag = motion[as as keyof typeof motion] as typeof motion.div;
 
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   const baseVariants = preset
     ? presetVariants[preset]
     : { container: defaultContainerVariants, item: defaultItemVariants };
@@ -246,7 +245,7 @@ export function TextEffect({
 
   const computedVariants = {
     container: createVariantsWithTransition(
-      variants?.container || baseVariants.container,
+      variants?.container ?? baseVariants.container,
       {
         staggerChildren: customStagger ?? stagger,
         delayChildren: customDelay ?? delay,
@@ -257,7 +256,7 @@ export function TextEffect({
         },
       },
     ),
-    item: createVariantsWithTransition(variants?.item || baseVariants.item, {
+    item: createVariantsWithTransition(variants?.item ?? baseVariants.item, {
       duration: baseDuration,
       ...segmentTransition,
     }),
