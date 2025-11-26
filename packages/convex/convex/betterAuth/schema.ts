@@ -18,7 +18,7 @@ export const tables = {
     farcasterUsername: v.optional(v.union(v.null(), v.string())),
     farcasterDisplayName: v.optional(v.union(v.null(), v.string())),
   })
-    .index("email_name", ["email","name"])
+    .index("email_name", ["email", "name"])
     .index("name", ["name"])
     .index("userId", ["userId"])
     .index("farcasterFid", ["farcasterFid"]),
@@ -32,7 +32,7 @@ export const tables = {
     userId: v.string(),
   })
     .index("expiresAt", ["expiresAt"])
-    .index("expiresAt_userId", ["expiresAt","userId"])
+    .index("expiresAt_userId", ["expiresAt", "userId"])
     .index("token", ["token"])
     .index("userId", ["userId"]),
   account: defineTable({
@@ -53,8 +53,8 @@ export const tables = {
     farcasterDisplayName: v.optional(v.union(v.null(), v.string())),
   })
     .index("accountId", ["accountId"])
-    .index("accountId_providerId", ["accountId","providerId"])
-    .index("providerId_userId", ["providerId","userId"])
+    .index("accountId_providerId", ["accountId", "providerId"])
+    .index("providerId_userId", ["providerId", "userId"])
     .index("userId", ["userId"])
     .index("farcasterFid", ["farcasterFid"]),
   verification: defineTable({
