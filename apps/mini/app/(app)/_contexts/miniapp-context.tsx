@@ -1,3 +1,5 @@
+"use client";
+
 import type {
   MiniAppContext as FarcasterMiniAppContext,
   SafeAreaInsets,
