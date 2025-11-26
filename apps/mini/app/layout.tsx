@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Sora, Source_Code_Pro } from "next/font/google";
+import { Inter, Sora } from "next/font/google";
 
 import { minikitConfig } from "@/minikit.config";
 
