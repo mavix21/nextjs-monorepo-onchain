@@ -1,5 +1,6 @@
 import { createClient, GenericCtx } from "@convex-dev/better-auth";
 import { convex } from "@convex-dev/better-auth/plugins";
+import { siwf } from "better-auth-siwf";
 
 import { initAuth } from "@myapp/auth";
 
@@ -20,7 +21,12 @@ export const createAuth = (
     database: authComponent.adapter(ctx),
     secret: process.env.BETTER_AUTH_SECRET,
     optionsOnly: opts?.optionsOnly ?? false,
-    extraPlugins: [convex()],
+    extraPlugins: [
+      convex(),
+      siwf({
+        hostname: new URL(siteUrl).hostname,
+      }),
+    ],
   });
 };
 
