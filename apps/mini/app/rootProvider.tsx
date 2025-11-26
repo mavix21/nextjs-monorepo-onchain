@@ -6,7 +6,7 @@ import { base } from "wagmi/chains";
 
 import "@coinbase/onchainkit/styles.css";
 
-import { env } from "@/src/env";
+import { env } from "@/env";
 
 export function RootProvider({ children }: { children: ReactNode }) {
   return (
