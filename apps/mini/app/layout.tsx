@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Source_Code_Pro } from "next/font/google";
+import { Inter, Sora, Source_Code_Pro } from "next/font/google";
 
 import { minikitConfig } from "@/minikit.config";
 
@@ -34,8 +34,8 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const sourceCodePro = Source_Code_Pro({
-  variable: "--font-mono",
+const sourceCodePro = Sora({
+  variable: "--font-acc",
   subsets: ["latin"],
 });
 
