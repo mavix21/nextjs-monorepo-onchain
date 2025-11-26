@@ -1,9 +1,10 @@
 import type { SIWFClientType } from "node_modules/better-auth-siwf/dist/types";
+import { convexClient } from "@convex-dev/better-auth/client/plugins";
 import { siwfClient } from "better-auth-siwf/client";
 import { createAuthClient } from "better-auth/react";
 
 export const client = createAuthClient({
-  plugins: [siwfClient()],
+  plugins: [siwfClient(), convexClient()],
   fetchOptions: {
     credentials: "include",
   },
