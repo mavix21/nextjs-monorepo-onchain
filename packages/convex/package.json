@@ -2,6 +2,16 @@
   "name": "@myapp/convex",
   "version": "0.0.0",
   "description": "Convex backend",
+  "exports": {
+    "./_generated/*": {
+      "types": "./convex/_generated/*.d.ts",
+      "default": "./convex/_generated/*.js"
+    },
+    "./auth": {
+      "types": "./convex/auth.ts",
+      "default": "./convex/auth.ts"
+    }
+  },
   "scripts": {
     "dev": "convex dev",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
