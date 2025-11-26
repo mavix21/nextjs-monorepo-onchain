@@ -130,10 +130,8 @@ export function MiniAppProvider({ children }: { children: React.ReactNode }) {
     void loadMiniApp();
   }, [loadMiniApp]);
 
-  const contextValue = React.useMemo<MiniAppContextType>(() => state, [state]);
-
   return (
-    <MiniAppContext value={contextValue}>
+    <MiniAppContext value={state}>
       <SafeArea>{children}</SafeArea>
     </MiniAppContext>
   );
