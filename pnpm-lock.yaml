@@ -203,6 +203,9 @@ importers:
       '@coinbase/onchainkit':
         specifier: 1.1.2
         version: 1.1.2(@tanstack/query-core@5.90.10)(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(bufferutil@4.0.9)(immer@10.0.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@19.2.0))(utf-8-validate@5.0.10)(viem@2.37.9(bufferutil@4.0.9)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.1.13))(wagmi@2.17.5(@tanstack/query-core@5.90.10)(@tanstack/react-query@5.90.10(react@19.2.0))(@types/react@19.2.2)(bufferutil@4.0.9)(immer@10.0.2)(react@19.2.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(viem@2.37.9(bufferutil@4.0.9)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.1.13))(zod@4.1.13))(zod@4.1.13)
+      '@convex-dev/better-auth':
+        specifier: ^0.9.7
+        version: 0.9.7(@standard-schema/spec@1.0.0)(better-auth@1.4.0-beta.9(better-sqlite3@12.4.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(convex@1.29.3(react@19.2.0))(hono@4.9.9)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3)
       '@farcaster/miniapp-sdk':
         specifier: ^0.1.10
         version: 0.1.10(bufferutil@4.0.9)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.1.13)
@@ -406,7 +409,7 @@ importers:
         version: 1.29.3(react@19.2.0)
       convex-helpers:
         specifier: ^0.1.106
-        version: 0.1.106(@standard-schema/spec@1.0.0)(convex@1.29.3(react@19.2.0))(hono@4.9.9)(react@19.2.0)(typescript@5.9.3)(zod@3.25.76)
+        version: 0.1.106(@standard-schema/spec@1.0.0)(convex@1.29.3(react@19.2.0))(hono@4.9.9)(react@19.2.0)(typescript@5.9.3)(zod@4.1.13)
     devDependencies:
       typescript:
         specifier: 'catalog:'
@@ -15717,6 +15720,16 @@ snapshots:
       react: 19.2.0
       typescript: 5.9.3
       zod: 3.25.76
+
+  convex-helpers@0.1.106(@standard-schema/spec@1.0.0)(convex@1.29.3(react@19.2.0))(hono@4.9.9)(react@19.2.0)(typescript@5.9.3)(zod@4.1.13):
+    dependencies:
+      convex: 1.29.3(react@19.2.0)
+    optionalDependencies:
+      '@standard-schema/spec': 1.0.0
+      hono: 4.9.9
+      react: 19.2.0
+      typescript: 5.9.3
+      zod: 4.1.13
 
   convex@1.29.3(react@19.2.0):
     dependencies:
