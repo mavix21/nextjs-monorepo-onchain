@@ -7,6 +7,8 @@ import { RootProvider } from "./rootProvider";
 
 import "@myapp/ui/globals.css";
 
+import { ConvexClientProvider } from "./_providers/convex-cllient.provider";
+
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: minikitConfig.frame.name,
@@ -47,7 +49,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${sourceCodePro.variable} font-sans antialiased`}
       >
-        <RootProvider>{children}</RootProvider>
+        <RootProvider>
+          <ConvexClientProvider>{children}</ConvexClientProvider>
+        </RootProvider>
       </body>
     </html>
   );
