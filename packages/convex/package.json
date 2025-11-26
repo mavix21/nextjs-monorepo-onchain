@@ -29,6 +29,7 @@
     "convex-helpers": "^0.1.106"
   },
   "devDependencies": {
+    "@better-auth/cli": "catalog:",
     "typescript": "catalog:"
   },
   "prettier": "@myapp/prettier-config"
