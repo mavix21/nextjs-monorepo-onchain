@@ -24,6 +24,7 @@
     "@tailwindcss/postcss": "catalog:",
     "@tanstack/react-query": "catalog:",
     "better-auth": "catalog:",
+    "convex": "^1.29.3",
     "next": "16.0.4",
     "react": "catalog:react19",
     "react-dom": "catalog:react19",
