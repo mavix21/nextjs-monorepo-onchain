@@ -1,11 +1,12 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import { getSessionCookie } from "better-auth/cookies";
+
+import { getToken } from "@/auth/server";
 
 export async function proxy(request: NextRequest) {
-  const sessionCookie = getSessionCookie(request);
+  const token = await getToken();
 
-  if (!sessionCookie) {
+  if (!token) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
