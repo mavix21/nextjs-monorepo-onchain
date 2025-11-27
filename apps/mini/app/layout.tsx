@@ -7,10 +7,12 @@ import { RootProvider } from "./rootProvider";
 
 import "@myapp/ui/globals.css";
 
-import { ConvexClientProvider } from "./_providers/convex-cllient.provider";
+import { AuthProvider } from "@/app/_contexts/auth-context";
+import { MiniAppProvider } from "@/app/_contexts/miniapp-context";
+import { ConvexClientProvider } from "@/app/_providers/convex-cllient.provider";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return {
+  return Promise.resolve({
     title: minikitConfig.frame.name,
     description: minikitConfig.frame.description,
     other: {
@@ -26,7 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
         },
       }),
     },
-  };
+  });
 }
 
 const inter = Inter({
@@ -50,7 +52,11 @@ export default function RootLayout({
         className={`${inter.variable} ${sourceCodePro.variable} font-sans antialiased`}
       >
         <RootProvider>
-          <ConvexClientProvider>{children}</ConvexClientProvider>
+          <MiniAppProvider>
+            <ConvexClientProvider>
+              <AuthProvider>{children}</AuthProvider>
+            </ConvexClientProvider>
+          </MiniAppProvider>
         </RootProvider>
       </body>
     </html>
