@@ -151,6 +151,16 @@ export function useMiniApp(): MiniAppContextType {
 
 export function useAddMiniApp() {
   return React.useCallback(async () => {
-    await miniappSdk.actions.addMiniApp();
+    try {
+      const result = await miniappSdk.actions.addMiniApp();
+      if (result.notificationDetails) {
+        // handled in webhook
+        console.log("Mini App added with notifications:", { result });
+      } else {
+        console.warn("Mini App added without notifications");
+      }
+    } catch (error) {
+      console.error("Error adding mini app:", error);
+    }
   }, []);
 }
