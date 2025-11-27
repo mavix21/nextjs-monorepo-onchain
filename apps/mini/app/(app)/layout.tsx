@@ -3,7 +3,7 @@ import { Inter, Sora } from "next/font/google";
 
 import { minikitConfig } from "@/minikit.config";
 
-import { RootProvider } from "./rootProvider";
+import { OnchainKitClientProvider } from "./_providers/onchainkit.provider";
 
 import "@myapp/ui/globals.css";
 
@@ -51,13 +51,13 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${sourceCodePro.variable} font-sans antialiased`}
       >
-        <RootProvider>
+        <OnchainKitClientProvider>
           <MiniAppProvider>
             <ConvexClientProvider>
               <AuthProvider>{children}</AuthProvider>
             </ConvexClientProvider>
           </MiniAppProvider>
-        </RootProvider>
+        </OnchainKitClientProvider>
       </body>
     </html>
   );

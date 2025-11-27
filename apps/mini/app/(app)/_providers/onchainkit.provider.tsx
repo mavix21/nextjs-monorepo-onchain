@@ -8,7 +8,11 @@ import "@coinbase/onchainkit/styles.css";
 
 import { env } from "@/env";
 
-export function RootProvider({ children }: { children: ReactNode }) {
+export function OnchainKitClientProvider({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
     <OnchainKitProvider
       apiKey={env.NEXT_PUBLIC_ONCHAINKIT_API_KEY}
