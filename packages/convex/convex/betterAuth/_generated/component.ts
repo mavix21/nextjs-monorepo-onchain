@@ -88,14 +88,6 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
               }
             | {
                 data: {
-                  createdAt: number;
-                  privateKey: string;
-                  publicKey: string;
-                };
-                model: "jwks";
-              }
-            | {
-                data: {
                   avatarUrl?: null | string;
                   createdAt: number;
                   displayName?: null | string;
@@ -106,6 +98,24 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
                   username?: null | string;
                 };
                 model: "farcaster";
+              }
+            | {
+                data: {
+                  address: string;
+                  chainId: number;
+                  createdAt: number;
+                  isPrimary?: null | boolean;
+                  userId: string;
+                };
+                model: "walletAddress";
+              }
+            | {
+                data: {
+                  createdAt: number;
+                  privateKey: string;
+                  publicKey: string;
+                };
+                model: "jwks";
               };
           onCreateHandle?: string;
           select?: Array<string>;
@@ -129,10 +139,10 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
                     | "image"
                     | "createdAt"
                     | "updatedAt"
-                    | "userId"
                     | "farcasterFid"
                     | "farcasterUsername"
                     | "farcasterDisplayName"
+                    | "userId"
                     | "_id";
                   operator?:
                     | "lt"
@@ -264,10 +274,19 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
                 }>;
               }
             | {
-                model: "jwks";
+                model: "farcaster";
                 where?: Array<{
                   connector?: "AND" | "OR";
-                  field: "publicKey" | "privateKey" | "createdAt" | "_id";
+                  field:
+                    | "userId"
+                    | "fid"
+                    | "username"
+                    | "displayName"
+                    | "avatarUrl"
+                    | "notificationDetails"
+                    | "createdAt"
+                    | "updatedAt"
+                    | "_id";
                   operator?:
                     | "lt"
                     | "lte"
@@ -290,19 +309,42 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
                 }>;
               }
             | {
-                model: "farcaster";
+                model: "walletAddress";
                 where?: Array<{
                   connector?: "AND" | "OR";
                   field:
                     | "userId"
-                    | "fid"
-                    | "username"
-                    | "displayName"
-                    | "avatarUrl"
-                    | "notificationDetails"
+                    | "address"
+                    | "chainId"
+                    | "isPrimary"
                     | "createdAt"
-                    | "updatedAt"
                     | "_id";
+                  operator?:
+                    | "lt"
+                    | "lte"
+                    | "gt"
+                    | "gte"
+                    | "eq"
+                    | "in"
+                    | "not_in"
+                    | "ne"
+                    | "contains"
+                    | "starts_with"
+                    | "ends_with";
+                  value:
+                    | string
+                    | number
+                    | boolean
+                    | Array<string>
+                    | Array<number>
+                    | null;
+                }>;
+              }
+            | {
+                model: "jwks";
+                where?: Array<{
+                  connector?: "AND" | "OR";
+                  field: "publicKey" | "privateKey" | "createdAt" | "_id";
                   operator?:
                     | "lt"
                     | "lte"
@@ -353,10 +395,10 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
                     | "image"
                     | "createdAt"
                     | "updatedAt"
-                    | "userId"
                     | "farcasterFid"
                     | "farcasterUsername"
                     | "farcasterDisplayName"
+                    | "userId"
                     | "_id";
                   operator?:
                     | "lt"
@@ -488,10 +530,19 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
                 }>;
               }
             | {
-                model: "jwks";
+                model: "farcaster";
                 where?: Array<{
                   connector?: "AND" | "OR";
-                  field: "publicKey" | "privateKey" | "createdAt" | "_id";
+                  field:
+                    | "userId"
+                    | "fid"
+                    | "username"
+                    | "displayName"
+                    | "avatarUrl"
+                    | "notificationDetails"
+                    | "createdAt"
+                    | "updatedAt"
+                    | "_id";
                   operator?:
                     | "lt"
                     | "lte"
@@ -514,19 +565,42 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
                 }>;
               }
             | {
-                model: "farcaster";
+                model: "walletAddress";
                 where?: Array<{
                   connector?: "AND" | "OR";
                   field:
                     | "userId"
-                    | "fid"
-                    | "username"
-                    | "displayName"
-                    | "avatarUrl"
-                    | "notificationDetails"
+                    | "address"
+                    | "chainId"
+                    | "isPrimary"
                     | "createdAt"
-                    | "updatedAt"
                     | "_id";
+                  operator?:
+                    | "lt"
+                    | "lte"
+                    | "gt"
+                    | "gte"
+                    | "eq"
+                    | "in"
+                    | "not_in"
+                    | "ne"
+                    | "contains"
+                    | "starts_with"
+                    | "ends_with";
+                  value:
+                    | string
+                    | number
+                    | boolean
+                    | Array<string>
+                    | Array<number>
+                    | null;
+                }>;
+              }
+            | {
+                model: "jwks";
+                where?: Array<{
+                  connector?: "AND" | "OR";
+                  field: "publicKey" | "privateKey" | "createdAt" | "_id";
                   operator?:
                     | "lt"
                     | "lte"
@@ -563,8 +637,9 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
             | "session"
             | "account"
             | "verification"
-            | "jwks"
-            | "farcaster";
+            | "farcaster"
+            | "walletAddress"
+            | "jwks";
           offset?: number;
           paginationOpts: {
             cursor: string | null;
@@ -611,8 +686,9 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
             | "session"
             | "account"
             | "verification"
-            | "jwks"
-            | "farcaster";
+            | "farcaster"
+            | "walletAddress"
+            | "jwks";
           select?: Array<string>;
           where?: Array<{
             connector?: "AND" | "OR";
@@ -669,10 +745,10 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
                     | "image"
                     | "createdAt"
                     | "updatedAt"
-                    | "userId"
                     | "farcasterFid"
                     | "farcasterUsername"
                     | "farcasterDisplayName"
+                    | "userId"
                     | "_id";
                   operator?:
                     | "lt"
@@ -837,37 +913,6 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
                 }>;
               }
             | {
-                model: "jwks";
-                update: {
-                  createdAt?: number;
-                  privateKey?: string;
-                  publicKey?: string;
-                };
-                where?: Array<{
-                  connector?: "AND" | "OR";
-                  field: "publicKey" | "privateKey" | "createdAt" | "_id";
-                  operator?:
-                    | "lt"
-                    | "lte"
-                    | "gt"
-                    | "gte"
-                    | "eq"
-                    | "in"
-                    | "not_in"
-                    | "ne"
-                    | "contains"
-                    | "starts_with"
-                    | "ends_with";
-                  value:
-                    | string
-                    | number
-                    | boolean
-                    | Array<string>
-                    | Array<number>
-                    | null;
-                }>;
-              }
-            | {
                 model: "farcaster";
                 update: {
                   avatarUrl?: null | string;
@@ -891,6 +936,76 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
                     | "createdAt"
                     | "updatedAt"
                     | "_id";
+                  operator?:
+                    | "lt"
+                    | "lte"
+                    | "gt"
+                    | "gte"
+                    | "eq"
+                    | "in"
+                    | "not_in"
+                    | "ne"
+                    | "contains"
+                    | "starts_with"
+                    | "ends_with";
+                  value:
+                    | string
+                    | number
+                    | boolean
+                    | Array<string>
+                    | Array<number>
+                    | null;
+                }>;
+              }
+            | {
+                model: "walletAddress";
+                update: {
+                  address?: string;
+                  chainId?: number;
+                  createdAt?: number;
+                  isPrimary?: null | boolean;
+                  userId?: string;
+                };
+                where?: Array<{
+                  connector?: "AND" | "OR";
+                  field:
+                    | "userId"
+                    | "address"
+                    | "chainId"
+                    | "isPrimary"
+                    | "createdAt"
+                    | "_id";
+                  operator?:
+                    | "lt"
+                    | "lte"
+                    | "gt"
+                    | "gte"
+                    | "eq"
+                    | "in"
+                    | "not_in"
+                    | "ne"
+                    | "contains"
+                    | "starts_with"
+                    | "ends_with";
+                  value:
+                    | string
+                    | number
+                    | boolean
+                    | Array<string>
+                    | Array<number>
+                    | null;
+                }>;
+              }
+            | {
+                model: "jwks";
+                update: {
+                  createdAt?: number;
+                  privateKey?: string;
+                  publicKey?: string;
+                };
+                where?: Array<{
+                  connector?: "AND" | "OR";
+                  field: "publicKey" | "privateKey" | "createdAt" | "_id";
                   operator?:
                     | "lt"
                     | "lte"
@@ -953,10 +1068,10 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
                     | "image"
                     | "createdAt"
                     | "updatedAt"
-                    | "userId"
                     | "farcasterFid"
                     | "farcasterUsername"
                     | "farcasterDisplayName"
+                    | "userId"
                     | "_id";
                   operator?:
                     | "lt"
@@ -1121,37 +1236,6 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
                 }>;
               }
             | {
-                model: "jwks";
-                update: {
-                  createdAt?: number;
-                  privateKey?: string;
-                  publicKey?: string;
-                };
-                where?: Array<{
-                  connector?: "AND" | "OR";
-                  field: "publicKey" | "privateKey" | "createdAt" | "_id";
-                  operator?:
-                    | "lt"
-                    | "lte"
-                    | "gt"
-                    | "gte"
-                    | "eq"
-                    | "in"
-                    | "not_in"
-                    | "ne"
-                    | "contains"
-                    | "starts_with"
-                    | "ends_with";
-                  value:
-                    | string
-                    | number
-                    | boolean
-                    | Array<string>
-                    | Array<number>
-                    | null;
-                }>;
-              }
-            | {
                 model: "farcaster";
                 update: {
                   avatarUrl?: null | string;
@@ -1175,6 +1259,76 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
                     | "createdAt"
                     | "updatedAt"
                     | "_id";
+                  operator?:
+                    | "lt"
+                    | "lte"
+                    | "gt"
+                    | "gte"
+                    | "eq"
+                    | "in"
+                    | "not_in"
+                    | "ne"
+                    | "contains"
+                    | "starts_with"
+                    | "ends_with";
+                  value:
+                    | string
+                    | number
+                    | boolean
+                    | Array<string>
+                    | Array<number>
+                    | null;
+                }>;
+              }
+            | {
+                model: "walletAddress";
+                update: {
+                  address?: string;
+                  chainId?: number;
+                  createdAt?: number;
+                  isPrimary?: null | boolean;
+                  userId?: string;
+                };
+                where?: Array<{
+                  connector?: "AND" | "OR";
+                  field:
+                    | "userId"
+                    | "address"
+                    | "chainId"
+                    | "isPrimary"
+                    | "createdAt"
+                    | "_id";
+                  operator?:
+                    | "lt"
+                    | "lte"
+                    | "gt"
+                    | "gte"
+                    | "eq"
+                    | "in"
+                    | "not_in"
+                    | "ne"
+                    | "contains"
+                    | "starts_with"
+                    | "ends_with";
+                  value:
+                    | string
+                    | number
+                    | boolean
+                    | Array<string>
+                    | Array<number>
+                    | null;
+                }>;
+              }
+            | {
+                model: "jwks";
+                update: {
+                  createdAt?: number;
+                  privateKey?: string;
+                  publicKey?: string;
+                };
+                where?: Array<{
+                  connector?: "AND" | "OR";
+                  field: "publicKey" | "privateKey" | "createdAt" | "_id";
                   operator?:
                     | "lt"
                     | "lte"
