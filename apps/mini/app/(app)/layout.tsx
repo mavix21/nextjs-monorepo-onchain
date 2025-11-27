@@ -7,6 +7,8 @@ import { OnchainKitClientProvider } from "./_providers/onchainkit.provider";
 
 import "@myapp/ui/globals.css";
 
+import { preconnect } from "react-dom";
+
 import { AuthProvider } from "@/app/_contexts/auth-context";
 import { MiniAppProvider } from "@/app/_contexts/miniapp-context";
 import { ConvexClientProvider } from "@/app/_providers/convex-cllient.provider";
@@ -46,6 +48,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  preconnect("https://auth.farcaster.xyz");
+
   return (
     <html lang="en">
       <body
