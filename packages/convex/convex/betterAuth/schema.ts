@@ -13,10 +13,10 @@ export const tables = {
     image: v.optional(v.union(v.null(), v.string())),
     createdAt: v.number(),
     updatedAt: v.number(),
-    userId: v.optional(v.union(v.null(), v.string())),
     farcasterFid: v.optional(v.union(v.null(), v.number())),
     farcasterUsername: v.optional(v.union(v.null(), v.string())),
     farcasterDisplayName: v.optional(v.union(v.null(), v.string())),
+    userId: v.optional(v.union(v.null(), v.string())),
   })
     .index("email_name", ["email", "name"])
     .index("name", ["name"])
@@ -66,11 +66,6 @@ export const tables = {
   })
     .index("expiresAt", ["expiresAt"])
     .index("identifier", ["identifier"]),
-  jwks: defineTable({
-    publicKey: v.string(),
-    privateKey: v.string(),
-    createdAt: v.number(),
-  }),
   farcaster: defineTable({
     userId: v.string(),
     fid: v.number(),
@@ -83,6 +78,18 @@ export const tables = {
   })
     .index("userId", ["userId"])
     .index("fid", ["fid"]),
+  walletAddress: defineTable({
+    userId: v.string(),
+    address: v.string(),
+    chainId: v.number(),
+    isPrimary: v.optional(v.union(v.null(), v.boolean())),
+    createdAt: v.number(),
+  }).index("userId", ["userId"]),
+  jwks: defineTable({
+    publicKey: v.string(),
+    privateKey: v.string(),
+    createdAt: v.number(),
+  }),
 };
 
 const schema = defineSchema(tables);
