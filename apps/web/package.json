@@ -24,6 +24,7 @@
     "@tabler/icons-react": "^3.35.0",
     "@tailwindcss/postcss": "catalog:",
     "@tanstack/react-query": "catalog:",
+    "better-auth": "catalog:",
     "convex": "^1.29.3",
     "next": "16.0.5",
     "next-intl": "^4.5.6",
