@@ -16,10 +16,13 @@
   },
   "dependencies": {
     "@base-org/account": "~2.4.0",
+    "@base-org/account-ui": "^1.0.1",
     "@convex-dev/better-auth": "^0.9.7",
     "@myapp/convex": "workspace:*",
     "@myapp/db": "workspace:*",
     "@myapp/ui": "workspace:*",
+    "@radix-ui/react-label": "^2.1.8",
+    "@radix-ui/react-slot": "^1.2.4",
     "@t3-oss/env-nextjs": "^0.13.8",
     "@tabler/icons-react": "^3.35.0",
     "@tailwindcss/postcss": "catalog:",
