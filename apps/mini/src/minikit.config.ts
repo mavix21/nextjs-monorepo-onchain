@@ -1,3 +1,4 @@
+import { env } from "./env";
 import { ROOT_URL } from "./lib/constants";
 
 /**
@@ -16,7 +17,7 @@ export const minikitConfig = {
   },
   frame: {
     version: "1",
-    name: "mini",
+    name: env.NEXT_PUBLIC_APPLICATION_NAME,
     subtitle: "",
     description: "",
     screenshotUrls: [],
@@ -29,7 +30,7 @@ export const minikitConfig = {
     tags: [],
     heroImageUrl: `${ROOT_URL}/hero.png`,
     tagline: "",
-    ogTitle: "",
+    ogTitle: env.NEXT_PUBLIC_APPLICATION_NAME,
     ogDescription: "",
     ogImageUrl: `${ROOT_URL}/hero.png`,
   },
