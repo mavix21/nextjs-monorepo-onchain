@@ -23,7 +23,6 @@ export function OnchainKitClientProvider({
         },
         wallet: {
           display: "modal",
-          preference: "all",
         },
       }}
       miniKit={{
