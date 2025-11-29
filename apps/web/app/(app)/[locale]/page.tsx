@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <div className="bg-background min-h-screen">
       {/* Header */}
-      <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 fixed top-0 right-0 left-0 z-50 border-b px-4 backdrop-blur">
+      <header className="bg-background/95 supports-backdrop-filter:bg-background/60 fixed top-0 right-0 left-0 z-50 border-b px-4 backdrop-blur">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <IconRocket className="size-6" />
@@ -25,7 +25,7 @@ export default function HomePage() {
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
             Next.js Monorepo Template
           </h1>
-          <p className="text-muted-foreground max-w-[42rem] sm:text-xl">
+          <p className="text-muted-foreground max-w-2xl sm:text-xl">
             A modern, scalable template for building full-stack applications
             with Next.js, featuring a monorepo structure and beautiful UI
             components.
