@@ -3,9 +3,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@/shared/*": ["./app/_shared/*"],
-      "@/pages/*": ["./app/_pages/*"]
+      "@/*": ["./src/*"],
+      "@/app/*": ["./app/(app)/*"],
+      "@/pages/*": ["./app/_pages/*"],
+      "@/shared/*": ["./app/_shared/*"]
     },
     "plugins": [
       {
