@@ -37,7 +37,7 @@
     "tailwindcss": "catalog:",
     "uuid": "^13.0.0",
     "viem": "^2.40.3",
-    "wagmi": "^3.0.2",
+    "wagmi": "^2.19.5",
     "zod": "catalog:"
   },
   "devDependencies": {

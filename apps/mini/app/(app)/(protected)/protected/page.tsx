@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useChainId, useConnection } from "wagmi";
+import { useAccount, useChainId } from "wagmi";
 
 import { Badge } from "@myapp/ui/components/badge";
 import {
@@ -43,7 +43,7 @@ function InfoRow({
 export default function ProtectedPage() {
   const { user, isAuthenticated, isLoading } = useAuth();
   const { data: session } = authClient.useSession();
-  const { address, isConnected, connector } = useConnection();
+  const { address, isConnected, connector } = useAccount();
   const chainId = useChainId();
   const { context: miniAppContext, isInMiniApp, isMiniAppReady } = useMiniApp();
 
