@@ -10,7 +10,9 @@ import {
 
 import { api } from "@myapp/convex/_generated/api";
 
+import { env } from "@/env";
 import { convexClient } from "@/lib/convex";
+import { sendFarcasterNotification } from "@/lib/farcaster/farcaster-notifications";
 
 export async function POST(request: NextRequest) {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -63,21 +65,24 @@ export async function POST(request: NextRequest) {
   }
 
   console.log("[webhook/farcaster] parsed event data", data);
+
   const { fid, event } = data;
+  const { id: convexId, isNew } = await convexClient.action(
+    api.users.getOrCreateUserFromFid,
+    {
+      fid,
+    },
+  );
 
   try {
     switch (event.event) {
       case "miniapp_added": {
-        // User added the mini app - create or get the user
-        const result = await convexClient.action(
-          api.users.getOrCreateUserFromFid,
-          { fid },
-        );
+        // User added the mini app
         console.log(
           "[webhook/farcaster] miniapp_added - user:",
-          result.id,
+          convexId,
           "isNew:",
-          result.isNew,
+          isNew,
         );
 
         // If notification details are provided, save them
@@ -85,6 +90,14 @@ export async function POST(request: NextRequest) {
           await convexClient.action(api.users.updateNotificationDetails, {
             fid,
             notificationDetails: JSON.stringify(event.notificationDetails),
+          });
+          await sendFarcasterNotification({
+            fid,
+            title: `Welcome to ${env.NEXT_PUBLIC_APPLICATION_NAME}!`,
+            body: isNew
+              ? "Thanks for adding our mini app. We're excited to have you on board!"
+              : "Welcome back!",
+            notificationDetails: event.notificationDetails,
           });
         }
         break;
@@ -99,12 +112,10 @@ export async function POST(request: NextRequest) {
 
       case "notifications_enabled": {
         // User enabled notifications
-        if (event.notificationDetails) {
-          await convexClient.action(api.users.updateNotificationDetails, {
-            fid,
-            notificationDetails: JSON.stringify(event.notificationDetails),
-          });
-        }
+        await convexClient.action(api.users.updateNotificationDetails, {
+          fid,
+          notificationDetails: JSON.stringify(event.notificationDetails),
+        });
         console.log("[webhook/farcaster] notifications_enabled - fid:", fid);
         break;
       }
