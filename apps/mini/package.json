@@ -29,6 +29,7 @@
     "better-auth": "catalog:",
     "better-auth-siwf": "^1.0.20",
     "convex": "^1.29.3",
+    "fastestsmallesttextencoderdecoder": "^1.0.22",
     "ky": "^1.14.0",
     "next": "16.0.5",
     "react": "catalog:react19",
