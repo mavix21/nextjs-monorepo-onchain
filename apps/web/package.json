@@ -15,9 +15,9 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@base-org/account": "~2.5.0",
-    "@base-org/account-ui": "^1.0.1",
-    "@coinbase/onchainkit": "1.1.2",
+    "@base-org/account": "latest",
+    "@base-org/account-ui": "latest",
+    "@coinbase/onchainkit": "latest",
     "@convex-dev/better-auth": "^0.9.7",
     "@myapp/better-auth-siwe-wallet-agnostic": "workspace:*",
     "@myapp/convex": "workspace:*",
@@ -31,6 +31,7 @@
     "@tanstack/react-query": "catalog:",
     "better-auth": "catalog:",
     "convex": "^1.29.3",
+    "fastestsmallesttextencoderdecoder": "^1.0.22",
     "lucide-react": "^0.555.0",
     "next": "16.0.5",
     "next-intl": "^4.5.6",
@@ -54,6 +55,9 @@
     "eslint": "catalog:",
     "jiti": "^2.6.1",
     "typescript": "catalog:"
+  },
+  "overrides": {
+    "@base-org/account": "2.2.0"
   },
   "prettier": "@myapp/prettier-config"
 }

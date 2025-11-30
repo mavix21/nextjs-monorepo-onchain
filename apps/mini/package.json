@@ -15,7 +15,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@coinbase/onchainkit": "1.1.2",
+    "@coinbase/onchainkit": "latest",
     "@convex-dev/better-auth": "^0.9.7",
     "@farcaster/miniapp-core": "^0.4.1",
     "@farcaster/miniapp-node": "^0.1.11",
