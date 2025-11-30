@@ -85,6 +85,11 @@ export const tables = {
     isPrimary: v.optional(v.union(v.null(), v.boolean())),
     createdAt: v.number(),
   }).index("userId", ["userId"]),
+  nonce: defineTable({
+    value: v.string(),
+    expiresAt: v.number(),
+    createdAt: v.number(),
+  }).index("value", ["value"]),
   jwks: defineTable({
     publicKey: v.string(),
     privateKey: v.string(),
