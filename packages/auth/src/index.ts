@@ -5,8 +5,10 @@ import { siwf } from "better-auth-siwf";
 import { generateRandomString } from "better-auth/crypto";
 import { nextCookies } from "better-auth/next-js";
 import { siwe } from "better-auth/plugins";
-import { createPublicClient, http, verifyMessage } from "viem";
+import { createPublicClient, getAddress, http } from "viem";
 import { mainnet } from "viem/chains";
+
+import siweWalletAgnostic from "@myapp/better-auth-siwe-wallet-agnostic";
 
 interface InitAuthOptions<
   TExtraPlugins extends BetterAuthPlugin[],
@@ -20,6 +22,18 @@ interface InitAuthOptions<
   trustedOrigins?: string[];
   ensLookup?: boolean;
 }
+
+const chains: Record<number, string> = {
+  // Base mainnet
+  8453: process.env.BASE_RPC_URL ?? "https://mainnet.base.org",
+  // Base Sepolia (testnet)
+  84532: process.env.BASE_SEPOLIA_RPC_URL ?? "https://sepolia.base.org",
+};
+
+const getPublicClient = (rpcUrl: string | undefined) =>
+  createPublicClient({
+    transport: http(rpcUrl),
+  });
 
 function getHostname(url?: string): string {
   if (!url) return "localhost";
@@ -41,7 +55,6 @@ async function lookupEns(address: Address) {
   }
 }
 
-// eslint-disable-next-line no-restricted-properties
 const hostname = getHostname(process.env.SITE_URL);
 
 export function initAuth<
@@ -56,11 +69,15 @@ export function initAuth<
       siwf({ hostname, allowUserToLink: false }),
       siwe({
         domain: hostname,
-        getNonce: () => Promise.resolve(generateRandomString(32)),
-        verifyMessage: async ({ message, signature, address }) => {
+        getNonce: async () => {
+          return Promise.resolve(generateRandomString(32, "a-z", "A-Z", "0-9"));
+        },
+        verifyMessage: async ({ message, signature, address, chainId }) => {
           try {
-            return await verifyMessage({
-              address: address as Address,
+            const rpcUrl = chains[chainId];
+            // Compatible with Smart Contract Accounts & EOA's via ERC-6492
+            return await getPublicClient(rpcUrl).verifyMessage({
+              address: getAddress(address),
               message,
               signature: signature as Hex,
             });
@@ -72,6 +89,11 @@ export function initAuth<
         ensLookup: options.ensLookup
           ? ({ walletAddress }) => lookupEns(walletAddress as Address)
           : undefined,
+      }),
+      siweWalletAgnostic({
+        domain: hostname,
+        uri: options.baseUrl,
+        chains,
       }),
       nextCookies(),
       ...(options.extraPlugins ?? []),
