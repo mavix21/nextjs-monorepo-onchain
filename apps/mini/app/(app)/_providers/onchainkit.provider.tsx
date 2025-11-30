@@ -16,6 +16,7 @@ export function OnchainKitClientProvider({
   return (
     <OnchainKitProvider
       apiKey={env.NEXT_PUBLIC_ONCHAINKIT_API_KEY}
+      projectId={env.NEXT_PUBLIC_ONCHAINKIT_PROJECT_ID}
       chain={base}
       config={{
         appearance: {
