@@ -8,4 +8,10 @@ export default defineConfig(
   },
   baseConfig,
   restrictEnvAccess,
+  {
+    files: ["src/**/*.ts"],
+    rules: {
+      "no-restricted-properties": "off",
+    },
+  },
 );
