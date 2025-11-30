@@ -17,6 +17,7 @@
   "dependencies": {
     "@base-org/account": "~2.5.0",
     "@base-org/account-ui": "^1.0.1",
+    "@coinbase/onchainkit": "1.1.2",
     "@convex-dev/better-auth": "^0.9.7",
     "@myapp/convex": "workspace:*",
     "@myapp/db": "workspace:*",
