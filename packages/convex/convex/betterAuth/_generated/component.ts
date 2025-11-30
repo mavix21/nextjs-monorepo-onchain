@@ -110,6 +110,10 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
                 model: "walletAddress";
               }
             | {
+                data: { createdAt: number; expiresAt: number; value: string };
+                model: "nonce";
+              }
+            | {
                 data: {
                   createdAt: number;
                   privateKey: string;
@@ -319,6 +323,32 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
                     | "isPrimary"
                     | "createdAt"
                     | "_id";
+                  operator?:
+                    | "lt"
+                    | "lte"
+                    | "gt"
+                    | "gte"
+                    | "eq"
+                    | "in"
+                    | "not_in"
+                    | "ne"
+                    | "contains"
+                    | "starts_with"
+                    | "ends_with";
+                  value:
+                    | string
+                    | number
+                    | boolean
+                    | Array<string>
+                    | Array<number>
+                    | null;
+                }>;
+              }
+            | {
+                model: "nonce";
+                where?: Array<{
+                  connector?: "AND" | "OR";
+                  field: "value" | "expiresAt" | "createdAt" | "_id";
                   operator?:
                     | "lt"
                     | "lte"
@@ -597,6 +627,32 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
                 }>;
               }
             | {
+                model: "nonce";
+                where?: Array<{
+                  connector?: "AND" | "OR";
+                  field: "value" | "expiresAt" | "createdAt" | "_id";
+                  operator?:
+                    | "lt"
+                    | "lte"
+                    | "gt"
+                    | "gte"
+                    | "eq"
+                    | "in"
+                    | "not_in"
+                    | "ne"
+                    | "contains"
+                    | "starts_with"
+                    | "ends_with";
+                  value:
+                    | string
+                    | number
+                    | boolean
+                    | Array<string>
+                    | Array<number>
+                    | null;
+                }>;
+              }
+            | {
                 model: "jwks";
                 where?: Array<{
                   connector?: "AND" | "OR";
@@ -639,6 +695,7 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
             | "verification"
             | "farcaster"
             | "walletAddress"
+            | "nonce"
             | "jwks";
           offset?: number;
           paginationOpts: {
@@ -688,6 +745,7 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
             | "verification"
             | "farcaster"
             | "walletAddress"
+            | "nonce"
             | "jwks";
           select?: Array<string>;
           where?: Array<{
@@ -975,6 +1033,37 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
                     | "isPrimary"
                     | "createdAt"
                     | "_id";
+                  operator?:
+                    | "lt"
+                    | "lte"
+                    | "gt"
+                    | "gte"
+                    | "eq"
+                    | "in"
+                    | "not_in"
+                    | "ne"
+                    | "contains"
+                    | "starts_with"
+                    | "ends_with";
+                  value:
+                    | string
+                    | number
+                    | boolean
+                    | Array<string>
+                    | Array<number>
+                    | null;
+                }>;
+              }
+            | {
+                model: "nonce";
+                update: {
+                  createdAt?: number;
+                  expiresAt?: number;
+                  value?: string;
+                };
+                where?: Array<{
+                  connector?: "AND" | "OR";
+                  field: "value" | "expiresAt" | "createdAt" | "_id";
                   operator?:
                     | "lt"
                     | "lte"
@@ -1298,6 +1387,37 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
                     | "isPrimary"
                     | "createdAt"
                     | "_id";
+                  operator?:
+                    | "lt"
+                    | "lte"
+                    | "gt"
+                    | "gte"
+                    | "eq"
+                    | "in"
+                    | "not_in"
+                    | "ne"
+                    | "contains"
+                    | "starts_with"
+                    | "ends_with";
+                  value:
+                    | string
+                    | number
+                    | boolean
+                    | Array<string>
+                    | Array<number>
+                    | null;
+                }>;
+              }
+            | {
+                model: "nonce";
+                update: {
+                  createdAt?: number;
+                  expiresAt?: number;
+                  value?: string;
+                };
+                where?: Array<{
+                  connector?: "AND" | "OR";
+                  field: "value" | "expiresAt" | "createdAt" | "_id";
                   operator?:
                     | "lt"
                     | "lte"
