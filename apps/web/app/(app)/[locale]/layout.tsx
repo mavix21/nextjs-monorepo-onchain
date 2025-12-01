@@ -47,9 +47,11 @@ export default async function RootLayout({
           disableTransitionOnChange
           enableColorScheme
         >
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider>
+            {children}
+            <Toaster />
+          </NextIntlClientProvider>
         </ThemeProvider>
-        <Toaster />
       </body>
     </html>
   );
