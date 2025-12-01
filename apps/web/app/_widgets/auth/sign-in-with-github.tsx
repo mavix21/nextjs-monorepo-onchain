@@ -22,6 +22,7 @@ export function SignInWithGitHub({ className }: SignInWithGitHubProps) {
     try {
       const { error } = await authClient.signIn.social({
         provider: "github",
+        callbackURL: "/dashboard",
       });
 
       if (error) {
