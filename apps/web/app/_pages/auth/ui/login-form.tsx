@@ -9,7 +9,7 @@ import { cn } from "@myapp/ui/lib/utils";
 
 import { SignInWithGitHub } from "@/widgets/auth/sign-in-with-github";
 
-export function SignupForm({
+export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {

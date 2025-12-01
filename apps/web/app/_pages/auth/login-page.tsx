@@ -1,14 +1,14 @@
 import { Card, CardContent } from "@myapp/ui/components/card";
 
-import { SignupForm } from "./ui/signup-form";
+import { LoginForm } from "./ui/login-form";
 
-export function SignupPage() {
+export function LoginPage() {
   return (
     <div className="bg-background flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
       <div className="w-full max-w-sm">
         <Card>
           <CardContent>
-            <SignupForm />
+            <LoginForm />
           </CardContent>
         </Card>
       </div>
