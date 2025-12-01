@@ -7,6 +7,7 @@ import {
 } from "@myapp/ui/components/field";
 import { cn } from "@myapp/ui/lib/utils";
 
+import { OAuthErrorHandler } from "@/widgets/auth/oauth-error-handler";
 import { SignInWithGitHub } from "@/widgets/auth/sign-in-with-github";
 
 export function LoginForm({
@@ -15,6 +16,7 @@ export function LoginForm({
 }: React.ComponentProps<"div">) {
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
+      <OAuthErrorHandler />
       <FieldGroup>
         <div className="flex flex-col items-center gap-2 text-center">
           <a href="#" className="flex flex-col items-center gap-2 font-medium">
