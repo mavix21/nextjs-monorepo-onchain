@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import { useSearchParams } from "next/navigation";
+import { useLocale } from "next-intl";
 import { toast } from "sonner";
 
 import {
@@ -16,13 +18,23 @@ interface SignInWithGitHubProps {
 
 export function SignInWithGitHub({ className }: SignInWithGitHubProps) {
   const [isLoading, setIsLoading] = React.useState(false);
+  const searchParams = useSearchParams();
+  const locale = useLocale();
+
+  // Get the callback URL from query params (set by proxy when redirecting to login)
+  // Fall back to localized dashboard with success indicator
+  const callbackUrl = React.useMemo(
+    () => searchParams.get("callbackUrl") ?? `/${locale}/dashboard`,
+    [searchParams, locale],
+  );
 
   const handleSignInWithGitHub = React.useCallback(async () => {
     setIsLoading(true);
     try {
       const { error } = await authClient.signIn.social({
         provider: "github",
-        callbackURL: "/dashboard",
+        callbackURL: callbackUrl,
+        errorCallbackURL: `/${locale}/login`,
       });
 
       if (error) {
@@ -33,7 +45,7 @@ export function SignInWithGitHub({ className }: SignInWithGitHubProps) {
     } finally {
       setIsLoading(false);
     }
-  }, []);
+  }, [callbackUrl, locale]);
 
   return (
     <LoadingButton
