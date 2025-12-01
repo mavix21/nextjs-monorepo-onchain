@@ -6,7 +6,9 @@ import {
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <ConvexClientProvider>
-      <OnchainKitClientProvider>{children}</OnchainKitClientProvider>
+      <OnchainKitClientProvider cookie={null}>
+        {children}
+      </OnchainKitClientProvider>
     </ConvexClientProvider>
   );
 }
