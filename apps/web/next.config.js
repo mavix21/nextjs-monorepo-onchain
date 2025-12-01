@@ -21,6 +21,16 @@ const config = {
     // For browser bundles, these modules are automatically excluded
     resolveAlias: {},
   },
+  // Allow remote images from any https host
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+        pathname: "/**",
+      },
+    ],
+  },
 
   webpack: (config) => {
     config.resolve.fallback = { fs: false, net: false, tls: false };
