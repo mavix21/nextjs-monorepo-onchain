@@ -46,7 +46,7 @@ function OAuthErrorHandlerInner() {
         setTimeout(() => {
           toast.error("Sign in failed", {
             description: message,
-            duration: 5000,
+            duration: 15000,
           });
         }, 50);
       });
