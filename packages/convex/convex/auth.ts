@@ -6,12 +6,12 @@ import { initAuth } from "@myapp/auth";
 import { components } from "./_generated/api";
 import { DataModel } from "./_generated/dataModel";
 import { query } from "./_generated/server";
-import authSchema from "./betterAuth/schema";
+import authSchema from "./betterAuth/generatedSchema";
 
 const siteUrl = process.env.SITE_URL ?? "http://localhost:3000";
 
 export const authComponent = createClient<DataModel, typeof authSchema>(
-  components.betterAuth,
+  components.betterAuth as any,
   {
     local: {
       schema: authSchema,
