@@ -65,6 +65,14 @@ export function initAuth<
     baseURL: options.baseUrl,
     database: options.database,
     secret: options.secret,
+    socialProviders: {
+      github: {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        clientId: process.env.AUTH_GITHUB_ID!,
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        clientSecret: process.env.AUTH_GITHUB_SECRET!,
+      },
+    },
     plugins: [
       siwf({ hostname, allowUserToLink: false }),
       siwe({
