@@ -23,6 +23,7 @@
     "@myapp/auth": "workspace:*",
     "@myapp/convex": "workspace:*",
     "@myapp/ui": "workspace:*",
+    "@silk-hq/components": "^0.10.0",
     "@t3-oss/env-nextjs": "^0.13.8",
     "@tailwindcss/postcss": "catalog:",
     "@tanstack/react-query": "catalog:",
