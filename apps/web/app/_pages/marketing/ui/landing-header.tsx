@@ -20,6 +20,7 @@ const menuItems = [
 
 export function LandingHeader() {
   const t = useTranslations("landing");
+  const tCommon = useTranslations("common");
 
   const [menuState, setMenuState] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -54,13 +55,17 @@ export function LandingHeader() {
               >
                 {/* <Logo /> */}
                 <div className="col-span-1 col-start-1 row-start-1 hidden items-center justify-center gap-2 lg:flex">
-                  <span className="font-semibold">Logo</span>
+                  <span className="font-semibold">{tCommon("logo")}</span>
                 </div>
               </Link>
 
               <button
                 onClick={() => setMenuState(!menuState)}
-                aria-label={menuState == true ? "Close Menu" : "Open Menu"}
+                aria-label={
+                  menuState == true
+                    ? tCommon("close_menu")
+                    : tCommon("open_menu")
+                }
                 className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden"
               >
                 <Menu className="m-auto size-6 duration-200 in-data-[state=active]:scale-0 in-data-[state=active]:rotate-180 in-data-[state=active]:opacity-0" />

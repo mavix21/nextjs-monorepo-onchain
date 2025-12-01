@@ -11,6 +11,7 @@ import {
   WalletDropdownDisconnect,
 } from "@coinbase/onchainkit/wallet";
 import { useConvexAuth } from "convex/react";
+import { useTranslations } from "next-intl";
 import { useAccount, useChainId } from "wagmi";
 
 import { Badge } from "@myapp/ui/components/badge";
@@ -56,6 +57,8 @@ export default function ProtectedPage() {
   const { address, isConnected, isConnecting, connector } = useAccount();
   const chainId = useChainId();
   const [isSigningOut, setIsSigningOut] = useState(false);
+  const t = useTranslations("dashboard");
+  const tCommon = useTranslations("common");
 
   const router = useRouter();
 
@@ -65,7 +68,9 @@ export default function ProtectedPage() {
   if (loading) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
-        <div className="text-muted-foreground animate-pulse">Loading...</div>
+        <div className="text-muted-foreground animate-pulse">
+          {tCommon("loading")}
+        </div>
       </div>
     );
   }
@@ -73,23 +78,23 @@ export default function ProtectedPage() {
   return (
     <div className="container mx-auto max-w-2xl space-y-6 p-4">
       <div className="space-y-2">
-        <h1 className="font-accent text-2xl font-bold">Auth Playground</h1>
-        <p className="text-muted-foreground">
-          This page displays your authentication details and session data.
-        </p>
-        <Link href="/test">to test page</Link>
+        <h1 className="font-accent text-2xl font-bold">{t("title")}</h1>
+        <p className="text-muted-foreground">{t("description")}</p>
+        <Link href="/test">{t("to_test_page")}</Link>
       </div>
 
       {/* Auth Status */}
       <Card>
         <CardHeader>
           <CardTitle className="font-accent flex items-center gap-2">
-            Authentication Status
+            {t("auth_status.title")}
             <Badge variant={isAuthenticated ? "default" : "secondary"}>
-              {isAuthenticated ? "Authenticated" : "Not Authenticated"}
+              {isAuthenticated
+                ? t("auth_status.authenticated")
+                : t("auth_status.not_authenticated")}
             </Badge>
           </CardTitle>
-          <CardDescription>Your current authentication state</CardDescription>
+          <CardDescription>{t("auth_status.description")}</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex items-center justify-end">
@@ -110,7 +115,9 @@ export default function ProtectedPage() {
               }}
               disabled={!isAuthenticated || isSigningOut}
             >
-              {isSigningOut ? "Signing out..." : "Sign out"}
+              {isSigningOut
+                ? t("auth_status.signing_out")
+                : t("auth_status.sign_out")}
             </Button>
           </div>
         </CardContent>
@@ -120,30 +127,38 @@ export default function ProtectedPage() {
       {user && (
         <Card>
           <CardHeader>
-            <CardTitle className="font-accent">User Profile</CardTitle>
-            <CardDescription>
-              Information from your authenticated session
-            </CardDescription>
+            <CardTitle className="font-accent">
+              {t("user_profile.title")}
+            </CardTitle>
+            <CardDescription>{t("user_profile.description")}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid gap-4 sm:grid-cols-2">
-              <InfoRow label="User ID" value={user.id} isAccent />
-              <InfoRow label="Name" value={user.name} />
-              <InfoRow label="Email" value={user.email} />
               <InfoRow
-                label="Email Verified"
-                value={user.emailVerified ? "Yes" : "No"}
+                label={t("user_profile.user_id")}
+                value={user.id}
+                isAccent
+              />
+              <InfoRow label={t("user_profile.name")} value={user.name} />
+              <InfoRow label={t("user_profile.email")} value={user.email} />
+              <InfoRow
+                label={t("user_profile.email_verified")}
+                value={
+                  user.emailVerified
+                    ? t("user_profile.yes")
+                    : t("user_profile.no")
+                }
               />
             </div>
             {user.image && (
               <>
                 <Separator />
                 <InfoRow
-                  label="Avatar"
+                  label={t("user_profile.avatar")}
                   value={
                     <Image
                       src={user.image}
-                      alt="User avatar"
+                      alt={t("user_profile.avatar")}
                       width={64}
                       height={64}
                       className="h-16 w-16 rounded-full object-cover"
@@ -160,30 +175,38 @@ export default function ProtectedPage() {
       {session?.session && (
         <Card>
           <CardHeader>
-            <CardTitle>Session Details</CardTitle>
+            <CardTitle>{t("session_details.title")}</CardTitle>
             <CardDescription>
-              Technical details about your current session
+              {t("session_details.description")}
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid gap-4 sm:grid-cols-2">
-              <InfoRow label="Session ID" value={session.session.id} isAccent />
               <InfoRow
-                label="User ID"
+                label={t("session_details.session_id")}
+                value={session.session.id}
+                isAccent
+              />
+              <InfoRow
+                label={t("session_details.user_id")}
                 value={session.session.userId}
                 isAccent
               />
-              <InfoRow label="Token" value={session.session.token} isAccent />
               <InfoRow
-                label="Created At"
+                label={t("session_details.token")}
+                value={session.session.token}
+                isAccent
+              />
+              <InfoRow
+                label={t("session_details.created_at")}
                 value={new Date(session.session.createdAt).toLocaleString()}
               />
               <InfoRow
-                label="Updated At"
+                label={t("session_details.updated_at")}
                 value={new Date(session.session.updatedAt).toLocaleString()}
               />
               <InfoRow
-                label="Expires At"
+                label={t("session_details.expires_at")}
                 value={new Date(session.session.expiresAt).toLocaleString()}
               />
             </div>
@@ -192,12 +215,12 @@ export default function ProtectedPage() {
                 <Separator />
                 <div className="grid gap-4">
                   <InfoRow
-                    label="IP Address"
+                    label={t("session_details.ip_address")}
                     value={session.session.ipAddress}
                     isAccent
                   />
                   <InfoRow
-                    label="User Agent"
+                    label={t("session_details.user_agent")}
                     value={session.session.userAgent}
                   />
                 </div>
@@ -211,18 +234,18 @@ export default function ProtectedPage() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            Wallet Connection
+            {t("wallet.title")}
             <Badge variant={isConnected ? "default" : "secondary"}>
-              {isConnected ? "Connected" : "Disconnected"}
+              {isConnected ? t("wallet.connected") : t("wallet.disconnected")}
             </Badge>
           </CardTitle>
-          <CardDescription>Your connected wallet details</CardDescription>
+          <CardDescription>{t("wallet.description")}</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid gap-4 sm:grid-cols-2">
-            <InfoRow label="Address" value={address} isAccent />
-            <InfoRow label="Chain ID" value={chainId} />
-            <InfoRow label="Connector" value={connector?.name} />
+            <InfoRow label={t("wallet.address")} value={address} isAccent />
+            <InfoRow label={t("wallet.chain_id")} value={chainId} />
+            <InfoRow label={t("wallet.connector")} value={connector?.name} />
           </div>
           <Wallet>
             <ConnectWallet>
@@ -244,10 +267,8 @@ export default function ProtectedPage() {
       {/* Raw Session Data */}
       <Card>
         <CardHeader>
-          <CardTitle>Raw Session Data</CardTitle>
-          <CardDescription>
-            Complete session object for debugging
-          </CardDescription>
+          <CardTitle>{t("raw_data.title")}</CardTitle>
+          <CardDescription>{t("raw_data.description")}</CardDescription>
         </CardHeader>
         <CardContent>
           <pre className="bg-muted overflow-auto rounded-lg p-4 text-xs">

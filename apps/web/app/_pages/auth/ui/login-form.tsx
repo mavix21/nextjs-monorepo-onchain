@@ -1,4 +1,5 @@
 import { HouseHeartIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import {
   Field,
@@ -14,6 +15,9 @@ export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const t = useTranslations("auth");
+  const tCommon = useTranslations("common");
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <OAuthErrorHandler />
@@ -23,9 +27,9 @@ export function LoginForm({
             <div className="flex size-8 items-center justify-center rounded-md">
               <HouseHeartIcon className="size-6" />
             </div>
-            <span className="sr-only">Acme Inc.</span>
+            <span className="sr-only">{tCommon("company_name")}</span>
           </a>
-          <h1 className="text-xl font-bold">Welcome to myapp</h1>
+          <h1 className="text-xl font-bold">{t("welcome")}</h1>
         </div>
         <Field>
           {/* <SignInWithBase /> */}
@@ -54,8 +58,10 @@ export function LoginForm({
         </Field> */}
       </FieldGroup>
       <FieldDescription className="px-6 text-center">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
-        and <a href="#">Privacy Policy</a>.
+        {t.rich("terms_privacy", {
+          terms: (chunks) => <a href="#">{chunks}</a>,
+          privacy: (chunks) => <a href="#">{chunks}</a>,
+        })}
       </FieldDescription>
     </div>
   );

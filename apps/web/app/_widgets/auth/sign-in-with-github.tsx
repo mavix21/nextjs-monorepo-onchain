@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useSearchParams } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { toast } from "sonner";
 
 import {
@@ -20,6 +20,7 @@ export function SignInWithGitHub({ className }: SignInWithGitHubProps) {
   const [isLoading, setIsLoading] = React.useState(false);
   const searchParams = useSearchParams();
   const locale = useLocale();
+  const t = useTranslations("auth");
 
   // Get the callback URL from query params (set by proxy when redirecting to login)
   // Fall back to localized dashboard with success indicator
@@ -38,14 +39,14 @@ export function SignInWithGitHub({ className }: SignInWithGitHubProps) {
       });
 
       if (error) {
-        toast.error(error.message ?? "Failed to sign in with GitHub");
+        toast.error(error.message ?? t("errors.github_signin_failed"));
       }
     } catch {
-      toast.error("Something went wrong. Please try again.");
+      toast.error(t("errors.generic"));
     } finally {
       setIsLoading(false);
     }
-  }, [callbackUrl, locale]);
+  }, [callbackUrl, locale, t]);
 
   return (
     <LoadingButton
@@ -56,9 +57,9 @@ export function SignInWithGitHub({ className }: SignInWithGitHubProps) {
       onClick={handleSignInWithGitHub}
       isLoading={isLoading}
     >
-      <LoadingButtonContent loadingText="Signing in...">
+      <LoadingButtonContent loadingText={t("signing_in")}>
         <GitHubIcon />
-        Sign in with GitHub
+        {t("sign_in_with_github")}
       </LoadingButtonContent>
     </LoadingButton>
   );
