@@ -6,12 +6,14 @@ import { minikitConfig } from "@/minikit.config";
 import { OnchainKitClientProvider } from "./_providers/onchainkit.provider";
 
 import "@myapp/ui/globals.css";
+import "@silk-hq/components/layered-styles.css";
 
 import { preconnect } from "react-dom";
 
 import { AuthProvider } from "@/app/_contexts/auth-context";
 import { MiniAppProvider } from "@/app/_contexts/miniapp-context";
 import { ConvexClientProvider } from "@/app/_providers/convex-cllient.provider";
+import { BottomNav } from "@/widgets/navigation";
 
 export async function generateMetadata(): Promise<Metadata> {
   return Promise.resolve({
@@ -58,7 +60,10 @@ export default function RootLayout({
         <OnchainKitClientProvider>
           <MiniAppProvider>
             <ConvexClientProvider>
-              <AuthProvider>{children}</AuthProvider>
+              <AuthProvider>
+                {children}
+                <BottomNav />
+              </AuthProvider>
             </ConvexClientProvider>
           </MiniAppProvider>
         </OnchainKitClientProvider>
