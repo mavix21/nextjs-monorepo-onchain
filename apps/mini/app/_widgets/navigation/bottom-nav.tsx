@@ -7,6 +7,8 @@ import { Calendar, Search, Users, Wallet } from "lucide-react";
 import { Button } from "@myapp/ui/components/button";
 import { cn } from "@myapp/ui/lib/utils";
 
+import { MainNavButton } from "./main-nav-button";
+
 const navItems = [
   { id: "home", icon: Calendar, label: "Home", href: "/" as const },
   {
@@ -33,7 +35,7 @@ export function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="border-border/40 pb-safe fixed right-0 bottom-0 left-0 z-50 border-t backdrop-blur-xl">
+    <nav className="border-border/40 relative z-0 h-16 border-t">
       <div className="relative px-2 py-2">
         <div className="flex items-center justify-between">
           {/* Left items */}
@@ -126,7 +128,7 @@ export function BottomNav() {
 
         {/* Centered FAB - positioned at center with negative margin to lift it up */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          {/* <CreateEventFab className="border-border/40 size-14 border-t shadow-2xl ring-6 dark:ring-[#111]" /> */}
+          <MainNavButton className="border-border/40 border-t shadow-2xl ring-6" />
         </div>
       </div>
     </nav>
