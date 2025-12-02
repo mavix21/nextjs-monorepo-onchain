@@ -6,6 +6,7 @@
       "@/*": ["./src/*"],
       "@/app/*": ["./app/(app)/*"],
       "@/pages/*": ["./app/_pages/*"],
+      "@/widgets/*": ["./app/_widgets/*"],
       "@/shared/*": ["./app/_shared/*"]
     },
     "plugins": [
