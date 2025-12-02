@@ -33,6 +33,7 @@
     "fastestsmallesttextencoderdecoder": "^1.0.22",
     "ky": "^1.14.0",
     "lucide-react": "^0.555.0",
+    "motion": "^12.23.25",
     "next": "16.0.5",
     "react": "catalog:react19",
     "react-dom": "catalog:react19",
