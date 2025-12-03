@@ -41,7 +41,7 @@
     "@myapp/tailwind-config": "workspace:*",
     "@myapp/tsconfig": "workspace:*",
     "@tailwindcss/postcss": "catalog:",
-    "@types/react": "^19.1.17",
+    "@types/react": "catalog:react19",
     "eslint": "catalog:",
     "eslint-config-expo": "~10.0.0",
     "eslint-config-prettier": "^10.1.8",
