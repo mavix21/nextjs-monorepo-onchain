@@ -4,6 +4,7 @@
 @import "../components/long-sheet/long-sheet.css";
 @import "../components/page-from-bottom/page-from-bottom.css";
 @import "../components/page/page.css";
+@import "../components/bottom-sheet/bottom-sheet.css";
 
 @source "../../../../apps/**/*.{ts,tsx}";
 @source "../../../../packages/**/*.{ts,tsx}";
