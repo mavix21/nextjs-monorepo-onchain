@@ -20,7 +20,9 @@ const PageFromBottomRoot = React.forwardRef<
   React.ElementRef<typeof Sheet.Root>,
   PageFromBottomRootProps
 >((props, ref) => {
-  return <Sheet.Root license="commercial" {...props} ref={ref}></Sheet.Root>;
+  return (
+    <Sheet.Root license="non-commercial" {...props} ref={ref}></Sheet.Root>
+  );
 });
 PageFromBottomRoot.displayName = "PageFromBottom.Root";
 

@@ -31,15 +31,12 @@ You can import the styles directly into your global CSS file.
 ```
 
 - **With the `.css` extension**
-    
-    You can also do this using the `.css` extension, which some build tools require.
-    
-    ```css
-    /* ./global.css */
-    
-    @import "@silk-hq/components/unlayered-styles.css";
-    ```
-    
+  You can also do this using the `.css` extension, which some build tools require.
+  ```css
+  /* ./global.css */
+
+  @import "@silk-hq/components/unlayered-styles.css";
+  ```
 
 ### Import into a JavaScript file
 
@@ -52,15 +49,12 @@ import "@silk-hq/components/unlayered-styles";
 ```
 
 - **With the `.css` extension**
-    
-    You can also do this using the `.css` extension, which some build tools require.
-    
-    ```jsx
-    // ./index.js
-    
-    import "@silk-hq/components/unlayered-styles.css";
-    ```
-    
+  You can also do this using the `.css` extension, which some build tools require.
+  ```jsx
+  // ./index.js
+
+  import "@silk-hq/components/unlayered-styles.css";
+  ```
 
 ## In a project using CSS layers (e.g. Tailwind V4)
 
@@ -78,16 +72,13 @@ In a project that makes use of CSS layers (e.g. using Tailwind V4), you can use 
 ```
 
 - **With the `.css` extension**
-    
-    You can also do this using the `.css` extension, which some build tools require.
-    
-    ```css
-    /* ./global.css */
-    
-    @import "@silk-hq/components/unlayered-styles.css" layer(silk);
-    /* @import "tailwindcss"; */
-    ```
-    
+  You can also do this using the `.css` extension, which some build tools require.
+  ```css
+  /* ./global.css */
+
+  @import "@silk-hq/components/unlayered-styles.css" layer(silk);
+  /* @import "tailwindcss"; */
+  ```
 
 <aside>
 📌
@@ -106,16 +97,13 @@ In a project that makes use of CSS layers (e.g. using Tailwind V4), you can use 
 ```
 
 - **With the `.css` extension**
-    
-    You can also do this using the `.css` extension, which some build tools require.
-    
-    ```css
-    /* ./global.css */
-    
-    @import "@silk-hq/components/layered-styles.css";
-    /* @import "tailwindcss"; */
-    ```
-    
+  You can also do this using the `.css` extension, which some build tools require.
+  ```css
+  /* ./global.css */
+
+  @import "@silk-hq/components/layered-styles.css";
+  /* @import "tailwindcss"; */
+  ```
 
 ### Import into a JavaScript file
 
@@ -128,15 +116,12 @@ import "@silk-hq/components/layered-styles";
 ```
 
 - **With the `.css` extension**
-    
-    You can also do this using the `.css` extension, which some build tools require.
-    
-    ```css
-    /* ./index.js */
-    
-    import "@silk-hq/components/layered-styles.css";
-    ```
-    
+  You can also do this using the `.css` extension, which some build tools require.
+  ```css
+  /* ./index.js */
+
+  import "@silk-hq/components/layered-styles.css";
+  ```
 
 # Import and use the components
 
@@ -148,10 +133,11 @@ Creating a bottom sheet component:
 // BottomSheet.tsx
 
 import { Sheet } from "@silk-hq/components";
+
 import "./BottomSheet.css";
 
 const BottomSheet = () => (
-  <Sheet.Root license="commercial">
+  <Sheet.Root license="non-commercial">
     <Sheet.Trigger>Open</Sheet.Trigger>
     <Sheet.Portal>
       <Sheet.View className="BottomSheet-view" nativeEdgeSwipePrevention={true}>
@@ -197,9 +183,7 @@ Using the bottom sheet:
 import { BottomSheet } from "./BottomSheet/BottomSheet";
 
 export default function Home() {
-	return (
-		<BottomSheet />
-	);
+  return <BottomSheet />;
 }
 ```
 

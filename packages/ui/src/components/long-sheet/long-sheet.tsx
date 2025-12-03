@@ -30,7 +30,7 @@ const LongSheetRoot = React.forwardRef<
   LongSheetRootProps
 >(({ children, ...restProps }, ref) => {
   return (
-    <Sheet.Root license="commercial" {...restProps} ref={ref}>
+    <Sheet.Root license="non-commercial" {...restProps} ref={ref}>
       {children}
     </Sheet.Root>
   );
