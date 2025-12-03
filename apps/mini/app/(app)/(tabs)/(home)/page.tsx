@@ -27,10 +27,42 @@ import {
   CardHeader,
   CardTitle,
 } from "@myapp/ui/components/card";
+import { CardSheet } from "@myapp/ui/components/card-sheet/index";
 import { Skeleton } from "@myapp/ui/components/skeleton";
 
 import { useAuth } from "@/app/_contexts/auth-context";
 import { useMiniApp } from "@/app/_contexts/miniapp-context";
+
+interface FeatureDetails {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  longDescription: string;
+}
+
+const features: FeatureDetails[] = [
+  {
+    icon: <Sparkles className="text-primary size-4" />,
+    title: "Silk Components",
+    description: "Beautiful sheet transitions and gestures",
+    longDescription:
+      "Silk Components provides a collection of beautifully animated sheet components with native-like gestures. It includes smooth transitions, spring animations, and touch-friendly interactions that make your app feel polished and professional. Perfect for creating modal dialogs, bottom sheets, and card overlays.",
+  },
+  {
+    icon: <Zap className="text-primary size-4" />,
+    title: "Farcaster SDK",
+    description: "User context, auth, and notifications",
+    longDescription:
+      "The Farcaster SDK enables seamless integration with the Farcaster protocol. Access user profiles, authenticate users with their Farcaster identity, send notifications, and leverage the social graph. Build social features that connect with the Farcaster ecosystem effortlessly.",
+  },
+  {
+    icon: <Layers className="text-primary size-4" />,
+    title: "OnchainKit",
+    description: "Wallet connection and transactions",
+    longDescription:
+      "OnchainKit by Coinbase simplifies blockchain interactions in your app. It provides ready-to-use components for wallet connection, transaction signing, and on-chain data fetching. Support multiple wallets and chains with minimal configuration and a great developer experience.",
+  },
+];
 
 function UserCard() {
   const { context, isMiniAppReady, isInMiniApp } = useMiniApp();
@@ -95,8 +127,8 @@ function UserCard() {
 
   // Guest state - prompt to sign in
   return (
-    <Card className="border-none bg-transparent shadow-none">
-      <CardContent className="flex items-center gap-4 px-0">
+    <Card className="border shadow-none">
+      <CardContent className="flex items-center gap-4">
         <div className="bg-muted flex size-14 items-center justify-center rounded-full">
           <User className="text-muted-foreground size-6" />
         </div>
@@ -125,7 +157,7 @@ function QuickAction({ href, icon, label, description }: QuickActionProps) {
   return (
     <Link href={href} className="block">
       <Card className="hover:bg-accent/50 hover:border-accent h-full transition-all active:scale-[0.98]">
-        <CardContent className="flex items-center gap-3 py-4">
+        <CardContent className="flex items-center gap-3">
           <div className="bg-primary/10 flex size-10 shrink-0 items-center justify-center rounded-lg">
             {icon}
           </div>
@@ -144,25 +176,44 @@ function QuickAction({ href, icon, label, description }: QuickActionProps) {
   );
 }
 
-function FeatureCard({
-  icon,
-  title,
-  description,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}) {
+function FeatureCard({ feature }: { feature: FeatureDetails }) {
   return (
-    <div className="flex gap-3">
-      <div className="bg-secondary flex size-8 shrink-0 items-center justify-center rounded-md">
-        {icon}
-      </div>
-      <div>
-        <p className="text-foreground text-sm font-medium">{title}</p>
-        <p className="text-muted-foreground text-xs">{description}</p>
-      </div>
-    </div>
+    <CardSheet.Root>
+      <CardSheet.Trigger asChild>
+        <button className="hover:bg-accent/50 flex w-full cursor-pointer gap-3 rounded-md text-left transition-colors active:scale-[0.98]">
+          <div className="bg-secondary flex size-8 shrink-0 items-center justify-center rounded-md">
+            {feature.icon}
+          </div>
+          <div className="flex-1">
+            <p className="text-foreground text-sm font-medium">
+              {feature.title}
+            </p>
+            <p className="text-muted-foreground text-xs">
+              {feature.description}
+            </p>
+          </div>
+          <ChevronRight className="text-muted-foreground size-4 shrink-0 self-center" />
+        </button>
+      </CardSheet.Trigger>
+      <CardSheet.Portal>
+        <CardSheet.View>
+          <CardSheet.Backdrop />
+          <CardSheet.Content className="space-y-6 p-6">
+            <div className="flex items-center gap-3">
+              <div className="bg-primary/10 flex size-12 shrink-0 items-center justify-center rounded-xl">
+                {feature.icon}
+              </div>
+              <CardSheet.Title className="text-foreground text-lg font-semibold">
+                {feature.title}
+              </CardSheet.Title>
+            </div>
+            <CardSheet.Description className="text-muted-foreground text-sm leading-relaxed">
+              {feature.longDescription}
+            </CardSheet.Description>
+          </CardSheet.Content>
+        </CardSheet.View>
+      </CardSheet.Portal>
+    </CardSheet.Root>
   );
 }
 
@@ -244,21 +295,9 @@ export default function Home() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <FeatureCard
-                icon={<Sparkles className="text-primary size-4" />}
-                title="Silk Components"
-                description="Beautiful sheet transitions and gestures"
-              />
-              <FeatureCard
-                icon={<Zap className="text-primary size-4" />}
-                title="Farcaster SDK"
-                description="User context, auth, and notifications"
-              />
-              <FeatureCard
-                icon={<Layers className="text-primary size-4" />}
-                title="OnchainKit"
-                description="Wallet connection and transactions"
-              />
+              {features.map((feature, index) => (
+                <FeatureCard key={index} feature={feature} />
+              ))}
             </CardContent>
           </Card>
         </section>
