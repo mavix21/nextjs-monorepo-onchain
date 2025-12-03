@@ -1,15 +1,18 @@
 "use client";
 
+import type { Route } from "next";
+import Link from "next/link";
 import { Plus } from "lucide-react";
 
 import { Button } from "@myapp/ui/components/button";
 import { cn } from "@myapp/ui/lib/utils";
 
 interface MainNavButtonProps {
+  href: Route;
   className?: string;
 }
 
-export function MainNavButton({ className }: MainNavButtonProps) {
+export function PrimaryActionButton({ className, href }: MainNavButtonProps) {
   return (
     <Button
       size="icon"
@@ -20,9 +23,12 @@ export function MainNavButton({ className }: MainNavButtonProps) {
       onClick={() => {
         console.log("Main nav button clicked");
       }}
+      asChild
     >
-      <Plus className="text-primary-foreground size-5" />
-      <span className="sr-only">Main Navigation</span>
+      <Link href={href}>
+        <Plus className="text-primary-foreground size-5" />
+        <span className="sr-only">Main Navigation</span>
+      </Link>
     </Button>
   );
 }

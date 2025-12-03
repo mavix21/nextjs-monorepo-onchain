@@ -45,17 +45,11 @@ const sourceCodePro = Sora({
   subsets: ["latin"],
 });
 
-export default function RootLayout({
-  children,
-  sheet,
-}: Readonly<{
-  children: React.ReactNode;
-  sheet: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: LayoutProps<"/">) {
   preconnect("https://auth.farcaster.xyz");
 
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body
         className={`${inter.variable} ${sourceCodePro.variable} font-sans antialiased`}
       >
@@ -64,7 +58,6 @@ export default function RootLayout({
             <ConvexClientProvider>
               <AuthProvider>
                 {children}
-                {sheet}
                 <BottomNav />
               </AuthProvider>
             </ConvexClientProvider>
