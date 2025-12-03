@@ -3,43 +3,325 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Wallet } from "@coinbase/onchainkit/wallet";
+import {
+  AlertCircle,
+  ChevronRight,
+  ExternalLink,
+  Layers,
+  Settings,
+  Sparkles,
+  User,
+  Zap,
+} from "lucide-react";
 
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@myapp/ui/components/avatar";
 import { Button } from "@myapp/ui/components/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@myapp/ui/components/card";
+import { Skeleton } from "@myapp/ui/components/skeleton";
 
 import { useAuth } from "@/app/_contexts/auth-context";
+import { useMiniApp } from "@/app/_contexts/miniapp-context";
 
-import styles from "./page.module.css";
+function UserCard() {
+  const { context, isMiniAppReady, isInMiniApp } = useMiniApp();
+  const { isAuthenticated, isLoading, signIn } = useAuth();
+
+  // Loading state
+  if (isLoading || (isInMiniApp && !isMiniAppReady)) {
+    return (
+      <Card className="border-none bg-transparent shadow-none">
+        <CardContent className="flex items-center gap-4 px-0">
+          <Skeleton className="size-14 rounded-full" />
+          <div className="flex-1 space-y-2">
+            <Skeleton className="h-5 w-32" />
+            <Skeleton className="h-4 w-24" />
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  // Authenticated user with Farcaster context
+  if (isAuthenticated && context?.user) {
+    const { user } = context;
+    const initials =
+      user.displayName
+        ?.split(" ")
+        .map((n) => n[0])
+        .join("")
+        .toUpperCase() ??
+      user.username?.slice(0, 2).toUpperCase() ??
+      "?";
+
+    return (
+      <Link href="/profile" className="block">
+        <Card className="hover:bg-accent/50 border-none bg-transparent shadow-none transition-colors active:scale-[0.98]">
+          <CardContent className="flex items-center gap-4 px-0">
+            <Avatar className="ring-border size-14 ring-2">
+              <AvatarImage
+                src={user.pfpUrl}
+                alt={user.displayName ?? user.username ?? "User"}
+              />
+              <AvatarFallback className="text-lg font-medium">
+                {initials}
+              </AvatarFallback>
+            </Avatar>
+            <div className="min-w-0 flex-1">
+              <p className="text-foreground truncate font-semibold">
+                {user.displayName ?? user.username ?? "Anonymous"}
+              </p>
+              {user.username && (
+                <p className="text-muted-foreground truncate text-sm">
+                  @{user.username}
+                </p>
+              )}
+            </div>
+            <ChevronRight className="text-muted-foreground size-5 shrink-0" />
+          </CardContent>
+        </Card>
+      </Link>
+    );
+  }
+
+  // Guest state - prompt to sign in
+  return (
+    <Card className="border-none bg-transparent shadow-none">
+      <CardContent className="flex items-center gap-4 px-0">
+        <div className="bg-muted flex size-14 items-center justify-center rounded-full">
+          <User className="text-muted-foreground size-6" />
+        </div>
+        <div className="flex-1">
+          <p className="text-foreground font-semibold">Welcome, Guest</p>
+          <p className="text-muted-foreground text-sm">
+            Sign in to get started
+          </p>
+        </div>
+        <Button size="sm" onClick={signIn}>
+          Sign In
+        </Button>
+      </CardContent>
+    </Card>
+  );
+}
+
+interface QuickActionProps {
+  href: string;
+  icon: React.ReactNode;
+  label: string;
+  description?: string;
+}
+
+function QuickAction({ href, icon, label, description }: QuickActionProps) {
+  return (
+    <Link href={href} className="block">
+      <Card className="hover:bg-accent/50 hover:border-accent h-full transition-all active:scale-[0.98]">
+        <CardContent className="flex items-center gap-3 py-4">
+          <div className="bg-primary/10 flex size-10 shrink-0 items-center justify-center rounded-lg">
+            {icon}
+          </div>
+          <div className="min-w-0 flex-1">
+            <p className="text-foreground font-medium">{label}</p>
+            {description && (
+              <p className="text-muted-foreground truncate text-xs">
+                {description}
+              </p>
+            )}
+          </div>
+          <ChevronRight className="text-muted-foreground size-4 shrink-0" />
+        </CardContent>
+      </Card>
+    </Link>
+  );
+}
+
+function FeatureCard({
+  icon,
+  title,
+  description,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="flex gap-3">
+      <div className="bg-secondary flex size-8 shrink-0 items-center justify-center rounded-md">
+        {icon}
+      </div>
+      <div>
+        <p className="text-foreground text-sm font-medium">{title}</p>
+        <p className="text-muted-foreground text-xs">{description}</p>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
-  const { signIn, error } = useAuth();
+  const { error, clearError } = useAuth();
+  const { context, isInMiniApp } = useMiniApp();
 
   return (
-    <div className={styles.container}>
-      <header className={styles.headerWrapper}>
+    <div className="flex h-svh flex-col overflow-hidden">
+      {/* Header */}
+      <header className="border-border/50 flex shrink-0 items-center justify-between border-b px-4 py-3">
+        <div className="flex items-center gap-2">
+          <Image
+            priority
+            src="/sphere.svg"
+            alt="App Logo"
+            width={28}
+            height={28}
+            className="shrink-0"
+          />
+          <span className="font-accent text-foreground font-semibold">
+            MiniKit
+          </span>
+        </div>
         <Wallet />
       </header>
 
-      <div className={styles.content}>
-        <Image
-          priority
-          src="/sphere.svg"
-          alt="Sphere"
-          width={200}
-          height={200}
-        />
-        <h1 className={`${styles.title} font-accent`}>MiniKit</h1>
+      {/* Main Content */}
+      <main className="flex-1 space-y-6 overflow-y-auto px-4 py-6">
+        {/* Error Banner */}
+        {error && (
+          <Card className="border-destructive/50 bg-destructive/10">
+            <CardContent className="flex items-center gap-3 py-3">
+              <AlertCircle className="text-destructive size-5 shrink-0" />
+              <p className="text-destructive flex-1 text-sm">{error.message}</p>
+              <Button variant="ghost" size="sm" onClick={clearError}>
+                Dismiss
+              </Button>
+            </CardContent>
+          </Card>
+        )}
 
-        <p>
-          Start by editing <code>app/page.tsx</code>
-        </p>
-        <Button onClick={signIn}>Sign In</Button>
-        {error && <p className={styles.error}>Error: {error.message}</p>}
+        {/* User Section */}
+        <section>
+          <UserCard />
+        </section>
 
-        <h2 className={styles.componentsTitle}>Explore Components</h2>
+        {/* Quick Actions */}
+        <section className="space-y-3">
+          <h2 className="text-muted-foreground text-sm font-medium tracking-wide uppercase">
+            Quick Actions
+          </h2>
+          <div className="grid gap-3">
+            <QuickAction
+              href="/profile"
+              icon={<User className="text-primary size-5" />}
+              label="View Profile"
+              description="See your Farcaster profile"
+            />
+            <QuickAction
+              href="/settings"
+              icon={<Settings className="text-primary size-5" />}
+              label="Settings"
+              description="Manage app preferences"
+            />
+          </div>
+        </section>
 
-        <Link href="/settings">Settings</Link>
-        <Link href="/profile">Profile</Link>
-      </div>
+        {/* Features Showcase */}
+        <section className="space-y-3">
+          <h2 className="text-muted-foreground text-sm font-medium tracking-wide uppercase">
+            Template Features
+          </h2>
+          <Card>
+            <CardHeader className="pb-4">
+              <CardTitle className="text-base">Built for Farcaster</CardTitle>
+              <CardDescription>
+                This template showcases key integrations for building mini apps.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <FeatureCard
+                icon={<Sparkles className="text-primary size-4" />}
+                title="Silk Components"
+                description="Beautiful sheet transitions and gestures"
+              />
+              <FeatureCard
+                icon={<Zap className="text-primary size-4" />}
+                title="Farcaster SDK"
+                description="User context, auth, and notifications"
+              />
+              <FeatureCard
+                icon={<Layers className="text-primary size-4" />}
+                title="OnchainKit"
+                description="Wallet connection and transactions"
+              />
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Context Debug (only in mini app) */}
+        {isInMiniApp && context && (
+          <section className="space-y-3">
+            <h2 className="text-muted-foreground text-sm font-medium tracking-wide uppercase">
+              Mini App Context
+            </h2>
+            <Card className="bg-muted/30">
+              <CardContent className="py-4">
+                <dl className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+                  <dt className="text-muted-foreground">Platform</dt>
+                  <dd className="text-foreground font-mono">
+                    {context.client.platformType ?? "unknown"}
+                  </dd>
+
+                  <dt className="text-muted-foreground">Client FID</dt>
+                  <dd className="text-foreground font-mono">
+                    {context.client.clientFid}
+                  </dd>
+
+                  <dt className="text-muted-foreground">User FID</dt>
+                  <dd className="text-foreground font-mono">
+                    {context.user.fid}
+                  </dd>
+
+                  <dt className="text-muted-foreground">Added to Client</dt>
+                  <dd className="text-foreground font-mono">
+                    {context.client.added ? "Yes" : "No"}
+                  </dd>
+
+                  {context.location && (
+                    <>
+                      <dt className="text-muted-foreground">Location Type</dt>
+                      <dd className="text-foreground font-mono">
+                        {context.location.type}
+                      </dd>
+                    </>
+                  )}
+                </dl>
+              </CardContent>
+            </Card>
+          </section>
+        )}
+      </main>
+
+      {/* Footer */}
+      <footer className="border-border/50 shrink-0 border-t px-4 py-4">
+        <div className="text-muted-foreground flex items-center justify-center gap-1 text-xs">
+          <span>Built with</span>
+          <a
+            href="https://github.com/mavix21/nextjs-monorepo-onchain"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary inline-flex items-center gap-1 hover:underline"
+          >
+            nextjs-monorepo-onchain
+            <ExternalLink className="size-3" />
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
