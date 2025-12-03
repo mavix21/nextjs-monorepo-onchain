@@ -28,10 +28,6 @@ import { Skeleton } from "@myapp/ui/components/skeleton";
 
 import { useMiniApp } from "@/app/_contexts/miniapp-context";
 
-interface ProfileContentProps {
-  dismissButton?: React.ReactNode;
-}
-
 function ProfileSkeleton() {
   return (
     <div className="space-y-6">
@@ -80,7 +76,7 @@ function InfoRow({
   );
 }
 
-export function ProfileContent({ dismissButton }: ProfileContentProps) {
+export function ProfileContent() {
   const { context, isMiniAppReady, isInMiniApp } = useMiniApp();
 
   const isLoading = isInMiniApp && !isMiniAppReady;
@@ -99,8 +95,6 @@ export function ProfileContent({ dismissButton }: ProfileContentProps) {
 
   return (
     <div className="relative h-full">
-      {dismissButton}
-
       <div className="px-4 py-8">
         <div className="mx-auto max-w-md space-y-6">
           {/* Header */}
