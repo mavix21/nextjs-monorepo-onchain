@@ -22,10 +22,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@convex-dev/better-auth": "^0.9.9",
+    "@convex-dev/better-auth": "^0.9.11",
     "@myapp/auth": "workspace:*",
-    "@neynar/nodejs-sdk": "^3.97.0",
-    "convex": "^1.29.3",
+    "@neynar/nodejs-sdk": "^3.99.0",
+    "convex": "^1.30.0",
     "convex-helpers": "^0.1.106"
   },
   "devDependencies": {
