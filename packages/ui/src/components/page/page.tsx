@@ -2,7 +2,9 @@
 
 import React from "react";
 import { Sheet } from "@silk-hq/components";
+import { ChevronLeft } from "lucide-react";
 
+import { Button } from "@myapp/ui/components/button";
 import { cn } from "@myapp/ui/lib/utils";
 
 // ================================================================================================
@@ -98,6 +100,86 @@ const PageOutlet = Sheet.Outlet;
 const PageTitle = Sheet.Title;
 const PageDescription = Sheet.Description;
 
+// ================================================================================================
+// Header
+// ================================================================================================
+
+type BackButtonMode =
+  | { mode: "dismiss" }
+  | { mode: "link"; as: React.ElementType; href: string };
+
+interface PageHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** Title text */
+  title: string;
+  /** Optional subtitle */
+  subtitle?: string;
+  /** Back button config: dismiss sheet or link navigation */
+  backButton?: BackButtonMode;
+  /** Optional action element (right side) */
+  action?: React.ReactNode;
+}
+
+const PageHeader = React.forwardRef<HTMLDivElement, PageHeaderProps>(
+  ({ className, title, subtitle, backButton, action, ...restProps }, ref) => {
+    const renderBackButton = () => {
+      if (!backButton) return null;
+
+      const buttonContent = (
+        <>
+          <ChevronLeft className="size-6" />
+          <span className="sr-only">Back</span>
+        </>
+      );
+
+      if (backButton.mode === "dismiss") {
+        return (
+          <PageTrigger action="dismiss" asChild>
+            <Button variant="ghost" size="icon" className="rounded-full">
+              {buttonContent}
+            </Button>
+          </PageTrigger>
+        );
+      }
+
+      // Link mode - render as provided component
+      const LinkComponent = backButton.as;
+      return (
+        <Button variant="ghost" size="icon" className="rounded-full" asChild>
+          <LinkComponent href={backButton.href}>{buttonContent}</LinkComponent>
+        </Button>
+      );
+    };
+
+    return (
+      <header
+        ref={ref}
+        className={cn(
+          "Page-header flex items-center justify-between px-4 py-3",
+          className,
+        )}
+        {...restProps}
+      >
+        {/* Left: Back button */}
+        <div className="flex min-w-10 items-center">{renderBackButton()}</div>
+
+        {/* Center: Title & subtitle */}
+        <div className="flex flex-1 flex-col items-center text-center">
+          <PageTitle className="text-base font-semibold">{title}</PageTitle>
+          {subtitle && (
+            <PageDescription className="text-muted-foreground text-sm">
+              {subtitle}
+            </PageDescription>
+          )}
+        </div>
+
+        {/* Right: Action */}
+        <div className="flex min-w-10 items-center justify-end">{action}</div>
+      </header>
+    );
+  },
+);
+PageHeader.displayName = "Page.Header";
+
 export const Page = {
   Root: PageRoot,
   Portal: PagePortal,
@@ -109,4 +191,5 @@ export const Page = {
   Outlet: PageOutlet,
   Title: PageTitle,
   Description: PageDescription,
+  Header: PageHeader,
 };
