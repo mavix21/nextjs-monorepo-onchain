@@ -47,8 +47,10 @@ const sourceCodePro = Sora({
 
 export default function RootLayout({
   children,
+  sheet,
 }: Readonly<{
   children: React.ReactNode;
+  sheet: React.ReactNode;
 }>) {
   preconnect("https://auth.farcaster.xyz");
 
@@ -62,6 +64,7 @@ export default function RootLayout({
             <ConvexClientProvider>
               <AuthProvider>
                 {children}
+                {sheet}
                 <BottomNav />
               </AuthProvider>
             </ConvexClientProvider>

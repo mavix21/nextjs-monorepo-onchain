@@ -3,6 +3,10 @@
 import React from "react";
 import { Sheet } from "@silk-hq/components";
 
+import "./PageFromBottom.css";
+
+import { cn } from "@myapp/ui/lib/utils";
+
 // ================================================================================================
 // Root
 // ================================================================================================
@@ -30,9 +34,7 @@ const PageFromBottomView = React.forwardRef<
 >(({ children, className, ...restProps }, ref) => {
   return (
     <Sheet.View
-      className={`top-[calc(env(safe-area-inset-top,0px)-1px)] bottom-auto z-1 h-[calc(var(--silk-100-lvh-dvh-pct)+60px)] ${
-        className ?? ""
-      }`.trim()}
+      className={cn(`PageFromBottom-view`, className)}
       contentPlacement="bottom"
       swipe={false}
       nativeEdgeSwipePrevention={true}
@@ -55,7 +57,7 @@ const PageFromBottomBackdrop = React.forwardRef<
 >(({ className, ...restProps }, ref) => {
   return (
     <Sheet.Backdrop
-      className={`${className ?? ""}`.trim()}
+      className={cn(`PageFromBottom-backdrop`, className)}
       travelAnimation={{ opacity: [0, 0.1] }}
       {...restProps}
       ref={ref}
@@ -74,15 +76,13 @@ const PageFromBottomContent = React.forwardRef<
 >(({ children, className, ...restProps }, ref) => {
   return (
     <Sheet.Content
-      className={`bg-background box-border grid h-full! w-full grid-rows-[max-content_1fr] shadow-[0_10px_15px_-3px_rgb(0_0_0/0.1),0_4px_6px_-4px_rgb(0_0_0/0.1)] ${
-        className ?? ""
-      }`.trim()}
+      className={cn(`PageFromBottom-content`, className)}
       {...restProps}
       ref={ref}
     >
-      <div className="bg-background box-border grid h-12 w-full border border-b px-4">
+      <div className="PageFromBottom-topBar">
         <Sheet.Trigger
-          className="text-foreground cursor-pointer appearance-none self-center justify-self-end rounded-md border-none bg-transparent p-0 text-lg font-semibold outline-offset-8"
+          className="PageFromBottom-dismissTrigger"
           action="dismiss"
         >
           Close
