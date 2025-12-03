@@ -2,24 +2,22 @@
 
 import { LongSheet } from "@myapp/ui/components/long-sheet/index";
 
-import { useSheetRoute } from "@/shared/hooks/use-sheet-route";
+import { useSheetPage } from "@/shared/hooks/use-sheet-page";
 import { ArticleContent } from "@/shared/ui/article-content";
 import { SheetDismissButton } from "@/shared/ui/sheet-dismiss-button";
 
 /**
- * Intercepting route for /article (soft navigation).
+ * Hard navigation route for /article.
+ * Uses defaultPresented to animate in, navigates to "/" on dismiss.
  */
-export default function ArticleSheetIntercepted() {
-  const sheetRoute = useSheetRoute();
+export default function ArticleSheetDirect() {
+  const sheetPage = useSheetPage("/");
 
   return (
-    <LongSheet.Root
-      presented={sheetRoute.presented}
-      onPresentedChange={sheetRoute.onPresentedChange}
-    >
+    <LongSheet.Root defaultPresented={true}>
       <LongSheet.Portal>
         <LongSheet.View
-          onTravelStatusChange={sheetRoute.onTravelStatusChange}
+          onTravelStatusChange={sheetPage.onTravelStatusChange}
           onDismissAutoFocus={{ focus: false }}
         >
           <LongSheet.Backdrop />
