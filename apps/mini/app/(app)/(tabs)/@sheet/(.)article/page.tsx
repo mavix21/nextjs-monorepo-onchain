@@ -10,16 +10,14 @@ import { SheetDismissButton } from "@/shared/ui/sheet-dismiss-button";
  * Intercepting route for /article (soft navigation).
  */
 export default function ArticleSheetIntercepted() {
-  const sheetRoute = useSheetRoute();
+  const { presented, onPresentedChange, onTravelStatusChange } =
+    useSheetRoute();
 
   return (
-    <LongSheet.Root
-      presented={sheetRoute.presented}
-      onPresentedChange={sheetRoute.onPresentedChange}
-    >
+    <LongSheet.Root presented={presented} onPresentedChange={onPresentedChange}>
       <LongSheet.Portal>
         <LongSheet.View
-          onTravelStatusChange={sheetRoute.onTravelStatusChange}
+          onTravelStatusChange={onTravelStatusChange}
           onDismissAutoFocus={{ focus: false }}
         >
           <LongSheet.Backdrop />

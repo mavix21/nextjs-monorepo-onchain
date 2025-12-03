@@ -1,6 +1,6 @@
 "use client";
 
-import { X } from "lucide-react";
+import { Settings } from "lucide-react";
 
 import { Button } from "@myapp/ui/components/button";
 import { Page } from "@myapp/ui/components/page/index";
@@ -12,34 +12,29 @@ import { ProfileContent } from "@/shared/ui/profile-content";
  * Intercepting route for /profile (soft navigation).
  */
 export default function ProfileSheetIntercepted() {
-  const sheetRoute = useSheetRoute();
+  const { presented, onPresentedChange, onTravelStatusChange } =
+    useSheetRoute();
 
   return (
-    <Page.Root
-      presented={sheetRoute.presented}
-      onPresentedChange={sheetRoute.onPresentedChange}
-    >
+    <Page.Root presented={presented} onPresentedChange={onPresentedChange}>
       <Page.Portal>
         <Page.View
-          onTravelStatusChange={sheetRoute.onTravelStatusChange}
+          onTravelStatusChange={onTravelStatusChange}
           onDismissAutoFocus={{ focus: false }}
         >
           <Page.Backdrop />
           <Page.Content>
-            <ProfileContent
-              dismissButton={
-                <Page.Trigger action="dismiss" asChild>
-                  <Button
-                    variant="secondary"
-                    size="icon"
-                    className="absolute! top-4 right-4 z-1 rounded-full"
-                  >
-                    <X className="text-muted-foreground size-6" />
-                    <span className="sr-only">Dismiss</span>
-                  </Button>
-                </Page.Trigger>
+            <Page.Header
+              title="Profile"
+              subtitle="Your Farcaster account"
+              backButton={{ mode: "dismiss" }}
+              action={
+                <Button variant="ghost" size="icon" className="rounded-full">
+                  <Settings className="size-5" />
+                </Button>
               }
             />
+            <ProfileContent />
           </Page.Content>
         </Page.View>
       </Page.Portal>

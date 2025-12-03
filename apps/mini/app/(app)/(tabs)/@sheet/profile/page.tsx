@@ -1,6 +1,6 @@
 "use client";
 
-import { X } from "lucide-react";
+import { Settings } from "lucide-react";
 
 import { Button } from "@myapp/ui/components/button";
 import { Page } from "@myapp/ui/components/page/index";
@@ -23,20 +23,17 @@ export default function ProfileSheetDirect() {
         >
           <Page.Backdrop />
           <Page.Content>
-            <ProfileContent
-              dismissButton={
-                <Page.Trigger action="dismiss" asChild>
-                  <Button
-                    variant="secondary"
-                    size="icon"
-                    className="absolute! top-4 right-4 z-1 rounded-full"
-                  >
-                    <X className="text-muted-foreground size-6" />
-                    <span className="sr-only">Dismiss</span>
-                  </Button>
-                </Page.Trigger>
+            <Page.Header
+              title="Profile"
+              subtitle="Your Farcaster account"
+              backButton={{ mode: "dismiss" }}
+              action={
+                <Button variant="ghost" size="icon" className="rounded-full">
+                  <Settings className="size-5" />
+                </Button>
               }
             />
+            <ProfileContent />
           </Page.Content>
         </Page.View>
       </Page.Portal>

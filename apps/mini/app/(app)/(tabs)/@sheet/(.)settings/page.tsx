@@ -10,16 +10,17 @@ import { SettingsContent } from "@/shared/ui/settings-content";
  * Shows settings as a bottom sheet on soft navigation.
  */
 export default function SettingsSheetIntercepted() {
-  const sheetRoute = useSheetRoute();
+  const { presented, onPresentedChange, onTravelStatusChange } =
+    useSheetRoute();
 
   return (
     <BottomSheet.Root
-      presented={sheetRoute.presented}
-      onPresentedChange={sheetRoute.onPresentedChange}
+      presented={presented}
+      onPresentedChange={onPresentedChange}
     >
       <BottomSheet.Portal>
         <BottomSheet.View
-          onTravelStatusChange={sheetRoute.onTravelStatusChange}
+          onTravelStatusChange={onTravelStatusChange}
           onDismissAutoFocus={{ focus: false }}
         >
           <BottomSheet.Backdrop />
