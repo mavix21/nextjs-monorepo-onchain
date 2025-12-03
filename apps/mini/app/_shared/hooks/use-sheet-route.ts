@@ -17,17 +17,6 @@ export function useSheetRoute() {
 
   const onTravelStatusChange = useCallback(
     (status: TravelStatus) => {
-      // Blur the active element when the sheet starts exiting to prevent
-      // "Blocked aria-hidden on an element because its descendant retained focus" warning.
-      // This happens because aria-hidden is applied to the sheet during the exit animation,
-      // but focus may still be on a button inside the sheet.
-      if (status === "exiting") {
-        const activeElement = document.activeElement;
-        if (activeElement instanceof HTMLElement) {
-          activeElement.blur();
-        }
-      }
-
       if (status === "idleOutside") {
         router.replace("/");
       }
