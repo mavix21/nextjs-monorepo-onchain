@@ -180,7 +180,7 @@ function FeatureCard({ feature }: { feature: FeatureDetails }) {
   return (
     <CardSheet.Root>
       <CardSheet.Trigger asChild>
-        <button className="hover:bg-accent/50 flex w-full cursor-pointer gap-3 rounded-md text-left transition-colors active:scale-[0.98]">
+        <button className="hover:bg-accent/50 flex w-full cursor-pointer gap-3 rounded-md px-2 py-1 text-left transition-colors active:scale-[0.98]">
           <div className="bg-secondary flex size-8 shrink-0 items-center justify-center rounded-md">
             {feature.icon}
           </div>

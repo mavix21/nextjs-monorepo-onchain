@@ -10,8 +10,9 @@ import { SettingsContent } from "@/shared/ui/settings-content";
  * Shows settings as a bottom sheet on soft navigation.
  */
 export default function SettingsSheetIntercepted() {
-  const { presented, onPresentedChange, onTravelStatusChange } =
-    useSheetRoute();
+  const { presented, onPresentedChange, onTravelStatusChange } = useSheetRoute({
+    route: "/settings",
+  });
 
   return (
     <BottomSheet.Root

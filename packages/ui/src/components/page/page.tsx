@@ -138,7 +138,7 @@ const PageHeader = React.forwardRef<HTMLDivElement, PageHeaderProps>(
       if (backButton.mode === "dismiss") {
         return (
           <PageTrigger action="dismiss" asChild>
-            <Button variant="ghost" size="icon" className="rounded-full">
+            <Button variant="secondary" size="icon" className="rounded-full">
               {buttonContent}
             </Button>
           </PageTrigger>

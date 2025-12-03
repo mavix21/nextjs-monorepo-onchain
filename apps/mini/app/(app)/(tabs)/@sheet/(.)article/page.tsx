@@ -10,8 +10,10 @@ import { SheetDismissButton } from "@/shared/ui/sheet-dismiss-button";
  * Intercepting route for /article (soft navigation).
  */
 export default function ArticleSheetIntercepted() {
-  const { presented, onPresentedChange, onTravelStatusChange } =
-    useSheetRoute();
+  const { presented, onPresentedChange, onTravelStatusChange } = useSheetRoute({
+    route: "/article",
+    fallbackRoute: "/",
+  });
 
   return (
     <LongSheet.Root presented={presented} onPresentedChange={onPresentedChange}>

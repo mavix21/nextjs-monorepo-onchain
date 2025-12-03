@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Settings } from "lucide-react";
 
 import { Button } from "@myapp/ui/components/button";
@@ -12,8 +13,11 @@ import { ProfileContent } from "@/shared/ui/profile-content";
  * Intercepting route for /profile (soft navigation).
  */
 export default function ProfileSheetIntercepted() {
-  const { presented, onPresentedChange, onTravelStatusChange } =
-    useSheetRoute();
+  const { presented, onPresentedChange, onTravelStatusChange } = useSheetRoute({
+    route: "/profile",
+    fallbackRoute: "/",
+    stackableRoutes: ["/settings"],
+  });
 
   return (
     <Page.Root presented={presented} onPresentedChange={onPresentedChange}>
@@ -29,8 +33,15 @@ export default function ProfileSheetIntercepted() {
               subtitle="Your Farcaster account"
               backButton={{ mode: "dismiss" }}
               action={
-                <Button variant="ghost" size="icon" className="rounded-full">
-                  <Settings className="size-5" />
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full"
+                  asChild
+                >
+                  <Link href="/settings">
+                    <Settings className="size-5" />
+                  </Link>
                 </Button>
               }
             />
