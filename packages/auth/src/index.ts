@@ -106,11 +106,28 @@ export function initAuth<
       nextCookies(),
       ...(options.extraPlugins ?? []),
     ],
-    trustedOrigins: ["expo://", ...(options.trustedOrigins ?? [])],
+    trustedOrigins: [
+      "expo://",
+      ...(process.env.SITE_URL ? [process.env.SITE_URL] : []),
+      ...(options.trustedOrigins ?? []),
+    ],
     logger: { disabled: options.optionsOnly },
     onAPIError: {
       onError(error, ctx) {
         console.error("BETTER AUTH API ERROR:", { error, ctx });
+      },
+    },
+    advanced: {
+      defaultCookieAttributes: {
+        sameSite: "none",
+        secure: true,
+        httpOnly: true,
+      },
+    },
+    session: {
+      cookieCache: {
+        enabled: true,
+        maxAge: 5 * 60, // 5 minutes
       },
     },
   } satisfies BetterAuthOptions;

@@ -1,10 +1,9 @@
 "use client";
 
-import { LongSheet } from "@myapp/ui/components/long-sheet/index";
+import { BottomSheet } from "@myapp/ui/components/bottom-sheet/index";
 
 import { useSheetPage } from "@/shared/hooks/use-sheet-page";
 import { SettingsContent } from "@/shared/ui/settings-content";
-import { SheetDismissButton } from "@/shared/ui/sheet-dismiss-button";
 
 /**
  * Hard navigation route for /settings.
@@ -14,18 +13,24 @@ export default function SettingsSheetDirect() {
   const sheetPage = useSheetPage("/");
 
   return (
-    <LongSheet.Root defaultPresented={true}>
-      <LongSheet.Portal>
-        <LongSheet.View
+    <BottomSheet.Root defaultPresented={true}>
+      <BottomSheet.Portal>
+        <BottomSheet.View
           onTravelStatusChange={sheetPage.onTravelStatusChange}
           onDismissAutoFocus={{ focus: false }}
         >
-          <LongSheet.Backdrop />
-          <LongSheet.Content>
-            <SettingsContent dismissButton={<SheetDismissButton />} />
-          </LongSheet.Content>
-        </LongSheet.View>
-      </LongSheet.Portal>
-    </LongSheet.Root>
+          <BottomSheet.Backdrop />
+          <BottomSheet.Content className="grid">
+            <BottomSheet.Handle
+              className="mt-2 self-center justify-self-center"
+              style={{
+                gridArea: "1 / -1",
+              }}
+            />
+            <SettingsContent />
+          </BottomSheet.Content>
+        </BottomSheet.View>
+      </BottomSheet.Portal>
+    </BottomSheet.Root>
   );
 }

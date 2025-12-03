@@ -1,5 +1,5 @@
 import type { TravelStatus } from "@silk-hq/components";
-import { useCallback, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 
 /**
@@ -10,11 +10,17 @@ export function useSheetPage(fallbackRoute = "/") {
   const router = useRouter();
   const hasNavigated = useRef(false);
 
+  // Reset the navigation guard when the component mounts.
+  // This ensures a fresh state for each new navigation to this route.
+  useEffect(() => {
+    hasNavigated.current = false;
+  }, []);
+
   const onTravelStatusChange = useCallback(
     (status: TravelStatus) => {
       if (status === "idleOutside" && !hasNavigated.current) {
         hasNavigated.current = true;
-        router.push(fallbackRoute);
+        router.replace(fallbackRoute);
       }
     },
     [router, fallbackRoute],
