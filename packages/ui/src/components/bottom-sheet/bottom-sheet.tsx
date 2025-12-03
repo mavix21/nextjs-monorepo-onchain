@@ -3,6 +3,7 @@
 import React from "react";
 import { Sheet } from "@silk-hq/components";
 
+import { useBlurOnTravelStart } from "@myapp/ui/hooks/use-blur-on-travel-start";
 import { cn } from "@myapp/ui/lib/utils";
 
 // ================================================================================================
@@ -33,11 +34,14 @@ BottomSheetRoot.displayName = "BottomSheet.Root";
 const BottomSheetView = React.forwardRef<
   React.ElementRef<typeof Sheet.View>,
   React.ComponentPropsWithoutRef<typeof Sheet.View>
->(({ children, className, ...restProps }, ref) => {
+>(({ children, className, onTravelStart, ...restProps }, ref) => {
+  const handleTravelStart = useBlurOnTravelStart(onTravelStart);
+
   return (
     <Sheet.View
       className={cn("BottomSheet-view", className)}
       nativeEdgeSwipePrevention={true}
+      onTravelStart={handleTravelStart}
       {...restProps}
       ref={ref}
     >

@@ -5,6 +5,7 @@ import { Sheet } from "@silk-hq/components";
 import { ChevronLeft } from "lucide-react";
 
 import { Button } from "@myapp/ui/components/button";
+import { useBlurOnTravelStart } from "@myapp/ui/hooks/use-blur-on-travel-start";
 import { cn } from "@myapp/ui/lib/utils";
 
 // ================================================================================================
@@ -35,13 +36,16 @@ PageRoot.displayName = "Page.Root";
 const PageView = React.forwardRef<
   React.ElementRef<typeof Sheet.View>,
   React.ComponentPropsWithoutRef<typeof Sheet.View>
->(({ children, className, ...restProps }, ref) => {
+>(({ children, className, onTravelStart, ...restProps }, ref) => {
+  const handleTravelStart = useBlurOnTravelStart(onTravelStart);
+
   return (
     <Sheet.View
       className={cn("Page-view", className)}
       contentPlacement="right"
       swipeOvershoot={false}
       nativeEdgeSwipePrevention={true}
+      onTravelStart={handleTravelStart}
       {...restProps}
       ref={ref}
     >

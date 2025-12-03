@@ -3,6 +3,7 @@
 import React from "react";
 import { Sheet } from "@silk-hq/components";
 
+import { useBlurOnTravelStart } from "@myapp/ui/hooks/use-blur-on-travel-start";
 import { cn } from "@myapp/ui/lib/utils";
 
 // ================================================================================================
@@ -33,7 +34,9 @@ CardRoot.displayName = "Card.Root";
 const CardView = React.forwardRef<
   React.ElementRef<typeof Sheet.View>,
   React.ComponentPropsWithoutRef<typeof Sheet.View>
->(({ children, className, ...restProps }, ref) => {
+>(({ children, className, onTravelStart, ...restProps }, ref) => {
+  const handleTravelStart = useBlurOnTravelStart(onTravelStart);
+
   return (
     <Sheet.View
       className={cn("Card-view", className)}
@@ -46,6 +49,7 @@ const CardView = React.forwardRef<
         mass: 1,
       }}
       nativeEdgeSwipePrevention={true}
+      onTravelStart={handleTravelStart}
       {...restProps}
       ref={ref}
     >

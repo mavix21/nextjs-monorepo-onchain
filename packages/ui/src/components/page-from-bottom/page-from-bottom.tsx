@@ -5,6 +5,7 @@ import { Sheet } from "@silk-hq/components";
 
 import "./PageFromBottom.css";
 
+import { useBlurOnTravelStart } from "@myapp/ui/hooks/use-blur-on-travel-start";
 import { cn } from "@myapp/ui/lib/utils";
 
 // ================================================================================================
@@ -33,13 +34,16 @@ PageFromBottomRoot.displayName = "PageFromBottom.Root";
 const PageFromBottomView = React.forwardRef<
   React.ElementRef<typeof Sheet.View>,
   React.ComponentPropsWithoutRef<typeof Sheet.View>
->(({ children, className, ...restProps }, ref) => {
+>(({ children, className, onTravelStart, ...restProps }, ref) => {
+  const handleTravelStart = useBlurOnTravelStart(onTravelStart);
+
   return (
     <Sheet.View
       className={cn(`PageFromBottom-view`, className)}
       contentPlacement="bottom"
       swipe={false}
       nativeEdgeSwipePrevention={true}
+      onTravelStart={handleTravelStart}
       {...restProps}
       ref={ref}
     >

@@ -3,6 +3,7 @@
 import * as React from "react";
 import { Scroll, Sheet } from "@silk-hq/components";
 
+import { useBlurOnTravelStart } from "@myapp/ui/hooks/use-blur-on-travel-start";
 import { cn } from "@myapp/ui/lib/utils";
 
 // ================================================================================================
@@ -44,9 +45,10 @@ LongSheetRoot.displayName = "LongSheet.Root";
 const LongSheetView = React.forwardRef<
   React.ComponentRef<typeof Sheet.View>,
   React.ComponentPropsWithoutRef<typeof Sheet.View>
->(({ children, className, onTravelStatusChange, ...restProps }, ref) => {
+>(({ children, className, onTravelStatusChange, onTravelStart, ...restProps }, ref) => {
   const [restingOutside, setRestingOutside] = React.useState(false);
   const [track, setTrack] = React.useState<"top" | "bottom">("bottom");
+  const handleTravelStart = useBlurOnTravelStart(onTravelStart);
 
   React.useEffect(() => {
     if (restingOutside) {
@@ -68,6 +70,7 @@ const LongSheetView = React.forwardRef<
           damping: 45,
           mass: 1.5,
         }}
+        onTravelStart={handleTravelStart}
         onTravelStatusChange={(status) => {
           setRestingOutside(status === "idleOutside");
           onTravelStatusChange?.(status);
