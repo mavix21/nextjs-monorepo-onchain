@@ -7,7 +7,7 @@ import { Settings } from "lucide-react";
 import { Button } from "@myapp/ui/components/button";
 import { Page } from "@myapp/ui/components/page/index";
 
-import { ProfileContent } from "@/shared/ui/profile-content";
+import { ProfileContent } from "@/pages/profile/profile-content";
 
 interface ProfilePageWithSettingsProps {
   /** For soft navigation (controlled) */

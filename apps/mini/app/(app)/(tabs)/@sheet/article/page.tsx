@@ -2,8 +2,8 @@
 
 import { LongSheet } from "@myapp/ui/components/long-sheet/index";
 
+import { ArticleContent } from "@/pages/article/article-content";
 import { useSheetPage } from "@/shared/hooks/use-sheet-page";
-import { ArticleContent } from "@/shared/ui/article-content";
 import { SheetDismissButton } from "@/shared/ui/sheet-dismiss-button";
 
 /**

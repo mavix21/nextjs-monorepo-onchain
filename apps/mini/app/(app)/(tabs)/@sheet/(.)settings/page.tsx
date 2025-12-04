@@ -2,8 +2,8 @@
 
 import { BottomSheet } from "@myapp/ui/components/bottom-sheet/index";
 
+import { SettingsContent } from "@/pages/settings/settings-content";
 import { useSheetRoute } from "@/shared/hooks/use-sheet-route";
-import { SettingsContent } from "@/shared/ui/settings-content";
 
 /**
  * Intercepting route for /settings.

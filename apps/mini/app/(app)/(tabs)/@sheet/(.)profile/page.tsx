@@ -1,7 +1,7 @@
 "use client";
 
+import { ProfilePageWithSettings } from "@/pages/profile/profile-page-with-settings";
 import { useSheetRoute } from "@/shared/hooks/use-sheet-route";
-import { ProfilePageWithSettings } from "@/shared/ui/profile-page-with-settings";
 
 /**
  * Intercepting route for /profile (soft navigation).
