@@ -1,21 +1,18 @@
 import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
-
-import { minikitConfig } from "@/minikit.config";
-
-import { OnchainKitClientProvider } from "./_providers/onchainkit.provider";
-
-import "@myapp/ui/globals.css";
-import "@silk-hq/components/layered-styles.css";
-
 import { preconnect } from "react-dom";
 
 import { AuthProvider } from "@/app/_contexts/auth-context";
 import { MiniAppProvider } from "@/app/_contexts/miniapp-context";
 import { ConvexClientProvider } from "@/app/_providers/convex-cllient.provider";
+import { minikitConfig } from "@/minikit.config";
 import { BottomNav } from "@/widgets/navigation";
 
+import { OnchainKitClientProvider } from "./_providers/onchainkit.provider";
 import { ThemeProvider } from "./_providers/theme-provider";
+
+import "@myapp/ui/globals.css";
+import "@silk-hq/components/layered-styles.css";
 
 export async function generateMetadata(): Promise<Metadata> {
   return Promise.resolve({
