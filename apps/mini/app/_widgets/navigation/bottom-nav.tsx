@@ -1,6 +1,7 @@
 "use client";
 
 import type { LucideIcon } from "lucide-react";
+import type { Route } from "next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Calendar, Search, Users, Wallet } from "lucide-react";
@@ -36,7 +37,7 @@ interface NavItemProps {
   id: string;
   icon: LucideIcon;
   label: string;
-  href: string;
+  href: Route;
   isActive: boolean;
 }
 
@@ -58,7 +59,7 @@ function NavItem({ id, icon: Icon, label, href, isActive }: NavItemProps) {
         <Icon
           className={cn(
             "h-6 w-6 transition-colors",
-            isActive ? "text-primary" : "text-muted-foreground",
+            isActive ? "text-foreground" : "text-muted-foreground",
           )}
         />
         <span
@@ -82,7 +83,7 @@ export function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="border-border/40 pb-safe fixed right-0 bottom-0 left-0 z-0 border-t backdrop-blur-xl">
+    <nav className="border-border/40 bg-card fixed right-0 -bottom-px left-0 z-0 border-t">
       <div className="relative px-2 py-2">
         <div className="flex items-center justify-between">
           {/* Left items */}
