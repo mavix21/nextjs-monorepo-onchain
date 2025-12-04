@@ -15,7 +15,7 @@
 .BottomSheet-bleedingBackground {
   /* APPEARANCE */
   border-radius: 24px;
-  background-color: white;
+  background-color: var(--card);
   box-shadow:
     0 10px 15px -3px rgb(0 0 0 / 0.1),
     0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -29,7 +29,7 @@
   /* APPEARANCE */
   border: 0;
   border-radius: 9999px;
-  background-color: rgb(209, 213, 219);
+  background-color: var(--muted);
 
   /* INTERACTIVITY */
   cursor: pointer;
