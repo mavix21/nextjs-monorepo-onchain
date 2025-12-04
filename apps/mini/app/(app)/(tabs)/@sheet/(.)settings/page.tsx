@@ -12,7 +12,6 @@ import { useSheetRoute } from "@/shared/hooks/use-sheet-route";
 export default function SettingsSheetIntercepted() {
   const { presented, onPresentedChange, onTravelStatusChange } = useSheetRoute({
     route: "/settings",
-    fallbackRoute: "/",
   });
 
   return (

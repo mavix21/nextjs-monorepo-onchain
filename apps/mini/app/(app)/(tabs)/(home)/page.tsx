@@ -1,5 +1,6 @@
 "use client";
 
+import type { Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Wallet } from "@coinbase/onchainkit/wallet";
@@ -145,7 +146,7 @@ function UserCard() {
 }
 
 interface QuickActionProps {
-  href: string;
+  href: Route;
   icon: React.ReactNode;
   label: string;
   description?: string;
