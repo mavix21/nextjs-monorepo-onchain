@@ -16,7 +16,6 @@ export default function ProfileSheetIntercepted() {
   const { presented, onPresentedChange, onTravelStatusChange } = useSheetRoute({
     route: "/profile",
     fallbackRoute: "/",
-    stackableRoutes: ["/settings"],
   });
 
   return (
