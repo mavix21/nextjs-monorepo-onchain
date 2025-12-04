@@ -4,8 +4,6 @@ import type { ReactNode } from "react";
 import { OnchainKitProvider } from "@coinbase/onchainkit";
 import { base } from "wagmi/chains";
 
-import "@coinbase/onchainkit/styles.css";
-
 import { env } from "@/env";
 
 export function OnchainKitClientProvider({
