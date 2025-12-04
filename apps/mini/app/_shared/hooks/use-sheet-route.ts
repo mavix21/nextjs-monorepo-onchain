@@ -12,7 +12,6 @@ export function useSheetRoute(options: UseSheetRouteOptions) {
   const router = useRouter();
   const pathname = usePathname();
 
-  // Sheet is presented when pathname matches this route
   const presented = pathname === route;
 
   const navigateBack = useCallback(() => {
@@ -32,7 +31,6 @@ export function useSheetRoute(options: UseSheetRouteOptions) {
     [navigateBack],
   );
 
-  // When user dismisses, navigate back (which will change pathname and set presented=false)
   const onPresentedChange = useCallback(
     (value: boolean) => {
       if (!value) {
