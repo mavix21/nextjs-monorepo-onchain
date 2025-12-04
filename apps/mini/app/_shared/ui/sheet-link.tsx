@@ -12,11 +12,12 @@ type SheetLinkProps = Omit<ComponentProps<typeof Link>, "href"> & {
 /**
  * A Link that automatically appends the current pathname as `?origin=`
  * so sheet routes can return to where the user came from.
+ * Uses scroll={false} to preserve scroll position when opening sheets.
  */
 export function SheetLink({ href, ...props }: SheetLinkProps) {
   const pathname = usePathname();
   const hrefWithOrigin =
     `${href}?origin=${encodeURIComponent(pathname)}` as Route;
 
-  return <Link href={hrefWithOrigin} {...props} />;
+  return <Link href={hrefWithOrigin} scroll={false} {...props} />;
 }
