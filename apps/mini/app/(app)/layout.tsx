@@ -15,6 +15,8 @@ import { MiniAppProvider } from "@/app/_contexts/miniapp-context";
 import { ConvexClientProvider } from "@/app/_providers/convex-cllient.provider";
 import { BottomNav } from "@/widgets/navigation";
 
+import { ThemeProvider } from "./_providers/theme-provider";
+
 export async function generateMetadata(): Promise<Metadata> {
   return Promise.resolve({
     title: minikitConfig.frame.name,
@@ -49,7 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   preconnect("https://auth.farcaster.xyz");
 
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${sourceCodePro.variable} font-sans antialiased`}
       >
@@ -57,7 +59,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <MiniAppProvider>
             <ConvexClientProvider>
               <AuthProvider>
-                {children}
+                <ThemeProvider
+                  attribute="class"
+                  defaultTheme="system"
+                  enableSystem
+                  disableTransitionOnChange
+                  enableColorScheme
+                >
+                  {children}
+                </ThemeProvider>
                 <BottomNav />
               </AuthProvider>
             </ConvexClientProvider>
