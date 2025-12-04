@@ -10,7 +10,6 @@ import { ProfilePageWithSettings } from "@/shared/ui/profile-page-with-settings"
 export default function ProfileSheetIntercepted() {
   const { presented, onPresentedChange, onTravelStatusChange } = useSheetRoute({
     route: "/profile",
-    fallbackRoute: "/",
   });
 
   return (

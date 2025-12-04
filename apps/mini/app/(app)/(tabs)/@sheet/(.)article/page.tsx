@@ -12,7 +12,6 @@ import { SheetDismissButton } from "@/shared/ui/sheet-dismiss-button";
 export default function ArticleSheetIntercepted() {
   const { presented, onPresentedChange, onTravelStatusChange } = useSheetRoute({
     route: "/article",
-    fallbackRoute: "/",
   });
 
   return (

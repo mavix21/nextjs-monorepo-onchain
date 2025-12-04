@@ -1,26 +1,25 @@
 import type { TravelStatus } from "@silk-hq/components";
 import type { Route } from "next";
 import { useCallback } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 interface UseSheetRouteOptions {
   route: Route;
-  fallbackRoute?: Route;
+  defaultFallback?: Route;
 }
 
 export function useSheetRoute(options: UseSheetRouteOptions) {
-  const { route, fallbackRoute } = options;
+  const { route, defaultFallback = "/" } = options;
   const router = useRouter();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   const presented = pathname === route;
+  const origin = searchParams.get("origin");
+  const fallbackRoute = (origin ?? defaultFallback) as Route;
 
   const navigateBack = useCallback(() => {
-    if (fallbackRoute) {
-      router.replace(fallbackRoute);
-    } else {
-      router.back();
-    }
+    router.replace(fallbackRoute, { scroll: false });
   }, [router, fallbackRoute]);
 
   const onTravelStatusChange = useCallback(
