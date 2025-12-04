@@ -1,4 +1,5 @@
 import type { TravelStatus } from "@silk-hq/components";
+import type { Route } from "next";
 import { useCallback, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 
@@ -6,7 +7,7 @@ import { useRouter } from "next/navigation";
  * Hook for hard navigation sheet pages.
  * Sheet animates in on mount (defaultPresented), navigates to fallback on dismiss.
  */
-export function useSheetPage(fallbackRoute = "/") {
+export function useSheetPage(fallbackRoute: Route = "/") {
   const router = useRouter();
   const hasNavigated = useRef(false);
 

@@ -1,10 +1,11 @@
 import type { TravelStatus } from "@silk-hq/components";
+import type { Route } from "next";
 import { useCallback } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 interface UseSheetRouteOptions {
-  route: string;
-  fallbackRoute?: string;
+  route: Route;
+  fallbackRoute?: Route;
 }
 
 export function useSheetRoute(options: UseSheetRouteOptions) {
