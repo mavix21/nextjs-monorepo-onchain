@@ -138,9 +138,7 @@ function UserCard() {
             Sign in to get started
           </p>
         </div>
-        <Button size="sm" onClick={signIn}>
-          Sign In
-        </Button>
+        <Button onClick={signIn}>Sign In</Button>
       </CardContent>
     </Card>
   );
@@ -180,8 +178,8 @@ function FeatureCard({ feature }: { feature: FeatureDetails }) {
   return (
     <CardSheet.Root>
       <CardSheet.Trigger asChild>
-        <button className="hover:bg-accent/50 flex w-full cursor-pointer gap-3 rounded-md px-2 py-1 text-left transition-colors active:scale-[0.98]">
-          <div className="bg-secondary flex size-8 shrink-0 items-center justify-center rounded-md">
+        <button className="hover:bg-accent/50 flex w-full cursor-pointer gap-3 rounded-xl px-2 py-1 text-left transition-colors active:scale-[0.98]">
+          <div className="bg-secondary flex size-8 shrink-0 items-center justify-center rounded-lg">
             {feature.icon}
           </div>
           <div className="flex-1">
@@ -198,7 +196,7 @@ function FeatureCard({ feature }: { feature: FeatureDetails }) {
       <CardSheet.Portal>
         <CardSheet.View>
           <CardSheet.Backdrop />
-          <CardSheet.Content className="space-y-6 p-6">
+          <CardSheet.Content className="space-y-6 border p-6">
             <div className="flex items-center gap-3">
               <div className="bg-primary/10 flex size-12 shrink-0 items-center justify-center rounded-xl">
                 {feature.icon}
