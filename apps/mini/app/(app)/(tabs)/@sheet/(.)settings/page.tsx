@@ -12,6 +12,7 @@ import { SettingsContent } from "@/shared/ui/settings-content";
 export default function SettingsSheetIntercepted() {
   const { presented, onPresentedChange, onTravelStatusChange } = useSheetRoute({
     route: "/settings",
+    fallbackRoute: "/",
   });
 
   return (
