@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
 import { preconnect } from "react-dom";
 
-import { AuthProvider } from "@/app/_contexts/auth-context";
-import { MiniAppProvider } from "@/app/_contexts/miniapp-context";
 import { ConvexClientProvider } from "@/app/_providers/convex-cllient.provider";
 import { minikitConfig } from "@/minikit.config";
+import { AuthProvider } from "@/shared/context/auth-context";
+import { MiniAppProvider } from "@/shared/context/miniapp-context";
 import { BottomNav } from "@/widgets/navigation";
 
 import { OnchainKitClientProvider } from "./_providers/onchainkit.provider";

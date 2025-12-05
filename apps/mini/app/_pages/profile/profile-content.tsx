@@ -26,7 +26,7 @@ import {
 import { Separator } from "@myapp/ui/components/separator";
 import { Skeleton } from "@myapp/ui/components/skeleton";
 
-import { useMiniApp } from "@/app/_contexts/miniapp-context";
+import { useMiniApp } from "@/shared/context/miniapp-context";
 
 function ProfileSkeleton() {
   return (

@@ -31,8 +31,8 @@ import {
 import { CardSheet } from "@myapp/ui/components/card-sheet/index";
 import { Skeleton } from "@myapp/ui/components/skeleton";
 
-import { useAuth } from "@/app/_contexts/auth-context";
-import { useMiniApp } from "@/app/_contexts/miniapp-context";
+import { useAuth } from "@/shared/context/auth-context";
+import { useMiniApp } from "@/shared/context/miniapp-context";
 
 interface FeatureDetails {
   icon: React.ReactNode;

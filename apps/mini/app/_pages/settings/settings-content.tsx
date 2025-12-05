@@ -22,8 +22,8 @@ import { Button } from "@myapp/ui/components/button";
 import { Card, CardContent } from "@myapp/ui/components/card";
 import { Skeleton } from "@myapp/ui/components/skeleton";
 
-import { useAuth } from "@/app/_contexts/auth-context";
-import { useAddMiniApp, useMiniApp } from "@/app/_contexts/miniapp-context";
+import { useAuth } from "@/shared/context/auth-context";
+import { useAddMiniApp, useMiniApp } from "@/shared/context/miniapp-context";
 
 interface SettingsContentProps {
   dismissButton?: React.ReactNode;

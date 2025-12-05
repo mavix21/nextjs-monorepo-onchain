@@ -13,9 +13,9 @@ import {
 } from "@myapp/ui/components/card";
 import { Separator } from "@myapp/ui/components/separator";
 
-import { useAuth } from "@/app/_contexts/auth-context";
-import { useMiniApp } from "@/app/_contexts/miniapp-context";
 import { authClient } from "@/auth/client";
+import { useAuth } from "@/shared/context/auth-context";
+import { useMiniApp } from "@/shared/context/miniapp-context";
 
 function InfoRow({
   label,
