@@ -47,7 +47,6 @@
     "@myapp/prettier-config": "workspace:*",
     "@myapp/tsconfig": "workspace:*",
     "@types/node": "catalog:",
-    "dotenv-cli": "catalog:",
     "drizzle-kit": "^0.31.8",
     "eslint": "catalog:",
     "prettier": "catalog:",

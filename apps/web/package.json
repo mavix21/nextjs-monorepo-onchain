@@ -51,7 +51,6 @@
     "@types/node": "catalog:",
     "@types/react": "catalog:react19",
     "@types/react-dom": "catalog:react19",
-    "dotenv-cli": "catalog:",
     "eslint": "catalog:",
     "jiti": "^2.6.1",
     "typescript": "catalog:"
