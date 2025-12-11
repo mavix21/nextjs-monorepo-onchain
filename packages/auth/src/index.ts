@@ -17,7 +17,7 @@ interface InitAuthOptions<
   baseUrl: string;
   secret: string | undefined;
   optionsOnly?: boolean;
-  database: TDatabase;
+  database?: TDatabase;
   extraPlugins?: TExtraPlugins;
   trustedOrigins?: string[];
   ensLookup?: boolean;
