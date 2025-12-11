@@ -201,6 +201,8 @@ importers:
         specifier: 'catalog:'
         version: 5.9.3
 
+  apps/lemon: {}
+
   apps/mini:
     dependencies:
       '@coinbase/onchainkit':
@@ -436,6 +438,9 @@ importers:
       '@myapp/better-auth-siwe-wallet-agnostic':
         specifier: workspace:*
         version: link:../better-auth-siwe-wallet-agnostic
+      '@myapp/db':
+        specifier: workspace:*
+        version: link:../db
       '@t3-oss/env-core':
         specifier: ^0.13.8
         version: 0.13.8(typescript@5.9.3)(zod@4.1.13)
