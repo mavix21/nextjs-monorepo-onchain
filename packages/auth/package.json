@@ -20,7 +20,7 @@
     "@myapp/better-auth-siwe-wallet-agnostic": "workspace:*",
     "@t3-oss/env-core": "^0.13.8",
     "better-auth": "catalog:",
-    "better-auth-siwf": "^1.0.20",
+    "better-auth-siwf": "^1.0.22",
     "viem": "^2.40.3",
     "zod": "catalog:"
   },
