@@ -7,7 +7,7 @@ await jiti.import("./src/env");
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
-  transpilePackages: ["@myapp/db", "@myapp/ui"],
+  transpilePackages: ["@myapp/db", "@myapp/ui", "@myapp/features"],
 
   typedRoutes: true,
   typescript: { ignoreBuildErrors: true },

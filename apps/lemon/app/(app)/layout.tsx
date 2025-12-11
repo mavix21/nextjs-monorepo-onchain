@@ -4,11 +4,10 @@ import "@myapp/ui/globals.css";
 
 import type { Metadata } from "next";
 
+import { ThemeProvider } from "@myapp/features/app/providers";
 import { Toaster } from "@myapp/ui/components/sonner";
 
 import { MiniAppProvider } from "@/shared/context";
-
-import { ThemeProvider } from "./_providers/theme-provider";
 
 const fontSans = Geist({
   subsets: ["latin"],
