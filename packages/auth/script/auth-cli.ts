@@ -10,6 +10,10 @@
  * For actual authentication usage, import from "../src/index.ts" instead.
  */
 
+import { drizzleAdapter } from "better-auth/adapters/drizzle";
+
+import { db } from "@myapp/db/client";
+
 import { initAuth } from "../src/index";
 
 /**
@@ -21,4 +25,7 @@ import { initAuth } from "../src/index";
 export const auth = initAuth({
   baseUrl: "http://localhost:3000",
   secret: "secret",
+  database: drizzleAdapter(db, {
+    provider: "pg",
+  }),
 });
