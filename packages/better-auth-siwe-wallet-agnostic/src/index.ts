@@ -1213,7 +1213,6 @@ export const siweWalletAgnostic = (
             // 9. Create session using internal adapter
             const session = await ctx.context.internalAdapter.createSession(
               user.id,
-              ctx,
             );
 
             if (!session) {
