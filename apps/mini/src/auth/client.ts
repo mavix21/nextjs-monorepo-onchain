@@ -5,7 +5,11 @@ import { siweClient } from "better-auth/client/plugins";
 import { createAuthClient } from "better-auth/react";
 
 export const client = createAuthClient({
-  plugins: [siwfClient() as any, siweClient(), convexClient()],
+  plugins: [
+    siwfClient() as any, // WORKAROUND: better-auth-siwf package has not yet been updated to support latest better-auth APIs
+    siweClient(),
+    convexClient(),
+  ],
   fetchOptions: {
     credentials: "include",
   },
