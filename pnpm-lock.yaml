@@ -205,7 +205,7 @@ importers:
     dependencies:
       '@convex-dev/better-auth':
         specifier: ^0.10.4
-        version: 0.10.4(@better-auth/core@1.4.7(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.21)(better-call@1.1.5(zod@4.1.13))(jose@6.1.2)(kysely@0.28.8)(nanostores@1.1.0))(@better-auth/utils@0.3.0)(@standard-schema/spec@1.0.0)(better-auth@1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(better-call@1.1.5(zod@4.1.13))(convex@1.31.2(react@19.2.3))(hono@4.10.7)(nanostores@1.1.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(typescript@5.9.3)
+        version: 0.10.4(@better-auth/core@1.4.7(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.1.5(zod@4.1.13))(jose@6.1.2)(kysely@0.28.8)(nanostores@1.1.0))(@better-auth/utils@0.3.0)(@standard-schema/spec@1.0.0)(better-auth@1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(better-call@1.1.5(zod@4.1.13))(convex@1.31.2(react@19.2.3))(hono@4.10.7)(nanostores@1.1.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(typescript@5.9.3)
       '@lemoncash/mini-app-sdk':
         specifier: ^0.1.11
         version: 0.1.11
@@ -238,10 +238,10 @@ importers:
         version: 5.90.12(react@19.2.3)
       better-auth:
         specifier: 'catalog:'
-        version: 1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(drizzle-orm@0.33.0(@neondatabase/serverless@0.9.5)(@prisma/client@5.22.0(prisma@5.22.0))(@types/better-sqlite3@7.6.13)(@types/pg@8.16.0)(@types/react@19.2.7)(@vercel/postgres@0.10.0(utf-8-validate@5.0.10))(better-sqlite3@12.5.0)(kysely@0.28.8)(pg@8.16.3)(postgres@3.4.7)(prisma@5.22.0)(react@19.2.3))(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        version: 1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       better-auth-siwf:
         specifier: ^1.0.26
-        version: 1.0.26(better-auth@1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(drizzle-orm@0.33.0(@neondatabase/serverless@0.9.5)(@prisma/client@5.22.0(prisma@5.22.0))(@types/better-sqlite3@7.6.13)(@types/pg@8.16.0)(@types/react@19.2.7)(@vercel/postgres@0.10.0(utf-8-validate@5.0.10))(better-sqlite3@12.5.0)(kysely@0.28.8)(pg@8.16.3)(postgres@3.4.7)(prisma@5.22.0)(react@19.2.3))(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(bufferutil@4.0.9)(typescript@5.9.3)(utf-8-validate@5.0.10)
+        version: 1.0.26(better-auth@1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(bufferutil@4.0.9)(typescript@5.9.3)(utf-8-validate@5.0.10)
       convex:
         specifier: ^1.31.2
         version: 1.31.2(react@19.2.3)
@@ -356,10 +356,10 @@ importers:
         version: 5.90.12(react@19.2.3)
       better-auth:
         specifier: 'catalog:'
-        version: 1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(drizzle-orm@0.33.0(@neondatabase/serverless@0.9.5)(@prisma/client@5.22.0(prisma@5.22.0))(@types/better-sqlite3@7.6.13)(@types/pg@8.16.0)(@types/react@19.2.7)(@vercel/postgres@0.10.0(utf-8-validate@5.0.10))(better-sqlite3@12.5.0)(kysely@0.28.8)(pg@8.16.3)(postgres@3.4.7)(prisma@5.22.0)(react@19.2.3))(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        version: 1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       better-auth-siwf:
         specifier: ^1.0.26
-        version: 1.0.26(better-auth@1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(drizzle-orm@0.33.0(@neondatabase/serverless@0.9.5)(@prisma/client@5.22.0(prisma@5.22.0))(@types/better-sqlite3@7.6.13)(@types/pg@8.16.0)(@types/react@19.2.7)(@vercel/postgres@0.10.0(utf-8-validate@5.0.10))(better-sqlite3@12.5.0)(kysely@0.28.8)(pg@8.16.3)(postgres@3.4.7)(prisma@5.22.0)(react@19.2.3))(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(bufferutil@4.0.9)(typescript@5.9.3)(utf-8-validate@5.0.10)
+        version: 1.0.26(better-auth@1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(bufferutil@4.0.9)(typescript@5.9.3)(utf-8-validate@5.0.10)
       convex:
         specifier: ^1.31.2
         version: 1.31.2(react@19.2.3)
@@ -480,7 +480,7 @@ importers:
         version: 5.90.12(react@19.2.3)
       better-auth:
         specifier: 'catalog:'
-        version: 1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(drizzle-orm@0.33.0(@neondatabase/serverless@0.9.5)(@prisma/client@5.22.0(prisma@5.22.0))(@types/better-sqlite3@7.6.13)(@types/pg@8.16.0)(@types/react@19.2.7)(@vercel/postgres@0.10.0(utf-8-validate@5.0.10))(better-sqlite3@12.5.0)(kysely@0.28.8)(pg@8.16.3)(postgres@3.4.7)(prisma@5.22.0)(react@19.2.3))(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        version: 1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       convex:
         specifier: ^1.31.2
         version: 1.31.2(react@19.2.3)
@@ -599,7 +599,7 @@ importers:
     dependencies:
       better-auth:
         specifier: 'catalog:'
-        version: 1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        version: 1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(drizzle-orm@0.33.0(@neondatabase/serverless@0.9.5)(@prisma/client@5.22.0(prisma@5.22.0))(@types/better-sqlite3@7.6.13)(@types/pg@8.16.0)(@types/react@19.2.7)(@vercel/postgres@0.10.0(utf-8-validate@5.0.10))(better-sqlite3@12.5.0)(kysely@0.28.8)(pg@8.16.3)(postgres@3.4.7)(prisma@5.22.0)(react@19.2.3))(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       siwe:
         specifier: ^3.0.0
         version: 3.0.0(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
@@ -640,6 +640,9 @@ importers:
       '@neynar/nodejs-sdk':
         specifier: ^3.110.0
         version: 3.110.0(@types/node@24.10.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.1.13)
+      better-auth:
+        specifier: 'catalog:'
+        version: 1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       convex:
         specifier: ^1.31.2
         version: 1.31.2(react@19.2.3)
@@ -11614,6 +11617,17 @@ snapshots:
       - vitest
       - vue
 
+  '@better-auth/core@1.4.7(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.1.5(zod@4.1.13))(jose@6.1.2)(kysely@0.28.8)(nanostores@1.1.0)':
+    dependencies:
+      '@better-auth/utils': 0.3.0
+      '@better-fetch/fetch': 1.1.18
+      '@standard-schema/spec': 1.0.0
+      better-call: 1.1.5(zod@4.1.13)
+      jose: 6.1.2
+      kysely: 0.28.8
+      nanostores: 1.1.0
+      zod: 4.1.13
+
   '@better-auth/core@1.4.7(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.21)(better-call@1.1.5(zod@4.1.13))(jose@6.1.2)(kysely@0.28.8)(nanostores@1.1.0)':
     dependencies:
       '@better-auth/utils': 0.3.0
@@ -11625,6 +11639,18 @@ snapshots:
       nanostores: 1.1.0
       zod: 4.1.13
 
+  '@better-auth/passkey@1.4.7(@better-auth/core@1.4.7(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.1.5(zod@4.1.13))(jose@6.1.2)(kysely@0.28.8)(nanostores@1.1.0))(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-auth@1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(better-call@1.1.5(zod@4.1.13))(nanostores@1.1.0)':
+    dependencies:
+      '@better-auth/core': 1.4.7(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.1.5(zod@4.1.13))(jose@6.1.2)(kysely@0.28.8)(nanostores@1.1.0)
+      '@better-auth/utils': 0.3.0
+      '@better-fetch/fetch': 1.1.18
+      '@simplewebauthn/browser': 13.2.2
+      '@simplewebauthn/server': 13.2.2
+      better-auth: 1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      better-call: 1.1.5(zod@4.1.13)
+      nanostores: 1.1.0
+      zod: 4.1.13
+
   '@better-auth/passkey@1.4.7(@better-auth/core@1.4.7(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.21)(better-call@1.1.5(zod@4.1.13))(jose@6.1.2)(kysely@0.28.8)(nanostores@1.1.0))(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-auth@1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(better-call@1.1.5(zod@4.1.13))(nanostores@1.1.0)':
     dependencies:
       '@better-auth/core': 1.4.7(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.21)(better-call@1.1.5(zod@4.1.13))(jose@6.1.2)(kysely@0.28.8)(nanostores@1.1.0)
@@ -11632,10 +11658,16 @@ snapshots:
       '@better-fetch/fetch': 1.1.18
       '@simplewebauthn/browser': 13.2.2
       '@simplewebauthn/server': 13.2.2
-      better-auth: 1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(drizzle-orm@0.33.0(@neondatabase/serverless@0.9.5)(@prisma/client@5.22.0(prisma@5.22.0))(@types/better-sqlite3@7.6.13)(@types/pg@8.16.0)(@types/react@19.2.7)(@vercel/postgres@0.10.0(utf-8-validate@5.0.10))(better-sqlite3@12.5.0)(kysely@0.28.8)(pg@8.16.3)(postgres@3.4.7)(prisma@5.22.0)(react@19.2.3))(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      better-auth: 1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       better-call: 1.1.5(zod@4.1.13)
       nanostores: 1.1.0
       zod: 4.1.13
+
+  '@better-auth/telemetry@1.4.7(@better-auth/core@1.4.7(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.1.5(zod@4.1.13))(jose@6.1.2)(kysely@0.28.8)(nanostores@1.1.0))':
+    dependencies:
+      '@better-auth/core': 1.4.7(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.1.5(zod@4.1.13))(jose@6.1.2)(kysely@0.28.8)(nanostores@1.1.0)
+      '@better-auth/utils': 0.3.0
+      '@better-fetch/fetch': 1.1.21
 
   '@better-auth/telemetry@1.4.7(@better-auth/core@1.4.7(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.21)(better-call@1.1.5(zod@4.1.13))(jose@6.1.2)(kysely@0.28.8)(nanostores@1.1.0))':
     dependencies:
@@ -11848,11 +11880,35 @@ snapshots:
       - utf-8-validate
       - zod
 
+  '@convex-dev/better-auth@0.10.4(@better-auth/core@1.4.7(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.1.5(zod@4.1.13))(jose@6.1.2)(kysely@0.28.8)(nanostores@1.1.0))(@better-auth/utils@0.3.0)(@standard-schema/spec@1.0.0)(better-auth@1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(better-call@1.1.5(zod@4.1.13))(convex@1.31.2(react@19.2.3))(hono@4.10.7)(nanostores@1.1.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(typescript@5.9.3)':
+    dependencies:
+      '@better-auth/passkey': 1.4.7(@better-auth/core@1.4.7(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.1.5(zod@4.1.13))(jose@6.1.2)(kysely@0.28.8)(nanostores@1.1.0))(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-auth@1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(better-call@1.1.5(zod@4.1.13))(nanostores@1.1.0)
+      '@better-fetch/fetch': 1.1.18
+      better-auth: 1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      common-tags: 1.8.2
+      convex: 1.31.2(react@19.2.3)
+      convex-helpers: 0.1.108(@standard-schema/spec@1.0.0)(convex@1.31.2(react@19.2.3))(hono@4.10.7)(react@19.2.3)(typescript@5.9.3)(zod@4.1.13)
+      jose: 6.1.2
+      react: 19.2.3
+      react-dom: 19.2.3(react@19.2.3)
+      remeda: 2.32.0
+      semver: 7.7.3
+      type-fest: 4.41.0
+      zod: 4.1.13
+    transitivePeerDependencies:
+      - '@better-auth/core'
+      - '@better-auth/utils'
+      - '@standard-schema/spec'
+      - better-call
+      - hono
+      - nanostores
+      - typescript
+
   '@convex-dev/better-auth@0.10.4(@better-auth/core@1.4.7(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.21)(better-call@1.1.5(zod@4.1.13))(jose@6.1.2)(kysely@0.28.8)(nanostores@1.1.0))(@better-auth/utils@0.3.0)(@standard-schema/spec@1.0.0)(better-auth@1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(better-call@1.1.5(zod@4.1.13))(convex@1.31.2(react@19.2.3))(hono@4.10.7)(nanostores@1.1.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(typescript@5.9.3)':
     dependencies:
       '@better-auth/passkey': 1.4.7(@better-auth/core@1.4.7(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.21)(better-call@1.1.5(zod@4.1.13))(jose@6.1.2)(kysely@0.28.8)(nanostores@1.1.0))(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-auth@1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(better-call@1.1.5(zod@4.1.13))(nanostores@1.1.0)
       '@better-fetch/fetch': 1.1.18
-      better-auth: 1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(drizzle-orm@0.33.0(@neondatabase/serverless@0.9.5)(@prisma/client@5.22.0(prisma@5.22.0))(@types/better-sqlite3@7.6.13)(@types/pg@8.16.0)(@types/react@19.2.7)(@vercel/postgres@0.10.0(utf-8-validate@5.0.10))(better-sqlite3@12.5.0)(kysely@0.28.8)(pg@8.16.3)(postgres@3.4.7)(prisma@5.22.0)(react@19.2.3))(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      better-auth: 1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       common-tags: 1.8.2
       convex: 1.31.2(react@19.2.3)
       convex-helpers: 0.1.108(@standard-schema/spec@1.0.0)(convex@1.31.2(react@19.2.3))(hono@4.10.7)(react@19.2.3)(typescript@5.9.3)(zod@4.1.13)
@@ -17377,6 +17433,17 @@ snapshots:
       - typescript
       - utf-8-validate
 
+  better-auth-siwf@1.0.26(better-auth@1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(bufferutil@4.0.9)(typescript@5.9.3)(utf-8-validate@5.0.10):
+    dependencies:
+      '@farcaster/quick-auth': 0.0.8(typescript@5.9.3)
+      better-auth: 1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      viem: 2.43.1(bufferutil@4.0.9)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.1.13)
+      zod: 4.1.13
+    transitivePeerDependencies:
+      - bufferutil
+      - typescript
+      - utf-8-validate
+
   better-auth@1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(drizzle-orm@0.33.0(@neondatabase/serverless@0.9.5)(@prisma/client@5.22.0(prisma@5.22.0))(@types/better-sqlite3@7.6.13)(@types/pg@8.16.0)(@types/react@19.2.7)(@vercel/postgres@0.10.0(utf-8-validate@5.0.10))(better-sqlite3@12.5.0)(kysely@0.28.8)(pg@8.16.3)(postgres@3.4.7)(prisma@5.22.0)(react@19.2.3))(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
     dependencies:
       '@better-auth/core': 1.4.7(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.21)(better-call@1.1.5(zod@4.1.13))(jose@6.1.2)(kysely@0.28.8)(nanostores@1.1.0)
@@ -17402,10 +17469,10 @@ snapshots:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
 
-  better-auth@1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
+  better-auth@1.4.7(@prisma/client@5.22.0(prisma@5.22.0))(better-sqlite3@12.5.0)(drizzle-kit@0.31.8)(next@16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(pg@8.16.3)(prisma@5.22.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
     dependencies:
       '@better-auth/core': 1.4.7(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.21)(better-call@1.1.5(zod@4.1.13))(jose@6.1.2)(kysely@0.28.8)(nanostores@1.1.0)
-      '@better-auth/telemetry': 1.4.7(@better-auth/core@1.4.7(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.21)(better-call@1.1.5(zod@4.1.13))(jose@6.1.2)(kysely@0.28.8)(nanostores@1.1.0))
+      '@better-auth/telemetry': 1.4.7(@better-auth/core@1.4.7(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.1.5(zod@4.1.13))(jose@6.1.2)(kysely@0.28.8)(nanostores@1.1.0))
       '@better-auth/utils': 0.3.0
       '@better-fetch/fetch': 1.1.21
       '@noble/ciphers': 2.0.1
