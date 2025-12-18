@@ -1,4 +1,5 @@
 import type { BetterAuthOptions, BetterAuthPlugin } from "better-auth";
+import type { ResolveFarcasterUserResult } from "better-auth-siwf";
 import type { Address, Hex } from "viem";
 import { betterAuth } from "better-auth";
 import { siwf } from "better-auth-siwf";
@@ -9,6 +10,26 @@ import { createPublicClient, getAddress, http } from "viem";
 import { mainnet } from "viem/chains";
 
 import siweWalletAgnostic from "@myapp/better-auth-siwe-wallet-agnostic";
+
+export interface NeynarUser {
+  fid: number;
+  username: string;
+  display_name: string;
+  pfp_url: string;
+  custody_address?: string;
+  verified_addresses?: {
+    eth_addresses: string[];
+    sol_addresses: string[];
+    primary: {
+      eth_address: `0x${string}`;
+      sol_address: string;
+    };
+  };
+}
+
+export interface NeynarBulkUsersResponse {
+  users: NeynarUser[];
+}
 
 interface InitAuthOptions<
   TExtraPlugins extends BetterAuthPlugin[],
@@ -57,11 +78,13 @@ async function lookupEns(address: Address) {
 
 const hostname = getHostname(process.env.SITE_URL);
 
-export function initAuth<
+export const betterAuthOptions = <
   TExtraPlugins extends BetterAuthPlugin[],
   TDatabase extends BetterAuthOptions["database"],
->(options: InitAuthOptions<TExtraPlugins, TDatabase>) {
-  const config = {
+>(
+  options: InitAuthOptions<TExtraPlugins, TDatabase>,
+) =>
+  ({
     baseURL: options.baseUrl,
     database: options.database,
     secret: options.secret,
@@ -74,7 +97,54 @@ export function initAuth<
       },
     },
     plugins: [
-      siwf({ hostname, allowUserToLink: false }),
+      siwf({
+        hostname,
+        allowUserToLink: false,
+        resolveFarcasterUser: async ({
+          fid,
+        }): Promise<ResolveFarcasterUserResult | null> => {
+          try {
+            const res = await fetch(
+              `https://api.neynar.com/v2/farcaster/user/bulk/?fids=${fid}`,
+              {
+                method: "GET",
+                headers: {
+                  "x-api-key": process.env.NEYNAR_API_KEY,
+                  "Content-Type": "application/json",
+                },
+              },
+            );
+            if (!res.ok) {
+              console.error(
+                `Failed to fetch Farcaster user: ${res.status} ${res.statusText}`,
+              );
+              return null;
+            }
+            const data = (await res.json()) as NeynarBulkUsersResponse;
+            const user = data.users[0];
+            return {
+              fid,
+              username: user?.username ?? "anon",
+              displayName: user?.display_name ?? "Anonymous",
+              avatarUrl: user?.pfp_url ?? "",
+              custodyAddress: user?.custody_address ?? "",
+              verifiedAddresses: {
+                primary: {
+                  ethAddress:
+                    user?.verified_addresses?.primary.eth_address ?? "",
+                  solAddress:
+                    user?.verified_addresses?.primary.sol_address ?? "",
+                },
+                ethAddresses: user?.verified_addresses?.eth_addresses ?? [],
+                solAddresses: user?.verified_addresses?.sol_addresses ?? [],
+              },
+            };
+          } catch (e) {
+            console.error("Error fetching Farcaster user:", e);
+            return null;
+          }
+        },
+      }),
       siwe({
         domain: hostname,
         getNonce: async () => {
@@ -130,7 +200,13 @@ export function initAuth<
         maxAge: 5 * 60, // 5 minutes
       },
     },
-  } satisfies BetterAuthOptions;
+  }) satisfies BetterAuthOptions;
+
+export function initAuth<
+  TExtraPlugins extends BetterAuthPlugin[],
+  TDatabase extends BetterAuthOptions["database"],
+>(options: InitAuthOptions<TExtraPlugins, TDatabase>) {
+  const config = betterAuthOptions(options);
 
   return betterAuth(config);
 }
