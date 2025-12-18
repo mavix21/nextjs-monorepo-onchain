@@ -56,7 +56,8 @@
     "BASE_RPC_URL",
     "BASE_SEPOLIA_RPC_URL",
     "AUTH_GITHUB_ID",
-    "AUTH_GITHUB_SECRET"
+    "AUTH_GITHUB_SECRET",
+    "NEYNAR_API_KEY"
   ],
   "globalPassThroughEnv": [
     "NODE_ENV",
