@@ -1,9 +1,16 @@
-import "server-only";
+import { convexBetterAuthNextJs } from "@convex-dev/better-auth/nextjs";
 
-import { getToken as getTokenNextjs } from "@convex-dev/better-auth/nextjs";
+import { env } from "@/env";
 
-import { createAuth } from "@myapp/convex/auth";
-
-export const getToken = () => {
-  return getTokenNextjs(createAuth);
-};
+export const {
+  handler,
+  preloadAuthQuery,
+  isAuthenticated,
+  getToken,
+  fetchAuthQuery,
+  fetchAuthMutation,
+  fetchAuthAction,
+} = convexBetterAuthNextJs({
+  convexUrl: env.NEXT_PUBLIC_CONVEX_URL,
+  convexSiteUrl: env.NEXT_PUBLIC_CONVEX_SITE_URL,
+});
