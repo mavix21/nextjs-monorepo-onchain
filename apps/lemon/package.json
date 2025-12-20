@@ -15,7 +15,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@convex-dev/better-auth": "^0.10.4",
+    "@convex-dev/better-auth": "^0.10.6",
     "@lemoncash/mini-app-sdk": "^0.1.11",
     "@myapp/auth": "workspace:*",
     "@myapp/better-auth-siwe-wallet-agnostic": "workspace:*",
