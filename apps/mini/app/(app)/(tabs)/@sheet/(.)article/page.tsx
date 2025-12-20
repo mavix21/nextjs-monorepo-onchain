@@ -1,32 +1,16 @@
-"use client";
-
-import { LongSheet } from "@myapp/ui/components/long-sheet/index";
-
 import { ArticleContent } from "@/pages/article/article-content";
-import { useSheetRoute } from "@/shared/hooks/use-sheet-route";
+import { LongSheetRoute } from "@/shared/ui/long-sheet-route";
 import { SheetDismissButton } from "@/shared/ui/sheet-dismiss-button";
 
 /**
  * Intercepting route for /article (soft navigation).
+ * Server component that renders ArticleContent server-side,
+ * wrapped in client LongSheetRoute for routing (donut pattern).
  */
-export default function ArticleSheetIntercepted() {
-  const { presented, onPresentedChange, onTravelStatusChange } = useSheetRoute({
-    route: "/article",
-  });
-
+export default function ArticleSheetPage() {
   return (
-    <LongSheet.Root presented={presented} onPresentedChange={onPresentedChange}>
-      <LongSheet.Portal>
-        <LongSheet.View
-          onTravelStatusChange={onTravelStatusChange}
-          onDismissAutoFocus={{ focus: false }}
-        >
-          <LongSheet.Backdrop />
-          <LongSheet.Content>
-            <ArticleContent dismissButton={<SheetDismissButton />} />
-          </LongSheet.Content>
-        </LongSheet.View>
-      </LongSheet.Portal>
-    </LongSheet.Root>
+    <LongSheetRoute route="/article">
+      <ArticleContent dismissButton={<SheetDismissButton />} />
+    </LongSheetRoute>
   );
 }
