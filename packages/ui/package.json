@@ -45,7 +45,6 @@
     "@myapp/eslint-config": "workspace:*",
     "@myapp/tailwind-config": "workspace:*",
     "@myapp/tsconfig": "workspace:*",
-    "@turbo/gen": "^2.6.3",
     "@types/node": "catalog:",
     "@types/react": "catalog:react19",
     "@types/react-dom": "catalog:react19",
