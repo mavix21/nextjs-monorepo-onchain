@@ -12,7 +12,9 @@
     "./shared/lib": "./src/shared/lib/index.ts",
     "./shared/api": "./src/shared/api/index.ts",
     "./shared/config": "./src/shared/config/index.ts",
-    "./shared/i18n": "./src/shared/i18n/index.ts"
+    "./shared/i18n": "./src/shared/i18n/index.ts",
+    "./shared/i18n/messages/en": "./src/shared/i18n/messages/en.json",
+    "./shared/i18n/messages/es": "./src/shared/i18n/messages/es.json"
   },
   "license": "MIT",
   "scripts": {
