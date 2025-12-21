@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 import { preconnect } from "react-dom";
 
 import { ConvexClientProvider } from "@/app/_providers/convex-cllient.provider";
@@ -95,24 +97,26 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body
         className={`${inter.variable} ${sourceCodePro.variable} font-sans antialiased`}
       >
-        <OnchainKitClientProvider>
-          <MiniAppProvider>
-            <ConvexClientProvider>
-              <AuthProvider>
-                <ThemeProvider
-                  attribute="class"
-                  defaultTheme="system"
-                  enableSystem
-                  disableTransitionOnChange
-                  enableColorScheme
-                >
-                  {children}
-                </ThemeProvider>
-                <BottomNav />
-              </AuthProvider>
-            </ConvexClientProvider>
-          </MiniAppProvider>
-        </OnchainKitClientProvider>
+        <NextIntlClientProvider>
+          <OnchainKitClientProvider>
+            <MiniAppProvider>
+              <ConvexClientProvider>
+                <AuthProvider>
+                  <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
+                    enableColorScheme
+                  >
+                    {children}
+                  </ThemeProvider>
+                  <BottomNav />
+                </AuthProvider>
+              </ConvexClientProvider>
+            </MiniAppProvider>
+          </OnchainKitClientProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

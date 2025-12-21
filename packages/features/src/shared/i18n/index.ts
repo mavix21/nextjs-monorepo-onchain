@@ -1,43 +1,13 @@
 /**
  * Shared i18n
  *
- * Internationalization utilities and types.
+ * Minimal shared i18n utilities.
  * Actual translations and locale setup should be configured per-app.
  */
 
-/**
- * Supported locales type.
- * Extend this in your app as needed.
- */
-export type Locale = "en" | "es" | "pt";
+export type { SupportedLocale } from "./types";
 
-/**
- * Default locale for the application.
- */
-export const defaultLocale: Locale = "en";
-
-/**
- * List of all supported locales.
- */
-export const locales: Locale[] = ["en", "es", "pt"];
-
-/**
- * Check if a string is a valid locale.
- */
-export function isValidLocale(value: string): value is Locale {
-  return locales.includes(value as Locale);
-}
-
-/**
- * Get locale from a pathname (assumes /[locale]/... pattern).
- */
-export function getLocaleFromPathname(pathname: string): Locale | null {
-  const segments = pathname.split("/").filter(Boolean);
-  const maybeLocale = segments[0];
-
-  if (maybeLocale && isValidLocale(maybeLocale)) {
-    return maybeLocale;
-  }
-
-  return null;
-}
+// Common messages are available at:
+// @myapp/features/shared/i18n/messages/en.json
+// @myapp/features/shared/i18n/messages/es.json
+// Apps should import and merge these with their app-specific messages

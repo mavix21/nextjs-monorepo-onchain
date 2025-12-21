@@ -9,7 +9,8 @@
       "@/features/*": ["./src/features/*"],
       "@/entities/*": ["./src/entities/*"],
       "@/shared/*": ["./src/shared/*"]
-    }
+    },
+    "resolveJsonModule": true
   },
   "include": ["*.ts", "src"],
   "exclude": ["node_modules"]

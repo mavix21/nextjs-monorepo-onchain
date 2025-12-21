@@ -1,4 +1,5 @@
 import { createJiti } from "jiti";
+import createNextIntlPlugin from "next-intl/plugin";
 
 const jiti = createJiti(import.meta.url);
 
@@ -37,4 +38,6 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin("./app/_shared/i18n/request.ts");
+
+export default withNextIntl(nextConfig);

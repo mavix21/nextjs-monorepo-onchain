@@ -1,4 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 
 import "@myapp/ui/globals.css";
 
@@ -24,24 +26,26 @@ export const metadata: Metadata = {
   description: "Next.js Monorepo Template",
 };
 
-export default async function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html suppressHydrationWarning>
+    <html suppressHydrationWarning lang="es">
       <body
         className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}
       >
-        <MiniAppProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-            enableColorScheme
-          >
-            {children}
-            <Toaster />
-          </ThemeProvider>
-        </MiniAppProvider>
+        <NextIntlClientProvider>
+          <MiniAppProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+              enableColorScheme
+            >
+              {children}
+              <Toaster />
+            </ThemeProvider>
+          </MiniAppProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

@@ -1,7 +1,16 @@
 import { hasLocale } from "next-intl";
 import { getRequestConfig } from "next-intl/server";
 
+// Shared common messages from @myapp/features
+import commonEn from "@myapp/features/shared/i18n/messages/en";
+import commonEs from "@myapp/features/shared/i18n/messages/es";
+
 import { routing } from "./routing";
+
+const sharedMessages = {
+  en: commonEn,
+  es: commonEs,
+};
 
 export default getRequestConfig(async ({ requestLocale }) => {
   // Typically corresponds to the `[locale]` segment
@@ -10,9 +19,15 @@ export default getRequestConfig(async ({ requestLocale }) => {
     ? requested
     : routing.defaultLocale;
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+  const appMessages = (await import(`./messages/${locale}.json`)).default;
+
   return {
     locale,
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-    messages: (await import(`./messages/${locale}.json`)).default,
+    messages: {
+      ...sharedMessages[locale],
+
+      ...appMessages,
+    },
   };
 });
