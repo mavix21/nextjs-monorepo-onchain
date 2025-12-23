@@ -9,6 +9,9 @@ interface PackageJson {
 }
 
 export default function generator(plop: PlopTypes.NodePlopAPI): void {
+  // ============================================
+  // Package Generator (existing)
+  // ============================================
   plop.setGenerator("init", {
     description: "Generate a new package for the myapp Monorepo",
     prompts: [
@@ -89,6 +92,164 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
           return "Package scaffolded";
         }
         return "Package not scaffolded";
+      },
+    ],
+  });
+
+  // ============================================
+  // Feature Generator (FSD)
+  // ============================================
+  plop.setGenerator("feature", {
+    description: "Generate a new feature slice in @myapp/features",
+    prompts: [
+      {
+        type: "input",
+        name: "name",
+        message: "Feature name (kebab-case, e.g. 'payment-flow'):",
+        validate: (input: string) =>
+          /^[a-z][a-z0-9-]*$/.test(input) ||
+          "Use kebab-case (e.g. payment-flow)",
+      },
+    ],
+    actions: [
+      {
+        type: "add",
+        path: "packages/features/src/features/{{ name }}/index.ts",
+        templateFile: "templates/feature/index.ts.hbs",
+      },
+      {
+        type: "add",
+        path: "packages/features/src/features/{{ name }}/ui/index.ts",
+        templateFile: "templates/feature/ui/index.ts.hbs",
+      },
+      {
+        type: "add",
+        path: "packages/features/src/features/{{ name }}/model/index.ts",
+        templateFile: "templates/feature/model/index.ts.hbs",
+      },
+      {
+        type: "add",
+        path: "packages/features/src/features/{{ name }}/lib/index.ts",
+        templateFile: "templates/feature/lib/index.ts.hbs",
+      },
+      () => {
+        console.log("\n✅ Feature created!");
+        console.log("   Add export to packages/features/src/features/index.ts");
+        console.log('   Add to package.json exports: "./features/{{ name }}"');
+        return "Feature scaffolded";
+      },
+    ],
+  });
+
+  // ============================================
+  // Entity Generator (FSD)
+  // ============================================
+  plop.setGenerator("entity", {
+    description: "Generate a new entity slice in @myapp/features",
+    prompts: [
+      {
+        type: "input",
+        name: "name",
+        message: "Entity name (kebab-case, e.g. 'wallet'):",
+        validate: (input: string) =>
+          /^[a-z][a-z0-9-]*$/.test(input) || "Use kebab-case (e.g. wallet)",
+      },
+    ],
+    actions: [
+      {
+        type: "add",
+        path: "packages/features/src/entities/{{ name }}/index.ts",
+        templateFile: "templates/entity/index.ts.hbs",
+      },
+      {
+        type: "add",
+        path: "packages/features/src/entities/{{ name }}/ui/index.ts",
+        templateFile: "templates/entity/ui/index.ts.hbs",
+      },
+      {
+        type: "add",
+        path: "packages/features/src/entities/{{ name }}/model/index.ts",
+        templateFile: "templates/entity/model/index.ts.hbs",
+      },
+      () => {
+        console.log("\n✅ Entity created!");
+        console.log("   Add export to packages/features/src/entities/index.ts");
+        console.log('   Add to package.json exports: "./entities/{{ name }}"');
+        return "Entity scaffolded";
+      },
+    ],
+  });
+
+  // ============================================
+  // Widget Generator (FSD)
+  // ============================================
+  plop.setGenerator("widget", {
+    description: "Generate a new widget slice in @myapp/features",
+    prompts: [
+      {
+        type: "input",
+        name: "name",
+        message: "Widget name (kebab-case, e.g. 'user-profile'):",
+        validate: (input: string) =>
+          /^[a-z][a-z0-9-]*$/.test(input) ||
+          "Use kebab-case (e.g. user-profile)",
+      },
+    ],
+    actions: [
+      {
+        type: "add",
+        path: "packages/features/src/widgets/{{ name }}/index.ts",
+        templateFile: "templates/widget/index.ts.hbs",
+      },
+      {
+        type: "add",
+        path: "packages/features/src/widgets/{{ name }}/ui/index.ts",
+        templateFile: "templates/widget/ui/index.ts.hbs",
+      },
+      () => {
+        console.log("\n✅ Widget created!");
+        console.log("   Add export to packages/features/src/widgets/index.ts");
+        console.log('   Add to package.json exports: "./widgets/{{ name }}"');
+        return "Widget scaffolded";
+      },
+    ],
+  });
+
+  // ============================================
+  // Page Generator (FSD - Shared)
+  // ============================================
+  plop.setGenerator("page", {
+    description: "Generate a new shared page in @myapp/features",
+    prompts: [
+      {
+        type: "input",
+        name: "name",
+        message: "Page name (kebab-case, e.g. 'dashboard'):",
+        validate: (input: string) =>
+          /^[a-z][a-z0-9-]*$/.test(input) || "Use kebab-case (e.g. dashboard)",
+      },
+    ],
+    actions: [
+      {
+        type: "add",
+        path: "packages/features/src/pages/{{ name }}/index.tsx",
+        templateFile: "templates/page/index.tsx.hbs",
+      },
+      {
+        type: "add",
+        path: "packages/features/src/pages/{{ name }}/{{ name }}-page.tsx",
+        templateFile: "templates/page/page.tsx.hbs",
+      },
+      {
+        type: "add",
+        path: "packages/features/src/pages/{{ name }}/ui/index.ts",
+        templateFile: "templates/page/ui/index.ts.hbs",
+      },
+      () => {
+        console.log("\n✅ Page created!");
+        console.log("   Add export to packages/features/src/pages/index.ts");
+        console.log('   Add to package.json exports: "./pages/{{ name }}"');
+        return "Page scaffolded";
       },
     ],
   });

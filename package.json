@@ -23,6 +23,10 @@
     "test:web": "turbo run test --continue --filter=web...",
     "test:mini": "turbo run test --continue --filter=mini...",
     "ui-add": "turbo run ui-add",
+    "new:feature": "turbo gen feature",
+    "new:entity": "turbo gen entity",
+    "new:widget": "turbo gen widget",
+    "new:page": "turbo gen page",
     "android": "expo run:android",
     "ios": "expo run:ios"
   },
