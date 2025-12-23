@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
 import { preconnect } from "react-dom";
 
 import { ConvexClientProvider } from "@/app/_providers/convex-cllient.provider";
