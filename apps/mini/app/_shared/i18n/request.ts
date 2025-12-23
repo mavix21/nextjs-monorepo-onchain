@@ -4,8 +4,7 @@ import commonEn from "@myapp/features/shared/i18n/messages/en";
 
 import appEn from "./messages/en.json";
 
-export default getRequestConfig(async () => ({
+export default getRequestConfig(() => ({
   locale: "en",
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   messages: { ...commonEn, ...appEn },
 }));
