@@ -11,6 +11,7 @@
 import type * as auth from "../auth.js";
 import type * as http from "../http.js";
 import type * as lib_neynar from "../lib/neynar.js";
+import type * as tables_users from "../tables/users.js";
 import type * as users from "../users.js";
 
 import type {
@@ -23,6 +24,7 @@ declare const fullApi: ApiFromModules<{
   auth: typeof auth;
   http: typeof http;
   "lib/neynar": typeof lib_neynar;
+  "tables/users": typeof tables_users;
   users: typeof users;
 }>;
 
@@ -726,6 +728,7 @@ export declare const components: {
         "query",
         "internal",
         {
+          join?: any;
           limit?: number;
           model:
             | "user"
@@ -776,6 +779,7 @@ export declare const components: {
         "query",
         "internal",
         {
+          join?: any;
           model:
             | "user"
             | "session"
@@ -1520,6 +1524,14 @@ export declare const components: {
               };
           onUpdateHandle?: string;
         },
+        any
+      >;
+    };
+    authUser: {
+      setUserId: FunctionReference<
+        "mutation",
+        "internal",
+        { authId: string; userId: string },
         any
       >;
     };

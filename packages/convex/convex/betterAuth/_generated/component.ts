@@ -698,6 +698,7 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
         "query",
         "internal",
         {
+          join?: any;
           limit?: number;
           model:
             | "user"
@@ -749,6 +750,7 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
         "query",
         "internal",
         {
+          join?: any;
           model:
             | "user"
             | "session"
@@ -1495,6 +1497,15 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
               };
           onUpdateHandle?: string;
         },
+        any,
+        Name
+      >;
+    };
+    authUser: {
+      setUserId: FunctionReference<
+        "mutation",
+        "internal",
+        { authId: string; userId: string },
         any,
         Name
       >;
