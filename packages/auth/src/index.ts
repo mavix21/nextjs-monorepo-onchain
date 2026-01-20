@@ -96,6 +96,14 @@ export const betterAuthOptions = <
         clientSecret: process.env.AUTH_GITHUB_SECRET!,
       },
     },
+    user: {
+      additionalFields: {
+        userId: {
+          type: "string",
+          required: false,
+        },
+      },
+    },
     plugins: [
       siwf({
         hostname,
